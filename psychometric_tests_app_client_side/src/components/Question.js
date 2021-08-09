@@ -1,8 +1,8 @@
 
 
-const Question = function() {
+const Question = function({question}) {
     return (
-        <div>Question</div>
+        <li>{question.questionText}</li>
     );
 };
 

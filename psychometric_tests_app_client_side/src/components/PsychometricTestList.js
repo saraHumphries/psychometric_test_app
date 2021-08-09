@@ -1,15 +1,14 @@
-import PsychometricTest from "./PsychometricTest";
+import ListItem from "./ListItem";
 
-const PsychometricTestList = function({psychometricTests}) {
+const PsychometricTestList = function({psychometricTests, onPsychometricTestClick}) {
 
     const psychometricTestsList = psychometricTests.map((psychometricTest) => {
-        return <li key = {psychometricTest.id}>{psychometricTest.title}</li>
+        return <ListItem psychometricTest = {psychometricTest} onPsychometricTestClick= {onPsychometricTestClick}></ListItem>
     });
 
     return (
         <div>
             {psychometricTestsList}
-            <PsychometricTest></PsychometricTest>
         </div>
     );
 }
