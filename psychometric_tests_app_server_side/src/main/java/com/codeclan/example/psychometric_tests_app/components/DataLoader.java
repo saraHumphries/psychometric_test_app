@@ -49,6 +49,22 @@ public class DataLoader implements ApplicationRunner {
         Question question10 = new Question("At times I think I am no good at all.", selfEsteemScale);
         questionRepository.save(question10);
 
+        Test natureRelatednessScale = new Test("Nature Relatedness Scale (NR-6)");
+        testRepository.save(natureRelatednessScale);
+
+        Question question11 = new Question("My ideal vacation spot would be a remote, wilderness area.", natureRelatednessScale);
+        questionRepository.save(question11);
+        Question question12 = new Question("I always think about how my actions affect the environment.", natureRelatednessScale);
+        questionRepository.save(question12);
+        Question question13 = new Question("My connection to nature and the environment is a part of my spirituality.", natureRelatednessScale);
+        questionRepository.save(question13);
+        Question question14 = new Question("I take notice of wildlife wherever I am.", natureRelatednessScale);
+        questionRepository.save(question14);
+        Question question15 = new Question("My relationship to nature is an important part of who I am.", natureRelatednessScale);
+        questionRepository.save(question15);
+        Question question16 = new Question("I feel very connected to all living things and the earth.", natureRelatednessScale);
+        questionRepository.save(question16);
+
 
 
 
