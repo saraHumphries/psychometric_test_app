@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import PsychometricTestsService from "../services/PsychometricTestsService";
 import PsychometricTestList from "../components/PsychometricTestList";
-import PsychometricTest from "../components/PsychometricTest";
+import PsychometricTest from "./PsychometricTest";
 
 
 function PsychometricTestContainer() {
 
     const [psychometricTests, setPsychometricTests] = useState([]);
-    const [selectedPsychometricTest, setSelectedPsychometricTest] = useState([]);
+    const [selectedPsychometricTest, setSelectedPsychometricTest] = useState(null);
     
     useEffect(() => {
         PsychometricTestsService.getPsychometricTests()
@@ -22,9 +22,9 @@ function PsychometricTestContainer() {
 
     return (
         <div>
-            Container
+            <p>Pick a test to have a go at</p>
             <PsychometricTestList onPsychometricTestClick = {onPsychometricTestClick} psychometricTests = {psychometricTests}></PsychometricTestList>
-            <PsychometricTest psychometricTest = {selectedPsychometricTest}></PsychometricTest>
+            {selectedPsychometricTest ? <PsychometricTest psychometricTest = {selectedPsychometricTest}></PsychometricTest> : null}
         </div>  
     );
 }
