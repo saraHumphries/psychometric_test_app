@@ -1,8 +1,11 @@
-package com.codeclan.example.psychometric_tests_app.models;
+package com.codeclan.example.psychometric_tests_app.models.psychometric_tests;
 
+import com.codeclan.example.psychometric_tests_app.models.results.Answer;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "questions")
@@ -13,6 +16,9 @@ public class Question {
     @Column(name = "id")
     private Long id;
 
+    @Column(name = "order")
+    private Integer order;
+
     @Column(name = "question_text")
     private String questionText;
 
@@ -21,13 +27,20 @@ public class Question {
     @JoinColumn(name = "test_id", nullable = false)
     private Test test;
 
+    @OneToMany(mappedBy = "question", fetch = FetchType.LAZY)
+    @JsonIgnoreProperties(value = "question")
+    private List<Answer> answers;
 
-    public Question(String questionText, Test test) {
+
+    public Question(String questionText, Integer order, Test test) {
         this.questionText = questionText;
+        this.order = order;
         this.test = test;
+        this.answers = new ArrayList<>();
     }
 
     public Question() {
+        this.answers = new ArrayList<>();
     }
 
     public Long getId() {
@@ -52,5 +65,13 @@ public class Question {
 
     public void setTest(Test test) {
         this.test = test;
+    }
+
+    public List<Answer> getAnswers() {
+        return answers;
+    }
+
+    public void setAnswers(List<Answer> answers) {
+        this.answers = answers;
     }
 }

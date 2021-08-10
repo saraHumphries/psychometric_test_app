@@ -1,5 +1,6 @@
-package com.codeclan.example.psychometric_tests_app.models;
+package com.codeclan.example.psychometric_tests_app.models.psychometric_tests;
 
+import com.codeclan.example.psychometric_tests_app.models.results.TestAttempt;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -22,13 +23,19 @@ public class Test {
     @JsonIgnoreProperties(value = "test")
     private List<Question> questions;
 
+    @OneToMany(mappedBy = "test", fetch = FetchType.LAZY)
+    @JsonIgnoreProperties(value = "test")
+    private List<TestAttempt> testAttempts;
+
     public Test(String title) {
         this.title = title;
         this.questions = new ArrayList<>();
+        this.testAttempts = new ArrayList<>();
     }
 
     public Test() {
         this.questions = new ArrayList<>();
+        this.testAttempts = new ArrayList<>();
     }
 
     public Long getId() {
@@ -53,5 +60,13 @@ public class Test {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public List<TestAttempt> getTestAttempts() {
+        return testAttempts;
+    }
+
+    public void setTestAttempts(List<TestAttempt> testAttempts) {
+        this.testAttempts = testAttempts;
     }
 }

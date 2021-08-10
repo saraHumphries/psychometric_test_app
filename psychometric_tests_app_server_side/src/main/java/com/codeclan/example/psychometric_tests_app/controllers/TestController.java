@@ -1,6 +1,6 @@
 package com.codeclan.example.psychometric_tests_app.controllers;
 
-import com.codeclan.example.psychometric_tests_app.models.Test;
+import com.codeclan.example.psychometric_tests_app.models.psychometric_tests.Test;
 import com.codeclan.example.psychometric_tests_app.repositories.QuestionRepository;
 import com.codeclan.example.psychometric_tests_app.repositories.TestRepository;
 import org.springframework.beans.factory.annotation.Autowired;

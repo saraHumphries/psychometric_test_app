@@ -11,22 +11,16 @@ const PsychometricTest = function({psychometricTest}) {
         setCurrentQuestion(nextQuestion);
     };
 
-    // useEffect(() => {
-    //     setCurrentQuestion(psychometricTest.questions[0]);
-    // });
-
     
 
-    const QuestionList = psychometricTest.questions.map((question) => {
-        return <Question question = {question}></Question>
-    });
+    
 
     return (
         <div>
             <div>{psychometricTest.title}</div>
-            {currentQuestion.questionText}
+            <Question currentQuestion = {currentQuestion}></Question>
             <button onClick = {moveToNextQuestion}>Next Question</button>
-            {/* {QuestionList} */}
+           
         </div>
     );
 }

@@ -1,8 +1,12 @@
+import AnswerInput from "./AnswerInput";
 
-
-const Question = function({question}) {
+const Question = function({currentQuestion}) {
     return (
-        <li>{question.questionText}</li>
+        <div>
+            <h3>{currentQuestion.questionText}</h3>
+            <AnswerInput currentQuestion = {currentQuestion}></AnswerInput>
+        </div>
+        
     );
 };
 
