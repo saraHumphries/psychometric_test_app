@@ -16,8 +16,6 @@ public class Question {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "order")
-    private Integer order;
 
     @Column(name = "question_text")
     private String questionText;
@@ -32,9 +30,8 @@ public class Question {
     private List<Answer> answers;
 
 
-    public Question(String questionText, Integer order, Test test) {
+    public Question(String questionText, Test test) {
         this.questionText = questionText;
-        this.order = order;
         this.test = test;
         this.answers = new ArrayList<>();
     }
