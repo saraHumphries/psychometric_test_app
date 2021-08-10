@@ -14,6 +14,8 @@ function PsychometricTestContainer() {
         .then(res => setPsychometricTests(res));
     }, []);
 
+
+
     const onPsychometricTestClick = function(psychometricTest) {
         setSelectedPsychometricTest(psychometricTest);
     }

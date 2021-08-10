@@ -5,10 +5,10 @@ const AnswerInput = function({currentQuestion, moveToNextQuestion}) {
 
     const [answer, setAnswer] = useState({});
 
-    const handleAnswerSubmit = function(event) {
+    const onNextQuestionClick = function() {
         moveToNextQuestion();
-        
-    };
+
+   };
 
     const onChange = function(evt) {
         const answer = {
@@ -22,10 +22,8 @@ const AnswerInput = function({currentQuestion, moveToNextQuestion}) {
     return (
         <div>
             <div>Answers</div>
-            <form onSubmit = {handleAnswerSubmit}>
-                <input type = 'number' onChange = {onChange}></input>
-                <input type = 'submit'></input>
-            </form>
+            <input type = 'number' onChange = {onChange}></input>
+            <button onClick = {onNextQuestionClick}>Next question</button>
         </div>
     );
 };
