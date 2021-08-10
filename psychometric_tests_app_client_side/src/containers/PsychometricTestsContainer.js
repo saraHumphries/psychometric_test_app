@@ -8,12 +8,19 @@ import TestAttemptService from "../services/TestAttemptsService";
 
 function PsychometricTestContainer() {
 
+    const demoUser = {
+        id: 1,
+        name: "Sara"
+    };
+
     const [psychometricTests, setPsychometricTests] = useState([]);
     const [selectedPsychometricTest, setSelectedPsychometricTest] = useState(null);
+    const [user, setUser] = useState({});
     
     useEffect(() => {
         PsychometricTestsService.getPsychometricTests()
         .then(res => setPsychometricTests(res));
+        setUser(demoUser);
     }, []);
 
 
@@ -24,10 +31,7 @@ function PsychometricTestContainer() {
     }
 
     const createUserTestAttempt = function(psychometricTest) {
-        const user = {
-            id: 1,
-            name: "Sara"
-        };
+        const user = demoUser;
         const test = psychometricTest;
         const testAttempt = {user, test};
         TestAttemptService.postTestAttempt(testAttempt);
