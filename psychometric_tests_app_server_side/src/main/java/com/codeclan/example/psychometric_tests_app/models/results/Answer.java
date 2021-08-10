@@ -1,6 +1,7 @@
 package com.codeclan.example.psychometric_tests_app.models.results;
 
 import com.codeclan.example.psychometric_tests_app.models.psychometric_tests.Question;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -19,7 +20,7 @@ public class Answer {
     private TestAttempt testAttempt;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "answers")
+    @JsonBackReference
     @JoinColumn(name = "question_id")
     private Question question;
 

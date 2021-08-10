@@ -2,6 +2,7 @@ package com.codeclan.example.psychometric_tests_app.models.results;
 
 import com.codeclan.example.psychometric_tests_app.models.psychometric_tests.Test;
 import com.codeclan.example.psychometric_tests_app.models.users.User;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.NaturalId;
 
@@ -24,7 +25,7 @@ public class TestAttempt {
     private User user;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "test_attempts")
+    @JsonBackReference
     @JoinColumn(name = "test_id", nullable = false)
     private Test test;
 

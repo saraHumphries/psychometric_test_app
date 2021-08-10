@@ -2,6 +2,7 @@ package com.codeclan.example.psychometric_tests_app.models.psychometric_tests;
 
 import com.codeclan.example.psychometric_tests_app.models.results.TestAttempt;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -24,7 +25,7 @@ public class Test {
     private List<Question> questions;
 
     @OneToMany(mappedBy = "test", fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = "test")
+    @JsonManagedReference
     private List<TestAttempt> testAttempts;
 
     public Test(String title) {
