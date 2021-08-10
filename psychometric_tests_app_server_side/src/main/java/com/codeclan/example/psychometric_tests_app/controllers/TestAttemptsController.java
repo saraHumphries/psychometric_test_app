@@ -22,16 +22,19 @@ public class TestAttemptsController {
 
 
     @GetMapping(value = "/test_attempts")
+    @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<List<TestAttempt>> getAllTestAttempts() {
         return new ResponseEntity<>(testAttemptRepository.findAll(), HttpStatus.OK);
     }
 
     @GetMapping(value = "test_attempts/{id}")
+    @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<Optional<TestAttempt>> getTestAttempt(@PathVariable Long id) {
         return new ResponseEntity<>(testAttemptRepository.findById(id), HttpStatus.OK);
     }
 
     @PostMapping(value = "/test_attempts")
+    @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<TestAttempt> postTestAttempt(@RequestBody TestAttempt testAttempt) {
         testAttemptRepository.save(testAttempt);
         return new ResponseEntity<>(testAttempt, HttpStatus.CREATED);

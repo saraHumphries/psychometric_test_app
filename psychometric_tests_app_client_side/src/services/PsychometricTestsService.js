@@ -7,6 +7,7 @@ const PsychometricTestsService = {
         .then(res => res.json());
     },
 
+
 };
 
 export default PsychometricTestsService;
