@@ -1,18 +1,14 @@
 
 import { useState } from "react";
 
-const AnswerInput = function({currentQuestion}) {
+const AnswerInput = function({currentQuestion, moveToNextQuestion}) {
 
     const [answer, setAnswer] = useState({});
 
-    // const handleAnswerSubmit = function(event) {
-    //     event.preventDefault();
-    //     const answer = {
-    //         questionId : currentQuestion.id,
-    //         response : event.target.value
-    //     }
-    //     setAnswer(answer);
-    // };
+    const handleAnswerSubmit = function(event) {
+        moveToNextQuestion();
+        
+    };
 
     const onChange = function(evt) {
         const answer = {
@@ -26,7 +22,7 @@ const AnswerInput = function({currentQuestion}) {
     return (
         <div>
             <div>Answers</div>
-            <form>
+            <form onSubmit = {handleAnswerSubmit}>
                 <input type = 'number' onChange = {onChange}></input>
                 <input type = 'submit'></input>
             </form>

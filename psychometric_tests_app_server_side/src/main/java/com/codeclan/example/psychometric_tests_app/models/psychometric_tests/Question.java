@@ -1,6 +1,7 @@
 package com.codeclan.example.psychometric_tests_app.models.psychometric_tests;
 
 import com.codeclan.example.psychometric_tests_app.models.results.Answer;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -25,12 +26,12 @@ public class Question {
     private String questionText;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "questions")
+    @JsonBackReference(value = "test_questions")
     @JoinColumn(name = "test_id", nullable = false)
     private Test test;
 
     @OneToMany(mappedBy = "question", fetch = FetchType.LAZY)
-    @JsonManagedReference
+    @JsonManagedReference(value = "question_answers")
     private List<Answer> answers;
 
 

@@ -3,6 +3,7 @@ package com.codeclan.example.psychometric_tests_app.models.results;
 import com.codeclan.example.psychometric_tests_app.models.psychometric_tests.Question;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 
@@ -15,12 +16,12 @@ public class Answer {
     private Long id;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "answers")
+    @JsonBackReference(value = "test_attempt_answers")
     @JoinColumn(name = "test_attempt_id", nullable = false)
     private TestAttempt testAttempt;
 
     @ManyToOne
-    @JsonBackReference
+    @JsonBackReference(value = "question_answers")
     @JoinColumn(name = "question_id")
     private Question question;
 

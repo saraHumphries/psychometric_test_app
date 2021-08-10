@@ -18,8 +18,8 @@ const PsychometricTest = function({psychometricTest}) {
     return (
         <div>
             <div>{psychometricTest.title}</div>
-            <Question currentQuestion = {currentQuestion}></Question>
-            <button onClick = {moveToNextQuestion}>Next Question</button>
+            <Question moveToNextQuestion = {moveToNextQuestion} currentQuestion = {currentQuestion}></Question>
+            
            
         </div>
     );

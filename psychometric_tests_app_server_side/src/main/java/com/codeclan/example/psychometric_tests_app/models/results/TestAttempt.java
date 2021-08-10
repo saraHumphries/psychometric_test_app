@@ -4,6 +4,7 @@ import com.codeclan.example.psychometric_tests_app.models.psychometric_tests.Tes
 import com.codeclan.example.psychometric_tests_app.models.users.User;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
@@ -20,17 +21,17 @@ public class TestAttempt {
     private Long id;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "test_attempts")
+    @JsonBackReference(value = "user_test_attempts")
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
     @ManyToOne
-    @JsonBackReference
+    @JsonBackReference(value = "test_test_attempts")
     @JoinColumn(name = "test_id", nullable = false)
     private Test test;
 
     @OneToMany(mappedBy = "testAttempt", fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = "test_attempt")
+    @JsonManagedReference(value = "test_attempt_answers")
     private List<Answer> answers;
 
     public TestAttempt(User user, Test test) {
