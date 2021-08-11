@@ -4,11 +4,12 @@ const UsersService = {
 
     getUsers() {
         return fetch(baseURL)
-        .then(res => res.json());
+            .then(res => res.json());
     },
 
     getUserById(id) {
         return fetch(baseURL + id)
+            .then(res => res.json());
     },
 
     postUser(user) {
@@ -18,8 +19,8 @@ const UsersService = {
             headers: {
                 'Content-Type': 'application/json'
             }
-        })
-            .then(res => res.json());
+            })
+                .then(res => res.json());
     }
 
 
