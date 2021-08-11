@@ -1,13 +1,14 @@
 import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import TestAttemptService from "../services/TestAttemptsService";
+import Result from "../components/Result";
 
 const ResultsContainer = function() {
 
     const data = useLocation();
     const testAttemptId = data.state.testAttempt.id;
     
-    const [testAttempt, setTestAttempt] = useState({});
+    const [testAttempt, setTestAttempt] = useState(null);
 
     console.log("testAttempt", testAttempt);
 
@@ -16,11 +17,21 @@ const ResultsContainer = function() {
             .then(res => setTestAttempt(res));
     }, []);
 
+    const getResultItems = function() {
+        if (testAttempt) {
+            const resultItems = testAttempt.answers.map((answer) => {
+                return <Result answer = {answer} key = {answer.id}></Result>
+            });
+            return resultItems;
+        };
+    };
+
 
 
     return (
         <div>
-            <p>{testAttemptId}</p>
+            <h3>{testAttempt.user.name}, these are your results for {testAttempt.test.title}</h3>
+            <h4>{getResultItems()}</h4>
         </div>
     )
 };
