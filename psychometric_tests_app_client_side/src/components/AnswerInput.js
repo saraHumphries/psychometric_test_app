@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import AnswersService from "../services/AnswersService";
 
 const AnswerInput = function({currentQuestion, moveToNextQuestion, testAttempt}) {
 
@@ -14,7 +15,7 @@ const AnswerInput = function({currentQuestion, moveToNextQuestion, testAttempt})
         setAnswer(answer);
         moveToNextQuestion();
         clearAnswerBox();
-        // saveAnswer(answer);
+        saveAnswer(answer);
         
    };
 
@@ -27,10 +28,10 @@ const AnswerInput = function({currentQuestion, moveToNextQuestion, testAttempt})
         answerBox.value = '';
     };
 
-    // const saveAnswer = function() {
-    //     const answerObject = {testAttempt, currentQuestion, response}
-    //     AnswersService.postAnswer(answerObject);
-    // };
+    const saveAnswer = function() {
+        const answerObject = {testAttempt, currentQuestion, response}
+        AnswersService.postAnswer(answerObject);
+    };
 
 
     return (

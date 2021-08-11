@@ -45,18 +45,7 @@ public class TestAttemptsController {
         return new ResponseEntity<>(testAttempt, HttpStatus.CREATED);
     }
 
-//    @PutMapping(value = "/test_attempts/{id}")
-//    @CrossOrigin(origins = "http://localhost:3000")
-//    public ResponseEntity<TestAttempt> updateTestAttemptAnswers(@PathVariable Long id, @RequestBody TestAttempt testAttempt) {
-//        TestAttempt foundTestAttempt = testAttemptRepository.findById(id).get();
-//        foundTestAttempt.set;
-//    }
-
-
-
-
-
-
+    
     @GetMapping(value = "/answers")
     @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<List<Answer>> getAllAnswers() {
