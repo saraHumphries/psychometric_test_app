@@ -13,9 +13,6 @@ const PsychometricTest = function({psychometricTest, testAttempt}) {
         const nextQuestion = psychometricTest.questions[currentQuestionIndex+1];
         setCurrentQuestion(nextQuestion);
         setQuestionCounter(questionCounter+1);
-        console.log("questionCounter", questionCounter);
-        console.log("test length", psychometricTest.questions.length);
-        console.log("boolean", endOfQuestions);
         if (questionCounter >= psychometricTest.questions.length-1) {
             setEndOfQuestions(true);
         }

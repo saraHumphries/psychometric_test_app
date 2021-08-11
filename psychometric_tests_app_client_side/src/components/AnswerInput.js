@@ -32,7 +32,8 @@ const AnswerInput = function({endOfQuestions, currentQuestion, moveToNextQuestio
     return (
         <div>
             <input id='answer-box' type = 'number' onChange = {onChange}></input>
-            {!endOfQuestions? <button onClick = {onNextQuestionClick}>Next question</button> : null}
+            {!endOfQuestions? <button onClick = {onNextQuestionClick}>Next question</button> :
+                               <button >See your results</button> }
         </div>
     );
 };
