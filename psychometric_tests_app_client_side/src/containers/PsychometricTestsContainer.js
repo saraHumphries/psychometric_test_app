@@ -40,7 +40,6 @@ function PsychometricTestContainer() {
                  id: psychometricTest.id
                }
              }
-        console.log('testAttempt', testAttempt);
         TestAttemptService.postTestAttempt(testAttempt)
             .then(res => setTestAttempt(res));
         

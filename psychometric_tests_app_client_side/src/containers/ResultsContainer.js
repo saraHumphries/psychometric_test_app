@@ -9,10 +9,12 @@ const ResultsContainer = function() {
     
     const [testAttempt, setTestAttempt] = useState({});
 
+    console.log("testAttempt", testAttempt);
+
     useEffect(() => {
         TestAttemptService.getTestAttemptById(testAttemptId)
             .then(res => setTestAttempt(res));
-    });
+    }, []);
 
 
 
