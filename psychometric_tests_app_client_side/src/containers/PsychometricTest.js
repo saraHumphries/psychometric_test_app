@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Question from "../components/Question";
 
-const PsychometricTest = function({psychometricTest}) {
+const PsychometricTest = function({psychometricTest, testAttempt}) {
 
     const[currentQuestion, setCurrentQuestion] = useState(psychometricTest.questions[0]);
 
@@ -18,7 +18,7 @@ const PsychometricTest = function({psychometricTest}) {
     return (
         <div>
             <div>{psychometricTest.title}</div>
-            <Question moveToNextQuestion = {moveToNextQuestion} currentQuestion = {currentQuestion}></Question>
+            <Question testAttempt = {testAttempt} moveToNextQuestion = {moveToNextQuestion} currentQuestion = {currentQuestion}></Question>
             
            
         </div>

@@ -1,10 +1,10 @@
 import AnswerInput from "./AnswerInput";
 
-const Question = function({currentQuestion, moveToNextQuestion}) {
+const Question = function({currentQuestion, moveToNextQuestion, testAttempt}) {
     return (
         <div>
             <h3>{currentQuestion.questionText}</h3>
-            <AnswerInput moveToNextQuestion = {moveToNextQuestion} currentQuestion = {currentQuestion}></AnswerInput>
+            <AnswerInput testAttempt = {testAttempt} moveToNextQuestion = {moveToNextQuestion} currentQuestion = {currentQuestion}></AnswerInput>
         </div>
         
     );

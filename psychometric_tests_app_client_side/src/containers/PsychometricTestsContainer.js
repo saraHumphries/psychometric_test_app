@@ -44,7 +44,7 @@ function PsychometricTestContainer() {
         <div>
             <p>Pick a test to have a go at</p>
             <PsychometricTestList onPsychometricTestClick = {onPsychometricTestClick} psychometricTests = {psychometricTests}></PsychometricTestList>
-            {selectedPsychometricTest ? <PsychometricTest psychometricTest = {selectedPsychometricTest}></PsychometricTest> : null}
+            {selectedPsychometricTest ? <PsychometricTest testAttempt = {testAttempt} psychometricTest = {selectedPsychometricTest}></PsychometricTest> : null}
         </div>  
     );
 }

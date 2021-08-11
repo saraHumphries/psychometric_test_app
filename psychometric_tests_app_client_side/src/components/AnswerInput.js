@@ -1,30 +1,36 @@
 
 import { useState } from "react";
 
-const AnswerInput = function({currentQuestion, moveToNextQuestion}) {
+const AnswerInput = function({currentQuestion, moveToNextQuestion, testAttempt}) {
 
     const [answer, setAnswer] = useState({});
-    const [reponse, setRessponse] = useState(null);
+    const [response, setResponse] = useState(null);
 
     const onNextQuestionClick = function() {
         const answer = {
                 questionId : currentQuestion.id,
-                response : reponse
+                response : response
             };
         setAnswer(answer);
         moveToNextQuestion();
         clearAnswerBox();
+        // saveAnswer(answer);
         
    };
 
     const onChange = function(evt) {
-        setRessponse(evt.target.value);
+        setResponse(evt.target.value);
     };
 
     const clearAnswerBox = function() {
         const answerBox = document.querySelector('#answer-box');
         answerBox.value = '';
     };
+
+    // const saveAnswer = function() {
+    //     const answerObject = {testAttempt, currentQuestion, response}
+    //     AnswersService.postAnswer(answerObject);
+    // };
 
 
     return (
