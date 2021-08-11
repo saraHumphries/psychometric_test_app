@@ -1,7 +1,9 @@
 import { useState } from "react";
 import Question from "../components/Question";
 
-const PsychometricTest = function({psychometricTest, testAttempt}) {
+const PsychometricTest = function({testAttempt, psychometricTest}) {
+
+    
 
     const[currentQuestion, setCurrentQuestion] = useState(psychometricTest.questions[0]);
     const [endOfQuestions, setEndOfQuestions] = useState(false);

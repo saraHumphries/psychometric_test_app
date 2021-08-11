@@ -32,13 +32,19 @@ function PsychometricTestContainer() {
     }
 
     const createUserTestAttempt = function(psychometricTest) {
-        const test = psychometricTest;
-        const testAttempt = {user, test};
+        const testAttempt = {
+               user: {
+                 id: user.id
+               },
+               test: {
+                 id: psychometricTest.id
+               }
+             }
+        console.log('testAttempt', testAttempt);
         TestAttemptService.postTestAttempt(testAttempt)
             .then(res => setTestAttempt(res));
         
     };
-
 
 
     return (

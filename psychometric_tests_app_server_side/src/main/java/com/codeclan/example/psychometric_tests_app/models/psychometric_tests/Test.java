@@ -26,7 +26,8 @@ public class Test {
     private List<Question> questions;
 
     @OneToMany(mappedBy = "test", fetch = FetchType.LAZY)
-    @JsonManagedReference(value = "test_test_attempts")
+    @JsonIgnoreProperties(value = "test")
+//    @JsonManagedReference(value = "test_test_attempts")
     private List<TestAttempt> testAttempts;
 
     public Test(String title) {

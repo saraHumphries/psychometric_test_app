@@ -1,4 +1,6 @@
 
+
+
 const ListItem = function({psychometricTest, onPsychometricTestClick}) {
 
     const handleClick = function() {
@@ -6,7 +8,10 @@ const ListItem = function({psychometricTest, onPsychometricTestClick}) {
     };
 
     return (
-        <li key = {psychometricTest.id} onClick={handleClick}>{psychometricTest.title}</li>
+        <div>
+            <li key = {psychometricTest.id} onClick={handleClick}>{psychometricTest.title}</li>
+        </div>
+
     );
 };
 

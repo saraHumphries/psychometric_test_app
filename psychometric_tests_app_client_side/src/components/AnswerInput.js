@@ -11,7 +11,9 @@ const AnswerInput = function({endOfQuestions, currentQuestion, moveToNextQuestio
 
     const onNextQuestionClick = function() {
         saveAnswer();
-        moveToNextQuestion();
+        if (!endOfQuestions) {
+            moveToNextQuestion();
+        }
         clearAnswerBox();
    };
 
@@ -34,7 +36,10 @@ const AnswerInput = function({endOfQuestions, currentQuestion, moveToNextQuestio
         <div>
             <input id='answer-box' type = 'number' onChange = {onChange}></input>
             {!endOfQuestions? <button onClick = {onNextQuestionClick}>Next question</button> :
-                               <Link to="/results"><button >See your results</button> </Link> }
+                               <Link to={{
+                                   pathname: "/test_results",
+                                   state: {testAttempt}
+                                   }}><button onClick = {onNextQuestionClick}>Submit last answer</button> </Link> }
         </div>
     );
 };

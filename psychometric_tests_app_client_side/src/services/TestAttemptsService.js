@@ -7,6 +7,11 @@ const TestAttemptService = {
         .then(res => res.json());
     },
 
+    getTestAttemptById(id) {
+        return fetch(baseURL + id)
+            .then(res => res.json());
+    },
+
     postTestAttempt(testAttempt) {
         return fetch(baseURL, {
             method: 'POST',

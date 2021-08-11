@@ -21,14 +21,14 @@ public class TestAttempt {
     private Long id;
 
     @ManyToOne
-    @JsonBackReference(value = "user_test_attempts")
-//    @JsonIgnoreProperties(value = "testAttempts")
+//    @JsonBackReference(value = "user_test_attempts")
+    @JsonIgnoreProperties(value = "testAttempts")
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
     @ManyToOne
-//    @JsonIgnoreProperties(value = "testAttempts")
-    @JsonBackReference(value = "test_test_attempts")
+    @JsonIgnoreProperties(value = "testAttempts")
+//    @JsonBackReference(value = "test_test_attempts")
     @JoinColumn(name = "test_id", nullable = false)
     private Test test;
 

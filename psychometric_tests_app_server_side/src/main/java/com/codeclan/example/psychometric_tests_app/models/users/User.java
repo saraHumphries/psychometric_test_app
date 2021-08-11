@@ -2,9 +2,11 @@ package com.codeclan.example.psychometric_tests_app.models.users;
 
 import com.codeclan.example.psychometric_tests_app.models.results.TestAttempt;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -20,11 +22,12 @@ public class User {
     private String name;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-    @JsonManagedReference(value = "user_test_attempts")
+    @JsonIgnoreProperties(value = "user")
     private List<TestAttempt> test_attempts;
 
     public User(String name) {
         this.name = name;
+        this.test_attempts = new ArrayList<>();
     }
 
     public User() {
