@@ -5,37 +5,30 @@ import {Link} from "react-router-dom";
 
 const AnswerInput = function({saveAnswer, endOfQuestions, currentQuestion, moveToNextQuestion, testAttempt}) {
 
-    const [response, setResponse] = useState(null);
-   
-
-    const onNextQuestionClick = function() {
-        saveAnswer(currentQuestion, response);
+    const onLikertButtonClick = function(evt) {
+        saveAnswer(currentQuestion, evt.target.value);
         if (!endOfQuestions) {
             moveToNextQuestion();
         }
-        clearAnswerBox();
-   };
-
-    const onChange = function(evt) {
-        setResponse(evt.target.value);
     };
-
-    const clearAnswerBox = function() {
-        const answerBox = document.querySelector('#answer-box');
-        answerBox.value = '';
-    };
-
-    
 
 
     return (
         <div>
-            <input id='answer-box' type = 'number' onChange = {onChange}></input>
-            {!endOfQuestions? <button onClick = {onNextQuestionClick}>Next question</button> :
+            <div id="likert-buttons">
+                <button id="likert-button" value = '1' onClick = {onLikertButtonClick}>strongly disagree</button>
+                <button id="likert-button" value = '2' onClick = {onLikertButtonClick}>disagree</button>
+                <button id="likert-button" value = '3' onClick = {onLikertButtonClick}>neither disagree or agree</button>
+                <button id="likert-button" value = '4' onClick = {onLikertButtonClick}>agree</button>
+                <button id="likert-button" value = '5' onClick = {onLikertButtonClick}>strongly agree</button>
+            </div>
+        
+            {/* <input id='answer-box' type = 'number' onChange = {onChange}></input> */}
+            {!endOfQuestions? null :
                                <Link to={{
                                    pathname: "/test_results",
                                    state: {testAttempt}
-                                   }}><button onClick = {onNextQuestionClick}>Submit last answer</button> </Link> }
+                                   }}><button>Submit last answer</button> </Link> }
         </div>
     );
 };
