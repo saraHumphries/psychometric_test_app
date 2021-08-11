@@ -14,6 +14,7 @@ function PsychometricTestContainer() {
     const [psychometricTests, setPsychometricTests] = useState([]);
     const [selectedPsychometricTest, setSelectedPsychometricTest] = useState(null);
     const [user, setUser] = useState({});
+    const [testAttempt, setTestAttempt] = useState({});
     
     useEffect(() => {
         PsychometricTestsService.getPsychometricTests()
@@ -32,8 +33,8 @@ function PsychometricTestContainer() {
     const createUserTestAttempt = function(psychometricTest) {
         const test = psychometricTest;
         const testAttempt = {user, test};
-        TestAttemptService.postTestAttempt(testAttempt);
-
+        TestAttemptService.postTestAttempt(testAttempt)
+            .then(res => setTestAttempt(res));
         
     };
 
