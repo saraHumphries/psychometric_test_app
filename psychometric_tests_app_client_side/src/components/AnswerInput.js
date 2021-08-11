@@ -4,7 +4,6 @@ import AnswersService from "../services/AnswersService";
 
 const AnswerInput = function({endOfQuestions, currentQuestion, moveToNextQuestion, testAttempt}) {
 
-    const [answer, setAnswer] = useState({});
     const [response, setResponse] = useState(null);
    
 
