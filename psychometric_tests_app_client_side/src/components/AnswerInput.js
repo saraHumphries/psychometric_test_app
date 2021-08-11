@@ -2,21 +2,16 @@
 import { useState } from "react";
 import AnswersService from "../services/AnswersService";
 
-const AnswerInput = function({currentQuestion, moveToNextQuestion, testAttempt}) {
+const AnswerInput = function({endOfQuestions, currentQuestion, moveToNextQuestion, testAttempt}) {
 
     const [answer, setAnswer] = useState({});
     const [response, setResponse] = useState(null);
+   
 
     const onNextQuestionClick = function() {
-        const answer = {
-                questionId : currentQuestion.id,
-                response : response
-            };
-        setAnswer(answer);
+        saveAnswer();
         moveToNextQuestion();
         clearAnswerBox();
-        saveAnswer(answer);
-        
    };
 
     const onChange = function(evt) {
@@ -36,9 +31,8 @@ const AnswerInput = function({currentQuestion, moveToNextQuestion, testAttempt})
 
     return (
         <div>
-            <div>Answers</div>
             <input id='answer-box' type = 'number' onChange = {onChange}></input>
-            <button onClick = {onNextQuestionClick}>Next question</button>
+            {!endOfQuestions? <button onClick = {onNextQuestionClick}>Next question</button> : null}
         </div>
     );
 };
