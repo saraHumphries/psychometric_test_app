@@ -1,6 +1,8 @@
 
 import { useState } from "react";
 import AnswersService from "../services/AnswersService";
+import {Link} from "react-router-dom";
+
 
 const AnswerInput = function({endOfQuestions, currentQuestion, moveToNextQuestion, testAttempt}) {
 
@@ -32,7 +34,7 @@ const AnswerInput = function({endOfQuestions, currentQuestion, moveToNextQuestio
         <div>
             <input id='answer-box' type = 'number' onChange = {onChange}></input>
             {!endOfQuestions? <button onClick = {onNextQuestionClick}>Next question</button> :
-                               <button >See your results</button> }
+                               <Link to="/results"><button >See your results</button> </Link> }
         </div>
     );
 };
