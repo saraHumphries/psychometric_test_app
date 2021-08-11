@@ -1,16 +1,15 @@
 
 import { useState } from "react";
-import AnswersService from "../services/AnswersService";
 import {Link} from "react-router-dom";
 
 
-const AnswerInput = function({endOfQuestions, currentQuestion, moveToNextQuestion, testAttempt}) {
+const AnswerInput = function({saveAnswer, endOfQuestions, currentQuestion, moveToNextQuestion, testAttempt}) {
 
     const [response, setResponse] = useState(null);
    
 
     const onNextQuestionClick = function() {
-        saveAnswer();
+        saveAnswer(currentQuestion, response);
         if (!endOfQuestions) {
             moveToNextQuestion();
         }
@@ -26,10 +25,7 @@ const AnswerInput = function({endOfQuestions, currentQuestion, moveToNextQuestio
         answerBox.value = '';
     };
 
-    const saveAnswer = function() {
-        const answerObject = {testAttempt, currentQuestion, response}
-        AnswersService.postAnswer(answerObject);
-    };
+    
 
 
     return (

@@ -4,6 +4,7 @@ import PsychometricTestList from "../components/PsychometricTestList";
 import PsychometricTest from "./PsychometricTest";
 import TestAttemptService from "../services/TestAttemptsService";
 import UsersService from "../services/UsersService";
+import AnswersService from "../services/AnswersService";
 
 
 
@@ -45,12 +46,25 @@ function PsychometricTestContainer() {
         
     };
 
+    const saveAnswer = function(currentQuestion, response) {
+        const answerObject = {
+            testAttempt: {
+                id: testAttempt.id
+            },
+            question: {
+                id: currentQuestion.id
+            },
+            response: response
+        }
+        AnswersService.postAnswer(answerObject);
+    };
+
 
     return (
         <div>
             <p>Pick a test to have a go at</p>
             <PsychometricTestList onPsychometricTestClick = {onPsychometricTestClick} psychometricTests = {psychometricTests}></PsychometricTestList>
-            {selectedPsychometricTest ? <PsychometricTest testAttempt = {testAttempt} psychometricTest = {selectedPsychometricTest}></PsychometricTest> : null}
+            {selectedPsychometricTest ? <PsychometricTest saveAnswer = {saveAnswer} testAttempt = {testAttempt} psychometricTest = {selectedPsychometricTest}></PsychometricTest> : null}
         </div>  
     );
 }

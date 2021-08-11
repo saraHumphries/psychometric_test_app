@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Question from "../components/Question";
 
-const PsychometricTest = function({testAttempt, psychometricTest}) {
+const PsychometricTest = function({testAttempt, psychometricTest, saveAnswer}) {
 
     
 
@@ -30,7 +30,7 @@ const PsychometricTest = function({testAttempt, psychometricTest}) {
     return (
         <div>
             <div>{psychometricTest.title}</div>
-            <Question endOfQuestions = {endOfQuestions} testAttempt = {testAttempt} moveToNextQuestion = {moveToNextQuestion} currentQuestion = {currentQuestion}></Question>
+            <Question saveAnswer= {saveAnswer} endOfQuestions = {endOfQuestions} testAttempt = {testAttempt} moveToNextQuestion = {moveToNextQuestion} currentQuestion = {currentQuestion}></Question>
             
            
         </div>
