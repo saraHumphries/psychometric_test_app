@@ -15,17 +15,11 @@ const PsychometricTest = function({testAttempt, psychometricTest, saveAnswer}) {
         const nextQuestion = psychometricTest.questions[currentQuestionIndex+1];
         setCurrentQuestion(nextQuestion);
         setQuestionCounter(questionCounter+1);
-        if (questionCounter >= psychometricTest.questions.length-1) {
+        if (questionCounter >= psychometricTest.questions.length) {
             setEndOfQuestions(true);
         }
     };
-
-
-   
-
-    
-
-    
+ 
 
     return (
         <div>
