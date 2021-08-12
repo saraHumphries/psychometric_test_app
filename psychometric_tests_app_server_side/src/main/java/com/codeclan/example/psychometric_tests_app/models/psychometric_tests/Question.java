@@ -31,7 +31,8 @@ public class Question {
     private Test test;
 
     @OneToMany(mappedBy = "question", fetch = FetchType.LAZY)
-    @JsonManagedReference(value = "question_answers")
+    @JsonIgnoreProperties
+//    @JsonManagedReference(value = "question_answers")
     private List<Answer> answers;
 
 

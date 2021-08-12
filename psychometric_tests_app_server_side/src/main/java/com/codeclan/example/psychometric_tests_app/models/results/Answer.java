@@ -21,7 +21,8 @@ public class Answer {
     private TestAttempt testAttempt;
 
     @ManyToOne
-    @JsonBackReference(value = "question_answers")
+    @JsonIgnoreProperties(value = "answers")
+//    @JsonBackReference(value = "question_answers")
     @JoinColumn(name = "question_id")
     private Question question;
 
