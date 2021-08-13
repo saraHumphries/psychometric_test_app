@@ -93,7 +93,30 @@ public class DataLoader implements ApplicationRunner {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(",");
-                System.out.println(Arrays.toString(values));
+
+                User user = new User("population_data_point");
+                userRepository.save(user);
+                TestAttempt testAttempt = new TestAttempt(user, natureRelatednessScale);
+                testAttemptRepository.save(testAttempt);
+
+                Answer q1Answer = new Answer(testAttempt, question11, Integer.parseInt(values[0]));
+                answerRepository.save(q1Answer);
+
+                Answer q2Answer = new Answer(testAttempt, question12, Integer.parseInt(values[1]));
+                answerRepository.save(q2Answer);
+
+                Answer q3Answer = new Answer(testAttempt, question13, Integer.parseInt(values[2]));
+                answerRepository.save(q3Answer);
+
+                Answer q4Answer = new Answer(testAttempt, question14, Integer.parseInt(values[3]));
+                answerRepository.save(q4Answer);
+
+                Answer q5Answer = new Answer(testAttempt, question15, Integer.parseInt(values[4]));
+                answerRepository.save(q5Answer);
+
+                Answer q6Answer = new Answer(testAttempt, question16, Integer.parseInt(values[5]));
+                answerRepository.save(q6Answer);
+                
             }
         }
 
