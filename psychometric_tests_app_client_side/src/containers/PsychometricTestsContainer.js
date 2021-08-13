@@ -21,7 +21,7 @@ function PsychometricTestContainer() {
     useEffect(() => {
         PsychometricTestsService.getPsychometricTests()
             .then(res => setPsychometricTests(res));
-        UsersService.getUserById(1)
+        UsersService.getUserById(2)
             .then(res => setUser(res));
     }, []);
 

@@ -17,7 +17,7 @@ public class Answer {
     private Long id;
 
     @ManyToOne
-    @JsonIgnore
+
     @JoinColumn(name = "test_attempt_id", nullable = false)
     private TestAttempt testAttempt;
 

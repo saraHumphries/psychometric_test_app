@@ -3,6 +3,7 @@ package com.codeclan.example.psychometric_tests_app.models.results;
 import com.codeclan.example.psychometric_tests_app.models.psychometric_tests.Test;
 import com.codeclan.example.psychometric_tests_app.models.users.User;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.annotations.NaturalId;
@@ -21,9 +22,10 @@ public class TestAttempt {
     private Long id;
 
     @ManyToOne
-//    @JsonBackReference(value = "user_test_attempts")
+    @JsonBackReference(value = "user_test_attempts")
 
     @JoinColumn(name = "user_id", nullable = false)
+    @JsonIgnoreProperties(value = "testAttempt")
     private User user;
 
     @ManyToOne
@@ -33,7 +35,7 @@ public class TestAttempt {
     private Test test;
 
     @OneToMany(mappedBy = "testAttempt", fetch = FetchType.LAZY)
-    @JsonManagedReference(value = "test_attempt_answers")
+    @JsonIgnoreProperties(value = "testAttempt")
     private List<Answer> answers;
 
     public TestAttempt(User user, Test test) {
