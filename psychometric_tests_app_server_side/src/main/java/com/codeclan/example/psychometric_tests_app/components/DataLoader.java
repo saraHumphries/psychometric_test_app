@@ -11,6 +11,12 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 @Component
 public class DataLoader implements ApplicationRunner {
 
@@ -28,6 +34,8 @@ public class DataLoader implements ApplicationRunner {
 
     @Autowired
     AnswerRepository answerRepository;
+
+
 
 
     public DataLoader() {
@@ -77,26 +85,24 @@ public class DataLoader implements ApplicationRunner {
         Question question16 = new Question(5, "I feel very connected to all living things and the earth.", natureRelatednessScale);
         questionRepository.save(question16);
 
-        User user1 = new User("Sara");
-        userRepository.save(user1);
-        User user2 = new User("Alex");
-        userRepository.save(user2);
 
-        TestAttempt testAttempt1 = new TestAttempt(user1, natureRelatednessScale);
-        testAttemptRepository.save(testAttempt1);
 
-        Answer answer1 = new Answer(testAttempt1, question11, 2);
-        answerRepository.save(answer1);
-        Answer answer2 = new Answer(testAttempt1, question12, 3);
-        answerRepository.save(answer2);
-        Answer answer3 = new Answer(testAttempt1, question13, 3);
-        answerRepository.save(answer3);
-        Answer answer4 = new Answer(testAttempt1, question14, 2);
-        answerRepository.save(answer4);
-        Answer answer5 = new Answer(testAttempt1, question15, 5);
-        answerRepository.save(answer5);
-        Answer answer6 = new Answer(testAttempt1, question16, 1);
-        answerRepository.save(answer6);
+
+        List<List<String>> records = new ArrayList<>();
+        try ( BufferedReader br = new BufferedReader(new FileReader("/Users/smhumphries/codeclan_work/project_spring/psychometric_test_app/psychometric_tests_app_server_side/src/main/java/com/codeclan/example/psychometric_tests_app/NRS_data"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");
+                System.out.println(Arrays.toString(values));
+            }
+        }
+
+
+
+
+
+
+
 
 
 
