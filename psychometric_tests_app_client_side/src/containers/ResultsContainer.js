@@ -18,18 +18,20 @@ const ResultsContainer = function() {
         TestAttemptService.getTestAttemptById(testAttemptId)
             .then(res => setTestAttempt(res));
         UsersService.getUserByTestAttemptId(testAttemptId)
-            .then(res => setUser(res));
+            .then(res => setUser(res[0]));
     }, []);
+
+    console.log("user", user);
 
     const getResultItems = function() {
         if (testAttempt) {
-            console.log(testAttempt);
             const resultItems = testAttempt.answers.map((answer) => {
                 return <Result answer = {answer} key = {answer.id}></Result>
             });
             return resultItems;
         };
     };
+
 
 
 
