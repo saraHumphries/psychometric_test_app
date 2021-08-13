@@ -22,7 +22,7 @@ public class TestAttempt {
 
     @ManyToOne
 //    @JsonBackReference(value = "user_test_attempts")
-    @JsonIgnoreProperties(value = "testAttempts")
+
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 

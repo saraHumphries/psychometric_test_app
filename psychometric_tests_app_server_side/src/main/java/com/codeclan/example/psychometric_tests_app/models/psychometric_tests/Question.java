@@ -2,6 +2,7 @@ package com.codeclan.example.psychometric_tests_app.models.psychometric_tests;
 
 import com.codeclan.example.psychometric_tests_app.models.results.Answer;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -31,7 +32,7 @@ public class Question {
     private Test test;
 
     @OneToMany(mappedBy = "question", fetch = FetchType.LAZY)
-    @JsonIgnoreProperties
+    @JsonIgnore
 //    @JsonManagedReference(value = "question_answers")
     private List<Answer> answers;
 

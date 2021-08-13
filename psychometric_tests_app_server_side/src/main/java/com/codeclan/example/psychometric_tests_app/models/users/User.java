@@ -2,6 +2,7 @@ package com.codeclan.example.psychometric_tests_app.models.users;
 
 import com.codeclan.example.psychometric_tests_app.models.results.TestAttempt;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -22,7 +23,7 @@ public class User {
     private String name;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = "user")
+    @JsonIgnore
     private List<TestAttempt> test_attempts;
 
     public User(String name) {
