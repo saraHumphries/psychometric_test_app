@@ -2,6 +2,7 @@ import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import TestAttemptService from "../services/TestAttemptsService";
 import Result from "../components/Result";
+import UsersService from "../services/UsersService";
 
 const ResultsContainer = function() {
 
@@ -9,16 +10,20 @@ const ResultsContainer = function() {
     const testAttemptId = data.state.testAttempt.id;
     
     const [testAttempt, setTestAttempt] = useState(null);
+    const [user, setUser] = useState(null);
 
-    console.log("testAttempt", testAttempt);
+    
 
     useEffect(() => {
         TestAttemptService.getTestAttemptById(testAttemptId)
             .then(res => setTestAttempt(res));
+        UsersService.getUserByTestAttemptId(testAttemptId)
+            .then(res => setUser(res));
     }, []);
 
     const getResultItems = function() {
         if (testAttempt) {
+            console.log(testAttempt);
             const resultItems = testAttempt.answers.map((answer) => {
                 return <Result answer = {answer} key = {answer.id}></Result>
             });
@@ -30,7 +35,7 @@ const ResultsContainer = function() {
 
     return (
         <div>
-            {testAttempt? <h3>{testAttempt.user.name}, these are your results for {testAttempt.test.title}</h3> : null}
+            {user && testAttempt? <h3>{user.name}, these are your results for {testAttempt.test.title}</h3> : null}
             <h4>{getResultItems()}</h4>
         </div>
     )

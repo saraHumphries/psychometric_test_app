@@ -12,6 +12,11 @@ const UsersService = {
             .then(res => res.json());
     },
 
+    getUserByTestAttemptId(testAttemptId) {
+        return fetch(baseURL + `?test_attempt_id=${testAttemptId}`)
+            .then(res => res.json());
+    },
+
     postUser(user) {
         return fetch(baseURL, {
             method: 'POST',
