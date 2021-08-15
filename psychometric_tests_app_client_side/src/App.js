@@ -6,7 +6,7 @@ import ResultsContainer from './containers/ResultsContainer';
 function App() {
   return (
     <Router>
-      <div>
+      <div id='whole-app'>
         <Switch>
           <Route path = '/' exact component={PsychometricTestContainer}></Route>
           <Route path='/test_results' exact component={ResultsContainer}></Route>

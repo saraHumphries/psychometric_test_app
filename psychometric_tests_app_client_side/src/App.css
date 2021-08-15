@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+ 
+ /* Whole app */ 
+ #whole-app {
+     margin: 50px;
+     font-family: 'Noto Sans JP', sans-serif;
+ }
+
+
+ /* Answer section */
+ .likert-button {
+     color: white;
+     background-color: pink;
+     width: 20%;
+     height: 100px;
+     margin: 20px;
+     border-radius: 25px;
+     font-family: 'Noto Sans JP', sans-serif;
+     font-size: larger;
+     font-weight: 700;
+     border-style: none;
+ }
+
+ #likert-buttons {
+     display: flex;
+     justify-content: space-around;
+ }
+
+
+ #likert-button1 {
+     background-color: #BF3A2B;
+ }
+
+ #likert-button2 {
+     background-color: #E77E23;
+ }
+
+ #likert-button3 {
+    background-color: #3499DC;
+}
+
+#likert-button4 {
+    background-color: #16A186;
+}
+
+#likert-button5 {
+    background-color: #2ECD71;
+}
+
+ 
+
