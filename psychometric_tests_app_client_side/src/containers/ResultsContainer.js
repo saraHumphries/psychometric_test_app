@@ -37,7 +37,7 @@ const ResultsContainer = function() {
 
     return (
         <div>
-            {user && testAttempt? <h3>{user.name}, these are your results for {testAttempt.test.title}</h3> : null}
+            {user && testAttempt? <h3>These are your results for {testAttempt.test.title}</h3> : null}
             <h4>{getResultItems()}</h4>
         </div>
     )
