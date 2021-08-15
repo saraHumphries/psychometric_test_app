@@ -35,6 +35,13 @@ public class UserController {
         return new ResponseEntity<>(userRepository.findById(id), HttpStatus.OK);
     }
 
+    @PostMapping(value = "/users")
+    @CrossOrigin(origins = "http://localhost:3000")
+    public ResponseEntity<User> createUser( @RequestBody User user) {
+        userRepository.save(user);
+        return new ResponseEntity<>(user, HttpStatus.CREATED);
+    }
+
 
 
 }
