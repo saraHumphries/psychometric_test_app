@@ -1,9 +1,12 @@
 package com.codeclan.example.psychometric_tests_app.models.results;
 
-import com.codeclan.example.psychometric_tests_app.models.psychometric_tests.PsychometricTest;
+import com.codeclan.example.psychometric_tests_app.models.psychometric_tests.Test;
 import com.codeclan.example.psychometric_tests_app.models.users.User;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -11,7 +14,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "test_attempts")
-public class PsychometricTestAttempt {
+public class TestAttempt {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,19 +32,19 @@ public class PsychometricTestAttempt {
     @JsonIgnoreProperties(value = "testAttempts")
 //    @JsonBackReference(value = "test_test_attempts")
     @JoinColumn(name = "test_id", nullable = false)
-    private PsychometricTest psychometricTest;
+    private Test test;
 
     @OneToMany(mappedBy = "testAttempt", fetch = FetchType.LAZY)
     @JsonIgnoreProperties(value = "testAttempt")
     private List<Answer> answers;
 
-    public PsychometricTestAttempt(User user, PsychometricTest psychometricTest) {
+    public TestAttempt(User user, Test test) {
         this.user = user;
-        this.psychometricTest = psychometricTest;
+        this.test = test;
         this.answers = new ArrayList<>();
     }
 
-    public PsychometricTestAttempt() {
+    public TestAttempt() {
 
         this.answers = new ArrayList<>();
     }
@@ -54,12 +57,12 @@ public class PsychometricTestAttempt {
         this.user = user;
     }
 
-    public PsychometricTest getTest() {
-        return psychometricTest;
+    public Test getTest() {
+        return test;
     }
 
-    public void setTest(PsychometricTest psychometricTest) {
-        this.psychometricTest = psychometricTest;
+    public void setTest(Test test) {
+        this.test = test;
     }
 
     public List<Answer> getAnswers() {

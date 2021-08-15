@@ -1,6 +1,6 @@
 package com.codeclan.example.psychometric_tests_app.models.users;
 
-import com.codeclan.example.psychometric_tests_app.models.results.PsychometricTestAttempt;
+import com.codeclan.example.psychometric_tests_app.models.results.TestAttempt;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -21,15 +21,15 @@ public class User {
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     @JsonIgnoreProperties(value = "user")
-    private List<PsychometricTestAttempt> psychometricTestAttempts;
+    private List<TestAttempt> testAttempts;
 
     public User(String name) {
         this.name = name;
-        this.psychometricTestAttempts = new ArrayList<>();
+        this.testAttempts = new ArrayList<>();
     }
 
     public User() {
-        this.psychometricTestAttempts = new ArrayList<>();
+        this.testAttempts = new ArrayList<>();
     }
 
     public Long getId() {
@@ -48,11 +48,11 @@ public class User {
         this.name = name;
     }
 
-    public List<PsychometricTestAttempt> getTestAttempts() {
-        return psychometricTestAttempts;
+    public List<TestAttempt> getTestAttempts() {
+        return testAttempts;
     }
 
-    public void setTestAttempts(List<PsychometricTestAttempt> psychometricTestAttempts) {
-        this.psychometricTestAttempts = psychometricTestAttempts;
+    public void setTestAttempts(List<TestAttempt> testAttempts) {
+        this.testAttempts = testAttempts;
     }
 }

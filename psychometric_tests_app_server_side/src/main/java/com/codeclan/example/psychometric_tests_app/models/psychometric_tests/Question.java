@@ -3,6 +3,8 @@ package com.codeclan.example.psychometric_tests_app.models.psychometric_tests;
 import com.codeclan.example.psychometric_tests_app.models.results.Answer;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -27,7 +29,7 @@ public class Question {
     @ManyToOne
     @JsonBackReference(value = "test_questions")
     @JoinColumn(name = "test_id", nullable = false)
-    private PsychometricTest psychometricTest;
+    private Test test;
 
     @OneToMany(mappedBy = "question", fetch = FetchType.LAZY)
     @JsonIgnore
@@ -35,10 +37,10 @@ public class Question {
     private List<Answer> answers;
 
 
-    public Question(Integer ordering, String questionText, PsychometricTest psychometricTest) {
+    public Question(Integer ordering, String questionText, Test test) {
         this.ordering = ordering;
         this.questionText = questionText;
-        this.psychometricTest = psychometricTest;
+        this.test = test;
         this.answers = new ArrayList<>();
     }
 
@@ -62,12 +64,12 @@ public class Question {
         this.questionText = questionText;
     }
 
-    public PsychometricTest getTest() {
-        return psychometricTest;
+    public Test getTest() {
+        return test;
     }
 
-    public void setTest(PsychometricTest psychometricTest) {
-        this.psychometricTest = psychometricTest;
+    public void setTest(Test test) {
+        this.test = test;
     }
 
     public List<Answer> getAnswers() {

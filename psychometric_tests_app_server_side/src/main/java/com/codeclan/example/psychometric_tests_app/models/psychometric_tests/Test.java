@@ -1,7 +1,9 @@
 package com.codeclan.example.psychometric_tests_app.models.psychometric_tests;
 
-import com.codeclan.example.psychometric_tests_app.models.results.PsychometricTestAttempt;
+import com.codeclan.example.psychometric_tests_app.models.results.TestAttempt;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
@@ -10,7 +12,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "tests")
-public class PsychometricTest {
+public class Test {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,17 +29,17 @@ public class PsychometricTest {
     @OneToMany(mappedBy = "test", fetch = FetchType.LAZY)
     @JsonIgnore
 //    @JsonManagedReference(value = "test_test_attempts")
-    private List<PsychometricTestAttempt> psychometricTestAttempts;
+    private List<TestAttempt> testAttempts;
 
-    public PsychometricTest(String title) {
+    public Test(String title) {
         this.title = title;
         this.questions = new ArrayList<>();
-        this.psychometricTestAttempts = new ArrayList<>();
+        this.testAttempts = new ArrayList<>();
     }
 
-    public PsychometricTest() {
+    public Test() {
         this.questions = new ArrayList<>();
-        this.psychometricTestAttempts = new ArrayList<>();
+        this.testAttempts = new ArrayList<>();
     }
 
     public Long getId() {
@@ -64,11 +66,11 @@ public class PsychometricTest {
         this.title = title;
     }
 
-    public List<PsychometricTestAttempt> getTestAttempts() {
-        return psychometricTestAttempts;
+    public List<TestAttempt> getTestAttempts() {
+        return testAttempts;
     }
 
-    public void setTestAttempts(List<PsychometricTestAttempt> psychometricTestAttempts) {
-        this.psychometricTestAttempts = psychometricTestAttempts;
+    public void setTestAttempts(List<TestAttempt> testAttempts) {
+        this.testAttempts = testAttempts;
     }
 }
