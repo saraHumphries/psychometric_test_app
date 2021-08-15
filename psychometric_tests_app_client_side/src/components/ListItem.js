@@ -9,7 +9,7 @@ const ListItem = function({psychometricTest, onPsychometricTestClick}) {
 
     return (
         <div>
-            <li key = {psychometricTest.id} onClick={handleClick}>{psychometricTest.title}</li>
+            <button className='test-button' key = {psychometricTest.id} onClick={handleClick}>{psychometricTest.title}</button>
         </div>
 
     );

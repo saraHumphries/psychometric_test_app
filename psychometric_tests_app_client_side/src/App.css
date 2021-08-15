@@ -1,24 +1,61 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
  
  /* Whole app */ 
- #whole-app {
-     margin: 50px;
+ * {
+     
      font-family: 'Noto Sans JP', sans-serif;
+     margin: 10px
  }
+
+ button {
+    color: white;
+    width: 20%;
+    height: 100px;
+    margin: 20px;
+    border-radius: 25px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: larger;
+    font-weight: 700;
+    border-style: none;
+}
+
+ /* Nav bar */
+nav {
+    height: 5rem;
+    background-color: #C72C62;
+    color: white;
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    width: 100%;
+    justify-content: start;
+}
+
+#nav-bar {
+    font-size:smaller;
+}
+
+#nav-bar > a {
+    color: white;
+}
+
+
+/* Test list */
+#test-list {
+    margin-top: 50px;
+}
+
+#test {
+    display: flex;
+}
+
+.test-button {
+    background-color: grey;
+}
 
 
  /* Answer section */
- .likert-button {
-     color: white;
-     width: 20%;
-     height: 100px;
-     margin: 20px;
-     border-radius: 25px;
-     font-family: 'Noto Sans JP', sans-serif;
-     font-size: larger;
-     font-weight: 700;
-     border-style: none;
- }
+
 
  #likert-buttons {
      display: flex;
