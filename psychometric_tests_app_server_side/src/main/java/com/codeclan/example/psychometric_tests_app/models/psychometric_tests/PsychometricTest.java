@@ -1,9 +1,7 @@
 package com.codeclan.example.psychometric_tests_app.models.psychometric_tests;
 
-import com.codeclan.example.psychometric_tests_app.models.results.TestAttempt;
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.codeclan.example.psychometric_tests_app.models.results.PsychometricTestAttempt;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
@@ -12,7 +10,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "tests")
-public class Test {
+public class PsychometricTest {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,17 +27,17 @@ public class Test {
     @OneToMany(mappedBy = "test", fetch = FetchType.LAZY)
     @JsonIgnore
 //    @JsonManagedReference(value = "test_test_attempts")
-    private List<TestAttempt> testAttempts;
+    private List<PsychometricTestAttempt> psychometricTestAttempts;
 
-    public Test(String title) {
+    public PsychometricTest(String title) {
         this.title = title;
         this.questions = new ArrayList<>();
-        this.testAttempts = new ArrayList<>();
+        this.psychometricTestAttempts = new ArrayList<>();
     }
 
-    public Test() {
+    public PsychometricTest() {
         this.questions = new ArrayList<>();
-        this.testAttempts = new ArrayList<>();
+        this.psychometricTestAttempts = new ArrayList<>();
     }
 
     public Long getId() {
@@ -66,11 +64,11 @@ public class Test {
         this.title = title;
     }
 
-    public List<TestAttempt> getTestAttempts() {
-        return testAttempts;
+    public List<PsychometricTestAttempt> getTestAttempts() {
+        return psychometricTestAttempts;
     }
 
-    public void setTestAttempts(List<TestAttempt> testAttempts) {
-        this.testAttempts = testAttempts;
+    public void setTestAttempts(List<PsychometricTestAttempt> psychometricTestAttempts) {
+        this.psychometricTestAttempts = psychometricTestAttempts;
     }
 }

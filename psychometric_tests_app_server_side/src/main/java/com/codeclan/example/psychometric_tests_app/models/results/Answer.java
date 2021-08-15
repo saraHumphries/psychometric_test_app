@@ -1,10 +1,7 @@
 package com.codeclan.example.psychometric_tests_app.models.results;
 
 import com.codeclan.example.psychometric_tests_app.models.psychometric_tests.Question;
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 
@@ -19,7 +16,7 @@ public class Answer {
     @ManyToOne
 
     @JoinColumn(name = "test_attempt_id", nullable = false)
-    private TestAttempt testAttempt;
+    private PsychometricTestAttempt psychometricTestAttempt;
 
     @ManyToOne
     @JsonIgnoreProperties(value = "answers")
@@ -30,8 +27,8 @@ public class Answer {
     @Column(name = "response")
     private int response;
 
-    public Answer(TestAttempt testAttempt, Question question, int response) {
-        this.testAttempt = testAttempt;
+    public Answer(PsychometricTestAttempt psychometricTestAttempt, Question question, int response) {
+        this.psychometricTestAttempt = psychometricTestAttempt;
         this.question = question;
         this.response = response;
     }
@@ -39,12 +36,12 @@ public class Answer {
     public Answer() {
     }
 
-    public TestAttempt getTestAttempt() {
-        return testAttempt;
+    public PsychometricTestAttempt getTestAttempt() {
+        return psychometricTestAttempt;
     }
 
-    public void setTestAttempt(TestAttempt testAttempt) {
-        this.testAttempt = testAttempt;
+    public void setTestAttempt(PsychometricTestAttempt psychometricTestAttempt) {
+        this.psychometricTestAttempt = psychometricTestAttempt;
     }
 
     public Question getQuestion() {

@@ -1,9 +1,9 @@
 package com.codeclan.example.psychometric_tests_app.components;
 
+import com.codeclan.example.psychometric_tests_app.models.psychometric_tests.PsychometricTest;
 import com.codeclan.example.psychometric_tests_app.models.psychometric_tests.Question;
-import com.codeclan.example.psychometric_tests_app.models.psychometric_tests.Test;
 import com.codeclan.example.psychometric_tests_app.models.results.Answer;
-import com.codeclan.example.psychometric_tests_app.models.results.TestAttempt;
+import com.codeclan.example.psychometric_tests_app.models.results.PsychometricTestAttempt;
 import com.codeclan.example.psychometric_tests_app.models.users.User;
 import com.codeclan.example.psychometric_tests_app.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,14 +14,13 @@ import org.springframework.stereotype.Component;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @Component
 public class DataLoader implements ApplicationRunner {
 
     @Autowired
-    TestRepository testRepository;
+    PsychometricTestRepository psychometricTestRepository;
 
     @Autowired
     QuestionRepository questionRepository;
@@ -30,7 +29,7 @@ public class DataLoader implements ApplicationRunner {
     UserRepository userRepository;
 
     @Autowired
-    TestAttemptRepository testAttemptRepository;
+    PsychometricTestAttemptRepository psychometricTestAttemptRepository;
 
     @Autowired
     AnswerRepository answerRepository;
@@ -45,8 +44,8 @@ public class DataLoader implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
-        Test selfEsteemScale = new Test("Self-Esteem Scale");
-        testRepository.save(selfEsteemScale);
+        PsychometricTest selfEsteemScale = new PsychometricTest("Self-Esteem Scale");
+        psychometricTestRepository.save(selfEsteemScale);
 
         Question question1 = new Question(0, "I feel that I am a person of worth, at least on an equal plane with others.", selfEsteemScale);
         questionRepository.save(question1);
@@ -69,8 +68,8 @@ public class DataLoader implements ApplicationRunner {
         Question question10 = new Question(9, "At times I think I am no good at all.", selfEsteemScale);
         questionRepository.save(question10);
 
-        Test natureRelatednessScale = new Test("Nature Relatedness Scale (NR-6)");
-        testRepository.save(natureRelatednessScale);
+        PsychometricTest natureRelatednessScale = new PsychometricTest("Nature Relatedness Scale (NR-6)");
+        psychometricTestRepository.save(natureRelatednessScale);
 
         Question question11 = new Question(0, "My ideal vacation spot would be a remote, wilderness area.", natureRelatednessScale);
         questionRepository.save(question11);
@@ -96,25 +95,25 @@ public class DataLoader implements ApplicationRunner {
 
                 User user = new User("population_data_point");
                 userRepository.save(user);
-                TestAttempt testAttempt = new TestAttempt(user, natureRelatednessScale);
-                testAttemptRepository.save(testAttempt);
+                PsychometricTestAttempt psychometricTestAttempt = new PsychometricTestAttempt(user, natureRelatednessScale);
+                psychometricTestAttemptRepository.save(psychometricTestAttempt);
 
-                Answer q1Answer = new Answer(testAttempt, question11, Integer.parseInt(values[0]));
+                Answer q1Answer = new Answer(psychometricTestAttempt, question11, Integer.parseInt(values[0]));
                 answerRepository.save(q1Answer);
 
-                Answer q2Answer = new Answer(testAttempt, question12, Integer.parseInt(values[1]));
+                Answer q2Answer = new Answer(psychometricTestAttempt, question12, Integer.parseInt(values[1]));
                 answerRepository.save(q2Answer);
 
-                Answer q3Answer = new Answer(testAttempt, question13, Integer.parseInt(values[2]));
+                Answer q3Answer = new Answer(psychometricTestAttempt, question13, Integer.parseInt(values[2]));
                 answerRepository.save(q3Answer);
 
-                Answer q4Answer = new Answer(testAttempt, question14, Integer.parseInt(values[3]));
+                Answer q4Answer = new Answer(psychometricTestAttempt, question14, Integer.parseInt(values[3]));
                 answerRepository.save(q4Answer);
 
-                Answer q5Answer = new Answer(testAttempt, question15, Integer.parseInt(values[4]));
+                Answer q5Answer = new Answer(psychometricTestAttempt, question15, Integer.parseInt(values[4]));
                 answerRepository.save(q5Answer);
 
-                Answer q6Answer = new Answer(testAttempt, question16, Integer.parseInt(values[5]));
+                Answer q6Answer = new Answer(psychometricTestAttempt, question16, Integer.parseInt(values[5]));
                 answerRepository.save(q6Answer);
                 
             }

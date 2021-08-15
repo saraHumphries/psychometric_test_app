@@ -1,10 +1,9 @@
 package com.codeclan.example.psychometric_tests_app.controllers;
 
+import com.codeclan.example.psychometric_tests_app.models.psychometric_tests.PsychometricTest;
 import com.codeclan.example.psychometric_tests_app.models.psychometric_tests.Question;
-import com.codeclan.example.psychometric_tests_app.models.psychometric_tests.Test;
-import com.codeclan.example.psychometric_tests_app.models.results.TestAttempt;
 import com.codeclan.example.psychometric_tests_app.repositories.QuestionRepository;
-import com.codeclan.example.psychometric_tests_app.repositories.TestRepository;
+import com.codeclan.example.psychometric_tests_app.repositories.PsychometricTestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,15 +16,15 @@ import java.util.Optional;
 public class TestController {
 
     @Autowired
-    TestRepository testRepository;
+    PsychometricTestRepository psychometricTestRepository;
 
     @Autowired
     QuestionRepository questionRepository;
 
     @GetMapping(value = "/psychometric_tests")
     @CrossOrigin(origins = "http://localhost:3000")
-    public ResponseEntity<List<Test>> getAllPsychometricTests() {
-        return new ResponseEntity<>(testRepository.findAll(), HttpStatus.OK);
+    public ResponseEntity<List<PsychometricTest>> getAllPsychometricTests() {
+        return new ResponseEntity<>(psychometricTestRepository.findAll(), HttpStatus.OK);
     }
 
     @GetMapping(value = "/questions")
