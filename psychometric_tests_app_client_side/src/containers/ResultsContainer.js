@@ -21,7 +21,6 @@ const ResultsContainer = function() {
             .then(res => setUser(res[0]));
     }, []);
 
-    console.log("user", user);
 
     const getResultItems = function() {
         if (testAttempt) {
