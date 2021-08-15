@@ -2,7 +2,6 @@ package com.codeclan.example.psychometric_tests_app.controllers;
 
 import com.codeclan.example.psychometric_tests_app.models.psychometric_tests.Question;
 import com.codeclan.example.psychometric_tests_app.models.psychometric_tests.Test;
-import com.codeclan.example.psychometric_tests_app.models.results.TestAttempt;
 import com.codeclan.example.psychometric_tests_app.repositories.QuestionRepository;
 import com.codeclan.example.psychometric_tests_app.repositories.TestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +9,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -26,6 +27,43 @@ public class TestController {
     @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<List<Test>> getAllPsychometricTests() {
         return new ResponseEntity<>(testRepository.findAll(), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/psychometric_tests/{id}/summary")
+    @CrossOrigin(origins = "http://localhost:3000")
+    public ResponseEntity getTestSummary(@PathVariable Long id) {
+
+        String[][] summary = testRepository.findTestSummaryByTestId(id);
+        for (String[] line : summary) {
+            for(String element : line) {
+                System.out.print(element + ", ");
+            }
+            System.out.print("\n");
+        }
+
+
+
+
+        Map<Integer, Map<Integer, Integer>> summaryMap = new HashMap<>();
+        for (String[] line : summary) {
+            Integer questionId = Integer.parseInt(line[2]);
+            Integer response = Integer.parseInt(line[4]);
+            Integer count = Integer.parseInt(line[5]);
+
+            if(!summaryMap.containsKey(questionId)) {
+                Map<Integer, Integer> responseCounts = new HashMap<>();
+                responseCounts.put(response, count);
+                summaryMap.put(questionId, responseCounts);
+            }
+            else {
+                summaryMap.get(questionId).put(response, count);
+            }
+
+        }
+
+
+        return new ResponseEntity(summaryMap, HttpStatus.OK);
+//        return new ResponseEntity<>(testRepository.findTestSummaryByTestId(id), HttpStatus.OK);
     }
 
     @GetMapping(value = "/questions")
