@@ -32,6 +32,8 @@ function PsychometricTestContainer() {
     const onPsychometricTestClick = function(psychometricTest) {
         setSelectedPsychometricTest(psychometricTest);
         createUserTestAttempt(psychometricTest);
+        const testList = document.getElementById('test-list');
+        testList.style.visibility = 'hidden';
     }
 
     const createUserTestAttempt = function(psychometricTest) {
@@ -64,8 +66,10 @@ function PsychometricTestContainer() {
 
     return (
         <div>
+            <div id='test-list'>
             <p>Pick a test to have a go at</p>
-            <PsychometricTestList onPsychometricTestClick = {onPsychometricTestClick} psychometricTests = {psychometricTests}></PsychometricTestList>
+                <PsychometricTestList onPsychometricTestClick = {onPsychometricTestClick} psychometricTests = {psychometricTests}></PsychometricTestList>
+            </div>
             {selectedPsychometricTest ? <PsychometricTest saveAnswer = {saveAnswer} testAttempt = {testAttempt} psychometricTest = {selectedPsychometricTest}></PsychometricTest> : null}
         </div>  
     );
