@@ -34,15 +34,6 @@ public class TestController {
     public ResponseEntity getTestSummary(@PathVariable Long id) {
 
         String[][] summary = testRepository.findTestSummaryByTestId(id);
-        for (String[] line : summary) {
-            for(String element : line) {
-                System.out.print(element + ", ");
-            }
-            System.out.print("\n");
-        }
-
-
-
 
         Map<Integer, Map<Integer, Integer>> summaryMap = new HashMap<>();
         for (String[] line : summary) {
@@ -60,10 +51,8 @@ public class TestController {
             }
 
         }
-
-
+        
         return new ResponseEntity(summaryMap, HttpStatus.OK);
-//        return new ResponseEntity<>(testRepository.findTestSummaryByTestId(id), HttpStatus.OK);
     }
 
     @GetMapping(value = "/questions")
