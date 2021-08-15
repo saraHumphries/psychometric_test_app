@@ -10,7 +10,6 @@
  /* Answer section */
  .likert-button {
      color: white;
-     background-color: pink;
      width: 20%;
      height: 100px;
      margin: 20px;
@@ -45,6 +44,10 @@
 
 #likert-button5 {
     background-color: #2ECD71;
+}
+
+#see-results-button {
+        background-color: grey;
 }
 
  

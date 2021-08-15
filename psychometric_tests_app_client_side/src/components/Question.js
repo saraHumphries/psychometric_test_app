@@ -5,7 +5,10 @@ const Question = function({saveAnswer, currentQuestion, moveToNextQuestion, test
 
         <div>
             {!endOfQuestions?
-                <h3>{currentQuestion.questionText}</h3>
+                <div>
+                    <p>To what extent do you agree or disagree with the following statement?</p>
+                    <h3>{currentQuestion.questionText}</h3>
+                </div>
             : null}
             <AnswerInput saveAnswer = {saveAnswer} endOfQuestions = {endOfQuestions} testAttempt = {testAttempt} moveToNextQuestion = {moveToNextQuestion} currentQuestion = {currentQuestion}></AnswerInput>
 

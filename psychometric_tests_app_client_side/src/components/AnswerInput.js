@@ -30,7 +30,7 @@ const AnswerInput = function({saveAnswer, endOfQuestions, currentQuestion, moveT
                                <Link to={{
                                    pathname: "/test_results",
                                    state: {testAttempt}
-                                   }}><button>See my results</button> </Link> : null}
+                                   }}><button className='likert-button' id='see-results-button'>See my results</button> </Link> : null}
         </div>
     );
 };

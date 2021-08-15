@@ -25,10 +25,7 @@ const PsychometricTest = function({testAttempt, psychometricTest, saveAnswer}) {
         <div>
             <h2>{psychometricTest.title}</h2>
             {currentQuestion? <h3>Question {currentQuestion.ordering+1} of {psychometricTest.questions.length}</h3> : null}
-            <p>To what extent do you agree or disagree with the following statement?</p>
             <Question saveAnswer= {saveAnswer} endOfQuestions = {endOfQuestions} testAttempt = {testAttempt} moveToNextQuestion = {moveToNextQuestion} currentQuestion = {currentQuestion}></Question>
-            
-           
         </div>
     );
 }
