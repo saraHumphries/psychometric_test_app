@@ -2,7 +2,7 @@
 import {Link} from "react-router-dom";
 
 
-const AnswerInput = function({saveAnswer, endOfQuestions, currentQuestion, moveToNextQuestion, testAttempt}) {
+const AnswerInput = function({psychometricTest, saveAnswer, endOfQuestions, currentQuestion, moveToNextQuestion, testAttempt}) {
 
     const onLikertButtonClick = function(evt) {
         saveAnswer(currentQuestion, evt.target.value);
@@ -29,8 +29,8 @@ const AnswerInput = function({saveAnswer, endOfQuestions, currentQuestion, moveT
         
             {endOfQuestions?
                                <Link to={{
-                                   pathname: "/NRScale_summary",
-                                   state: {testAttemptId}
+                                   pathname: `/summary/${psychometricTest.title}`,
+                                   state: {testAttemptId, psychometricTest}
                                    }}><button className='button' id='see-results-button'>See my results</button> </Link> : null}
         </div>
     );

@@ -8,18 +8,16 @@ const Summary = function() {
 
     const data = useLocation();
     const testAttemptId = data.state.testAttemptId;
+    const psychometricTest = data.state.psychometricTest;
 
     
 
     const [summaryResults, setSummaryResults] = useState(null);
-    const [psychometricTest, setPsychometricTest] = useState(null);
     const [testAttempt, setTestAttempt] = useState(null); 
 
     useEffect(() => {
-        PsychometricTestsService.getPsychometricTestsSummaries(2)
+        PsychometricTestsService.getPsychometricTestsSummaries(psychometricTest.id)
             .then(res => setSummaryResults(res));
-        PsychometricTestsService.getPsychometricTestById(2)
-            .then(res => setPsychometricTest(res));
         TestAttemptService.getTestAttemptById(testAttemptId)
             .then(res => setTestAttempt(res));
     }, [testAttemptId]);

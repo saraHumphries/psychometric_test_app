@@ -13,7 +13,7 @@ function App() {
         <Switch>
           <Route path = '/' exact component={PsychometricTestContainer}></Route>
           <Route path='/test_results' exact component={ResultsContainer}></Route>
-          <Route path='/NRScale_summary' exact component={Summary}></Route>
+          <Route path='/summary/:test_title' exact component={Summary}></Route>
         </Switch>
       </div>
     </Router>
