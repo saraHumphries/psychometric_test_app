@@ -3,7 +3,6 @@ import Chart from "react-google-charts";
 
 const ChartDisplay = function({questionSummary}) {
 
-    console.log('questionSummary', questionSummary[1]);
 
     return (
         <div>
@@ -19,6 +18,11 @@ const ChartDisplay = function({questionSummary}) {
                     ['slightly disagree', questionSummary[4]],
                     ['disgaree', questionSummary[5]]
                 ]}
+                options={{
+                    vAxis: {
+                        title: 'count of responses'
+                    }
+                }}
             ></Chart>
         </div>
     );
