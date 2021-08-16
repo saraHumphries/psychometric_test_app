@@ -87,5 +87,12 @@ nav {
         background-color: grey;
 }
 
+
+
+/* Results page  */
+
+#results-by-response {
+    display: flex;
+}
  
 

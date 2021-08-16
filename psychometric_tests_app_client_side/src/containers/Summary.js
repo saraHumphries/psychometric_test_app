@@ -14,11 +14,15 @@ const Summary = function() {
             .then(res => setPsychometricTest(res));
     }, []);
 
+    const getQuestionSummary = function(questionId) {
+        return summaryResults[questionId];
+    };
+
 
     const getListOfQuestions = function() {
         if(psychometricTest) {
             const listOfQuestions = psychometricTest.questions.map((question) => {
-                return <SummaryQuestionBox question = {question} key = {question.id}></SummaryQuestionBox>
+                return <SummaryQuestionBox getQuestionSummary = {getQuestionSummary} question = {question} key = {question.id}></SummaryQuestionBox>
             });
             return listOfQuestions;
         };
