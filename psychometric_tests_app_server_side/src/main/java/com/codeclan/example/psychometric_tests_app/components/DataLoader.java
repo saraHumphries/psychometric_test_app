@@ -90,13 +90,10 @@ public class DataLoader implements ApplicationRunner {
         questionRepository.save(question6);
 
 
-
-
-        List<List<String>> records = new ArrayList<>();
-        try ( BufferedReader br = new BufferedReader(new FileReader("/Users/smhumphries/codeclan_work/project_spring/psychometric_test_app/psychometric_tests_app_server_side/src/main/java/com/codeclan/example/psychometric_tests_app/NRS_data"))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] values = line.split(",");
+        try ( BufferedReader brNRS = new BufferedReader(new FileReader("/Users/smhumphries/codeclan_work/project_spring/psychometric_test_app/psychometric_tests_app_server_side/src/main/java/com/codeclan/example/psychometric_tests_app/NRS_data"))) {
+            String lineNRS;
+            while ((lineNRS = brNRS.readLine()) != null) {
+                String[] values = lineNRS.split(",");
 
                 User user = new User("population_data_point");
                 userRepository.save(user);
@@ -121,6 +118,56 @@ public class DataLoader implements ApplicationRunner {
                 Answer q6Answer = new Answer(testAttempt, question6, Integer.parseInt(values[5]));
                 answerRepository.save(q6Answer);
                 
+            }
+        }
+
+
+        try ( BufferedReader brCFCS = new BufferedReader(new FileReader("/Users/smhumphries/codeclan_work/project_spring/psychometric_test_app/psychometric_tests_app_server_side/src/main/java/com/codeclan/example/psychometric_tests_app/CFCS_data.csv"))) {
+            String lineCFCS;
+            while ((lineCFCS = brCFCS.readLine()) != null) {
+                String[] values = lineCFCS.split(",");
+
+                User user = new User("population_data_point");
+                userRepository.save(user);
+                TestAttempt testAttempt = new TestAttempt(user, considerationOfFutureConsequencesScale);
+                testAttemptRepository.save(testAttempt);
+
+                Answer q1Answer = new Answer(testAttempt, question12, Integer.parseInt(values[0]));
+                answerRepository.save(q1Answer);
+
+                Answer q2Answer = new Answer(testAttempt, question13, Integer.parseInt(values[1]));
+                answerRepository.save(q2Answer);
+
+                Answer q3Answer = new Answer(testAttempt, question14, Integer.parseInt(values[2]));
+                answerRepository.save(q3Answer);
+
+                Answer q4Answer = new Answer(testAttempt, question15, Integer.parseInt(values[3]));
+                answerRepository.save(q4Answer);
+
+                Answer q5Answer = new Answer(testAttempt, question16, Integer.parseInt(values[4]));
+                answerRepository.save(q5Answer);
+
+                Answer q6Answer = new Answer(testAttempt, question17, Integer.parseInt(values[5]));
+                answerRepository.save(q6Answer);
+
+                Answer q7Answer = new Answer(testAttempt, question18, Integer.parseInt(values[6]));
+                answerRepository.save(q7Answer);
+
+                Answer q8Answer = new Answer(testAttempt, question19, Integer.parseInt(values[7]));
+                answerRepository.save(q8Answer);
+
+                Answer q9Answer = new Answer(testAttempt, question20, Integer.parseInt(values[8]));
+                answerRepository.save(q9Answer);
+
+                Answer q10Answer = new Answer(testAttempt, question21, Integer.parseInt(values[9]));
+                answerRepository.save(q10Answer);
+
+                Answer q11Answer = new Answer(testAttempt, question22, Integer.parseInt(values[10]));
+                answerRepository.save(q11Answer);
+
+                Answer q12Answer = new Answer(testAttempt, question23, Integer.parseInt(values[11]));
+                answerRepository.save(q12Answer);
+
             }
         }
 
