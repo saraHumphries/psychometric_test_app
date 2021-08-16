@@ -17,7 +17,7 @@ const AnswerInput = function({likertOptions, psychometricTest, saveAnswer, endOf
     const getLikertButtons = function() {
         if(likertOptions) {
             const likertButtons = likertOptions.map((likertOption) => {
-                return <button className='button' value={likertOption.likertValue} onClick={onLikertButtonClick}>{likertOption.likertText}</button>
+                return <button className='button' id={"likert-button" + likertOption.likertValue} value={likertOption.likertValue} onClick={onLikertButtonClick}>{likertOption.likertText}</button>
             });
             return likertButtons;
         };
