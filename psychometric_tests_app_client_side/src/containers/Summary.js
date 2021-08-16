@@ -37,9 +37,10 @@ const Summary = function() {
 
     const getQuestionResponse = function(questionOrdering) {
         if(testAttempt) {
-            let response;
-            response = testAttempt.answers[`${questionOrdering}`].response;
-            return response;
+            let responseInt;
+            responseInt = testAttempt.answers[`${questionOrdering}`].response;
+
+            return responseInt;
         };
     };
 

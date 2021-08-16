@@ -11,7 +11,7 @@ const ChartDisplay = function({questionSummary, response}) {
                     opacities[`${question}`] = '1.0';
                 }
                 else {
-                    opacities[`${question}`] = '0.5';
+                    opacities[`${question}`] = '0.4';
                 };
             };
             return opacities;
