@@ -1,7 +1,7 @@
 
 import Chart from "react-google-charts";
 
-const ChartDisplay = function({questionSummary, response}) {
+const ChartDisplay = function({likertOptions, questionSummary, response}) {
 
     const getOpacities = function() {
         const opacities = {};
@@ -18,9 +18,16 @@ const ChartDisplay = function({questionSummary, response}) {
         };
     };
 
+    const getDataForChart = function() {
+        if(likertOptions) {
+            const dataForChart = likertOptions.map((likertOption) => {
+                return [likertOption.likertText, questionSummary[likertOption.likertValue], 'color: grey; ' + `opacity: ${getOpacities()[`${likertOption.likertValue}`]}`]
+            });
+            dataForChart.unshift(['response', 'count', {role: 'style'}]);
+            return dataForChart;
+        };
+    };
     
-
-
     return (
         <div>
             {questionSummary? 
@@ -28,14 +35,9 @@ const ChartDisplay = function({questionSummary, response}) {
                 width={800}
                 height={300}
                 chartType = 'ColumnChart'
-                data = {[
-                    ['response', 'count', {role: 'style'}],
-                    ['disagree',questionSummary[1], 'color: #BF3A2B;' + `opacity: ${getOpacities()['1']}`],
-                    ['slightly disagree', questionSummary[2], 'color: #E77E23;' + `opacity: ${getOpacities()['2']}`],
-                    ['neither', questionSummary[3], 'color: #3499DC;' + `opacity: ${getOpacities()['3']}`],
-                    ['slightly agree', questionSummary[4], 'color: #16A186;' + `opacity: ${getOpacities()['4']}`],
-                    ['agree', questionSummary[5], 'color: #2ECD71;' + `opacity: ${getOpacities()['5']}`]
-                ]}
+                data = {
+                    getDataForChart()
+                }
                 options={{
                     vAxis: {
                         title: 'count of responses'
