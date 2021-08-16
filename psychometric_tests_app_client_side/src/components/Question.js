@@ -1,6 +1,6 @@
 import AnswerInput from "./AnswerInput";
 
-const Question = function({psychometricTest, saveAnswer, currentQuestion, moveToNextQuestion, testAttempt, endOfQuestions}) {
+const Question = function({likertOptions, psychometricTest, saveAnswer, currentQuestion, moveToNextQuestion, testAttempt, endOfQuestions}) {
     return (
 
         <div>
@@ -10,7 +10,7 @@ const Question = function({psychometricTest, saveAnswer, currentQuestion, moveTo
                     <h3>{currentQuestion.questionText}</h3>
                 </div>
             : null}
-            <AnswerInput psychometricTest = {psychometricTest} saveAnswer = {saveAnswer} endOfQuestions = {endOfQuestions} testAttempt = {testAttempt} moveToNextQuestion = {moveToNextQuestion} currentQuestion = {currentQuestion}></AnswerInput>
+            <AnswerInput likertOptions = {likertOptions} psychometricTest = {psychometricTest} saveAnswer = {saveAnswer} endOfQuestions = {endOfQuestions} testAttempt = {testAttempt} moveToNextQuestion = {moveToNextQuestion} currentQuestion = {currentQuestion}></AnswerInput>
 
             
         </div>

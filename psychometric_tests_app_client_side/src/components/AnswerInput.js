@@ -2,7 +2,7 @@
 import {Link} from "react-router-dom";
 
 
-const AnswerInput = function({psychometricTest, saveAnswer, endOfQuestions, currentQuestion, moveToNextQuestion, testAttempt}) {
+const AnswerInput = function({likertOptions, psychometricTest, saveAnswer, endOfQuestions, currentQuestion, moveToNextQuestion, testAttempt}) {
 
     const onLikertButtonClick = function(evt) {
         saveAnswer(currentQuestion, evt.target.value);
@@ -12,6 +12,8 @@ const AnswerInput = function({psychometricTest, saveAnswer, endOfQuestions, curr
     };
 
     const testAttemptId = testAttempt.id;
+
+    console.log(likertOptions);
 
 
 
