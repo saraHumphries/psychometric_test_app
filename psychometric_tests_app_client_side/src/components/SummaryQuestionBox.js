@@ -1,4 +1,4 @@
-import Chart from "./Chart";
+import ChartDisplay from "./ChartDisplay";
 
 
 const SummaryQuestionBox = function({question, getQuestionSummary}) {
@@ -10,7 +10,7 @@ const SummaryQuestionBox = function({question, getQuestionSummary}) {
     return (
         <div>
             <h3>{question.questionText}</h3>
-            <Chart questionSummary = {questionSummary}></Chart>
+            <ChartDisplay questionSummary = {questionSummary}></ChartDisplay>
             <div id = 'results-by-response'>
                 <p>{questionSummary[1]}</p>
                 <p>{questionSummary[2]}</p>
