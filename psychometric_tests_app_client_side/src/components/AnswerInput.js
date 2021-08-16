@@ -1,5 +1,4 @@
 
-import { useState } from "react";
 import {Link} from "react-router-dom";
 
 
@@ -11,6 +10,8 @@ const AnswerInput = function({saveAnswer, endOfQuestions, currentQuestion, moveT
             moveToNextQuestion();
         }
     };
+
+    const testAttemptId = testAttempt.id;
 
 
 
@@ -28,8 +29,8 @@ const AnswerInput = function({saveAnswer, endOfQuestions, currentQuestion, moveT
         
             {endOfQuestions?
                                <Link to={{
-                                   pathname: "/test_results",
-                                   state: {testAttempt}
+                                   pathname: "/NRScale_summary",
+                                   state: {testAttemptId}
                                    }}><button className='button' id='see-results-button'>See my results</button> </Link> : null}
         </div>
     );
