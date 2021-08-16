@@ -11,7 +11,7 @@ const SummaryQuestionBox = function({question, getQuestionSummary, getQuestionRe
         <div>
             <h3>{question.questionText}</h3>
             <h4>Your answer was {getQuestionResponse(question.ordering)}</h4>
-            <ChartDisplay questionSummary = {questionSummary}></ChartDisplay>
+            <ChartDisplay response = {getQuestionResponse(question.ordering)}questionSummary = {questionSummary}></ChartDisplay>
         </div>
     );
 };
