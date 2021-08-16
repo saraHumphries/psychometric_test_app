@@ -16,7 +16,6 @@ const PsychometricTest = function({testAttempt, psychometricTest, saveAnswer}) {
             .then(res => setLikertOptions(res));
     }, []);
 
-    console.log("Likertoptions", likertOptions);
 
     const moveToNextQuestion = function() {
         const currentQuestionIndex = psychometricTest.questions.indexOf(currentQuestion);
