@@ -36,7 +36,7 @@ const Summary = function() {
 
     return (
         <div>
-            <h2>{psychometricTest.title} population data summary</h2>
+            {psychometricTest? <h2>{psychometricTest.title} population data summary</h2>: null}
             <p>Some text about the scale</p>
             {getListOfQuestions()}
         </div>

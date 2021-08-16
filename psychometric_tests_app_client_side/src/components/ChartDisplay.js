@@ -6,6 +6,7 @@ const ChartDisplay = function({questionSummary}) {
 
     return (
         <div>
+            {questionSummary? 
             <Chart
                 width={800}
                 height={300}
@@ -23,7 +24,7 @@ const ChartDisplay = function({questionSummary}) {
                         title: 'count of responses'
                     }
                 }}
-            ></Chart>
+            ></Chart> : null}
         </div>
     );
 
