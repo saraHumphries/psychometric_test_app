@@ -29,6 +29,12 @@ public class TestController {
         return new ResponseEntity<>(testRepository.findAll(), HttpStatus.OK);
     }
 
+    @GetMapping(value = "/psychometric_tests/{id}")
+    @CrossOrigin(origins = "http://localhost:3000")
+    public ResponseEntity<Optional<Test>> getPsychometricTestById(@PathVariable Long id) {
+        return new ResponseEntity<>(testRepository.findById(id), HttpStatus.OK);
+    }
+
     @GetMapping(value = "/psychometric_tests/{id}/summary")
     @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity getTestSummary(@PathVariable Long id) {
@@ -51,7 +57,7 @@ public class TestController {
             }
 
         }
-        
+
         return new ResponseEntity(summaryMap, HttpStatus.OK);
     }
 

@@ -4,10 +4,20 @@ const PsychometricTestsService = {
 
     getPsychometricTests() {
         return fetch(baseURL)
-        .then(res => res.json());
+            .then(res => res.json());
     },
 
+    getPsychometricTestById(id) {
+        return fetch(baseURL + id) 
+            .then(res => res.json());
+        
+    },
 
+    getPsychometricTestsSummaries(psychometricTestId) {
+        return fetch(baseURL + `/${psychometricTestId}/summary`)
+            .then(res => res.json());
+    }
 };
+
 
 export default PsychometricTestsService;

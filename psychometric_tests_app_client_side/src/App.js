@@ -3,7 +3,7 @@ import PsychometricTestContainer from './containers/PsychometricTestsContainer';
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import ResultsContainer from './containers/ResultsContainer';
 import NavBar from './components/NavBar';
-import NRScaleSummary from './components/NRScaleSummary';
+import Summary from './containers/Summary';
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
         <Switch>
           <Route path = '/' exact component={PsychometricTestContainer}></Route>
           <Route path='/test_results' exact component={ResultsContainer}></Route>
-          <Route path='/NRScale_summary' exact component={NRScaleSummary}></Route>
+          <Route path='/NRScale_summary' exact component={Summary}></Route>
         </Switch>
       </div>
     </Router>
