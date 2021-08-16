@@ -22,7 +22,11 @@ const ChartDisplay = function({questionSummary}) {
                 options={{
                     vAxis: {
                         title: 'count of responses'
-                    }
+                    },
+                    legend: {
+                        position: 'none'
+                    },
+                    
                 }}
             ></Chart> : null}
         </div>
