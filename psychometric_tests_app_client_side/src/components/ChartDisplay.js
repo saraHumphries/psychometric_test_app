@@ -18,7 +18,6 @@ const ChartDisplay = function({questionSummary, response}) {
         };
     };
 
-    console.log(getOpacities());
     
 
 
@@ -31,11 +30,11 @@ const ChartDisplay = function({questionSummary, response}) {
                 chartType = 'ColumnChart'
                 data = {[
                     ['response', 'count', {role: 'style'}],
-                    ['disagree',questionSummary[1], 'color: #BF3A2B;' + 'opacity: 0.5'],
-                    ['slightly disagree', questionSummary[2], 'color: #E77E23;' + 'opacity: 0.5'],
-                    ['neither', questionSummary[3], 'color: #3499DC;' + 'opacity: 1'],
-                    ['slightly agree', questionSummary[4], 'color: #16A186;' + 'opacity: 0.5'],
-                    ['agree', questionSummary[5], 'color: #2ECD71;' + 'opacity: 0.5']
+                    ['disagree',questionSummary[1], 'color: #BF3A2B;' + `opacity: ${getOpacities()['1']}`],
+                    ['slightly disagree', questionSummary[2], 'color: #E77E23;' + `opacity: ${getOpacities()['2']}`],
+                    ['neither', questionSummary[3], 'color: #3499DC;' + `opacity: ${getOpacities()['3']}`],
+                    ['slightly agree', questionSummary[4], 'color: #16A186;' + `opacity: ${getOpacities()['4']}`],
+                    ['agree', questionSummary[5], 'color: #2ECD71;' + `opacity: ${getOpacities()['5']}`]
                 ]}
                 options={{
                     vAxis: {
