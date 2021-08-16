@@ -15,7 +15,10 @@ const Summary = function() {
     }, []);
 
     const getQuestionSummary = function(questionId) {
-        return summaryResults[questionId];
+        if(summaryResults) {
+            return summaryResults[questionId];
+        }
+        
     };
 
 
@@ -28,9 +31,13 @@ const Summary = function() {
         };
     };
 
+    
+
 
     return (
         <div>
+            <h2>{psychometricTest.title} population data summary</h2>
+            <p>Some text about the scale</p>
             {getListOfQuestions()}
         </div>
     );
@@ -41,29 +48,3 @@ export default Summary;
 
 
 
-
-// {
-//     1: {
-//         responseCounts: {
-//             1:,
-//         }
-//     }
-// }
-
-
-// [{
-//     questionId: ,
-//     responseCounts: {
-//         1: 115,
-//         2: 149
-//     }
-// },
-// {
-//     questionId: ,
-//     responseCounts: {
-//         1: ,
-//         2
-//     }
-// }
-
-// ]
