@@ -1,5 +1,6 @@
 package com.codeclan.example.psychometric_tests_app.components;
 
+import com.codeclan.example.psychometric_tests_app.models.psychometric_tests.LikertOption;
 import com.codeclan.example.psychometric_tests_app.models.psychometric_tests.Question;
 import com.codeclan.example.psychometric_tests_app.models.psychometric_tests.Test;
 import com.codeclan.example.psychometric_tests_app.models.results.Answer;
@@ -13,9 +14,7 @@ import org.springframework.stereotype.Component;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 @Component
 public class DataLoader implements ApplicationRunner {
@@ -35,6 +34,9 @@ public class DataLoader implements ApplicationRunner {
     @Autowired
     AnswerRepository answerRepository;
 
+    @Autowired
+    LikertOptionRepository likertOptionRepository;
+
 
 
 
@@ -45,8 +47,24 @@ public class DataLoader implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
+
+
+
         Test considerationOfFutureConsequencesScale = new Test("Consideration of Future Consequences Scale");
         testRepository.save(considerationOfFutureConsequencesScale);
+        LikertOption likertOption1 = new LikertOption("extremely uncharacteristic", 1, considerationOfFutureConsequencesScale);
+        likertOptionRepository.save(likertOption1);
+        LikertOption likertOption2 = new LikertOption("somewhat uncharacteristic", 2, considerationOfFutureConsequencesScale);
+        likertOptionRepository.save(likertOption2);
+        LikertOption likertOption3 = new LikertOption("uncertain", 3, considerationOfFutureConsequencesScale);
+        likertOptionRepository.save(likertOption3);
+        LikertOption likertOption4 = new LikertOption("somewhat characteristic", 4, considerationOfFutureConsequencesScale);
+        likertOptionRepository.save(likertOption4);
+        LikertOption likertOption5 = new LikertOption("extremely characteristic", 5, considerationOfFutureConsequencesScale);
+        likertOptionRepository.save(likertOption5);
+
+
+
 
         Question question12 = new Question(0, "I consider how things might be in the future, and try to influence those things with my day to day behaviour", considerationOfFutureConsequencesScale);
         questionRepository.save(question12);
@@ -73,8 +91,19 @@ public class DataLoader implements ApplicationRunner {
         Question question23 = new Question(11, "Since my day to day work has specific outcomes, it is more important to me than behavior that has distant outcomes", considerationOfFutureConsequencesScale);
         questionRepository.save(question23);
 
+
         Test natureRelatednessScale = new Test("Nature Relatedness Scale (NR-6)");
         testRepository.save(natureRelatednessScale);
+        LikertOption likertOption6 = new LikertOption("disagree", 1, natureRelatednessScale);
+        likertOptionRepository.save(likertOption6);
+        LikertOption likertOption7 = new LikertOption("slightly disagree", 2, natureRelatednessScale);
+        likertOptionRepository.save(likertOption7);
+        LikertOption likertOption8 = new LikertOption("neither agree nor disagree", 3, natureRelatednessScale);
+        likertOptionRepository.save(likertOption8);
+        LikertOption likertOption9 = new LikertOption("slightly agree", 4, natureRelatednessScale);
+        likertOptionRepository.save(likertOption9);
+        LikertOption likertOption10 = new LikertOption("agree", 5, natureRelatednessScale);
+        likertOptionRepository.save(likertOption10);
 
         Question question1 = new Question(0, "My ideal vacation spot would be a remote, wilderness area.", natureRelatednessScale);
         questionRepository.save(question1);

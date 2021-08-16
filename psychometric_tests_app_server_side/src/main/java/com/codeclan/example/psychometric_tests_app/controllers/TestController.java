@@ -1,7 +1,9 @@
 package com.codeclan.example.psychometric_tests_app.controllers;
 
+import com.codeclan.example.psychometric_tests_app.models.psychometric_tests.LikertOption;
 import com.codeclan.example.psychometric_tests_app.models.psychometric_tests.Question;
 import com.codeclan.example.psychometric_tests_app.models.psychometric_tests.Test;
+import com.codeclan.example.psychometric_tests_app.repositories.LikertOptionRepository;
 import com.codeclan.example.psychometric_tests_app.repositories.QuestionRepository;
 import com.codeclan.example.psychometric_tests_app.repositories.TestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,9 @@ public class TestController {
 
     @Autowired
     QuestionRepository questionRepository;
+
+    @Autowired
+    LikertOptionRepository likertOptionRepository;
 
     @GetMapping(value = "/psychometric_tests")
     @CrossOrigin(origins = "http://localhost:3000")
@@ -74,10 +79,27 @@ public class TestController {
     }
 
     @PostMapping(value = "/questions")
+    @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<Question> postTestAttempt(@RequestBody Question question) {
         questionRepository.save(question);
         return new ResponseEntity<>(question, HttpStatus.CREATED);
     }
+
+    @GetMapping(value = "/likert_options")
+    @CrossOrigin(origins = "http://localhost:3000")
+    public ResponseEntity<List<LikertOption>> getAllLikertOptionsByCustomParams(
+            @RequestParam(name = "test_id", required = false) Long test_id
+    ) {
+        if(test_id != null) {
+            return new ResponseEntity<>(likertOptionRepository.findLikertOptionsByTestId(test_id), HttpStatus.OK);
+        }
+        else {
+            return new ResponseEntity<>(likertOptionRepository.findAll(), HttpStatus.OK);
+        }
+    }
+
+
+
 
 
 }

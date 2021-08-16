@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Entity
 @Table(name = "tests")
@@ -31,15 +32,29 @@ public class Test {
 //    @JsonManagedReference(value = "test_test_attempts")
     private List<TestAttempt> testAttempts;
 
+    @OneToMany(mappedBy = "test", fetch = FetchType.LAZY)
+    @JsonIgnoreProperties(value = "test")
+    private List<LikertOption> likertOptions;
+
     public Test(String title) {
         this.title = title;
+        this.likertOptions = new ArrayList<>();
         this.questions = new ArrayList<>();
         this.testAttempts = new ArrayList<>();
     }
 
     public Test() {
+        this.likertOptions = new ArrayList<>();
         this.questions = new ArrayList<>();
         this.testAttempts = new ArrayList<>();
+    }
+
+    public List<LikertOption> getLikertOptions() {
+        return likertOptions;
+    }
+
+    public void setLikertOptions(List<LikertOption> likertOptions) {
+        this.likertOptions = likertOptions;
     }
 
     public Long getId() {
