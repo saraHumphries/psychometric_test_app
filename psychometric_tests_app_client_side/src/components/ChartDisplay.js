@@ -12,12 +12,12 @@ const ChartDisplay = function({questionSummary}) {
                 height={300}
                 chartType = 'ColumnChart'
                 data = {[
-                    ['response', 'count'],
-                    ['agree',questionSummary[1]],
-                    ['slightly agree', questionSummary[2]],
-                    ['neither', questionSummary[3]],
-                    ['slightly disagree', questionSummary[4]],
-                    ['disgaree', questionSummary[5]]
+                    ['response', 'count', {role: 'style'}],
+                    ['disagree',questionSummary[1], 'color: #BF3A2B'],
+                    ['slightly disagree', questionSummary[2], 'color: #E77E23'],
+                    ['neither', questionSummary[3], 'color: #3499DC'],
+                    ['slightly agree', questionSummary[4], 'color: #16A186'],
+                    ['agree', questionSummary[5], 'color: #2ECD71']
                 ]}
                 options={{
                     vAxis: {
