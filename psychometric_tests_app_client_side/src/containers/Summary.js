@@ -9,6 +9,7 @@ const Summary = function() {
     const data = useLocation();
     const testAttemptId = data.state.testAttemptId;
     const psychometricTest = data.state.psychometricTest;
+    const likertOptions = data.state.likertOptions;
 
     
 
@@ -46,7 +47,7 @@ const Summary = function() {
     const getListOfQuestions = function() {
         if(psychometricTest) {
             const listOfQuestions = psychometricTest.questions.map((question) => {
-                return <SummaryQuestionBox getQuestionResponse = {getQuestionResponse} getQuestionSummary = {getQuestionSummary} question = {question} key = {question.id}></SummaryQuestionBox>
+                return <SummaryQuestionBox likertOptions = {likertOptions} getQuestionResponse = {getQuestionResponse} getQuestionSummary = {getQuestionSummary} question = {question} key = {question.id}></SummaryQuestionBox>
             });
             return listOfQuestions;
         };

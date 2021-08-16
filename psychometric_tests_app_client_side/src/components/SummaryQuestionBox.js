@@ -1,7 +1,7 @@
 import ChartDisplay from "./ChartDisplay";
 
 
-const SummaryQuestionBox = function({question, getQuestionSummary, getQuestionResponse}) {
+const SummaryQuestionBox = function({likertOptions, question, getQuestionSummary, getQuestionResponse}) {
 
     const questionSummary = getQuestionSummary(question.id);
 
@@ -24,11 +24,21 @@ const SummaryQuestionBox = function({question, getQuestionSummary, getQuestionRe
         }
     };
 
+    const getLikertText = function() {
+        const responseInt = getQuestionResponse(question.ordering);
+        for(let likertOption of likertOptions) {
+            
+            if(likertOption.likertValue == responseInt) {
+                return likertOption.likertText;
+            };
+        };
+    };
+
 
     return (
         <div>
             <h3>{question.questionText}</h3>
-            <h4>Your answer was {getResponseText()}</h4>
+            <h4>Your answer was {getLikertText()}</h4>
             <ChartDisplay response = {getQuestionResponse(question.ordering)}questionSummary = {questionSummary}></ChartDisplay>
         </div>
     );

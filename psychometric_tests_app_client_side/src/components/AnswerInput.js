@@ -35,7 +35,7 @@ const AnswerInput = function({likertOptions, psychometricTest, saveAnswer, endOf
             {endOfQuestions?
                                <Link to={{
                                    pathname: `/summary/${psychometricTest.title}`,
-                                   state: {testAttemptId, psychometricTest}
+                                   state: {testAttemptId, psychometricTest, likertOptions}
                                    }}><button className='button' id='see-results-button'>See my results</button> </Link> : null}
         </div>
     );
