@@ -80,7 +80,11 @@ const Summary = function() {
             {psychometricTest? <h2>{psychometricTest.title} population data summary</h2>: null}
             <p>Some text about the scale</p>
             <h4>Your total score is {calculateTotalScore()}</h4>
-            <TotalSummaryChart totalScores = {totalScores} userTotal = {calculateTotalScore()}></TotalSummaryChart>
+            <p>compare your score to the population data distribution</p>
+            { totalScores.length > 10?
+            <div id='compare-to-population-totals-section'>
+                <TotalSummaryChart totalScores = {totalScores} userTotal = {calculateTotalScore()}></TotalSummaryChart>
+            </div> : null}
             {getListOfQuestions()}
         </div>
     );

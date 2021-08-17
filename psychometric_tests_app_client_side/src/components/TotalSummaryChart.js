@@ -19,19 +19,22 @@ const TotalSummaryChart = function({totalScores}) {
 
     return (
         <div>
-            <Chart
-                width={2000}
-                height={300}
-                chartType='Histogram'
-                data={
+            
+            <div id='totals-chart'>
+                <Chart
+                    width={1000}
+                    height={300}
+                    chartType='Histogram'
+                    data={
                 
-                    getDataForTotalsHistogram()
-                }
-                options={{
-                    legend: { position: 'none'}
-                }}
+                        getDataForTotalsHistogram()
+                    }
+                    options={{
+                        legend: { position: 'none'}
+                    }}
                 
-            ></Chart>
+                ></Chart>
+            </div>
         </div>
     );
 };
