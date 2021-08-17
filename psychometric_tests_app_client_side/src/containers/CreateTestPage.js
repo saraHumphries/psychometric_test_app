@@ -97,35 +97,40 @@ const CreateTestPage = function() {
             questionText: evt.target['question-input-1'].value,
             test: {
                 id: newPsychometricTest.id
-            }
+            },
+            reversed: false
         };
         const question2 = {
             ordering: 1,
             questionText: evt.target['question-input-2'].value,
             test: {
                 id: newPsychometricTest.id
-            }
+            },
+            reversed: false
         };
         const question3 = {
             ordering: 2,
             questionText: evt.target['question-input-3'].value,
             test: {
                 id: newPsychometricTest.id
-            }
+            },
+            reversed: false
         };
         const question4 = {
             ordering: 3,
             questionText: evt.target['question-input-4'].value,
             test: {
                 id: newPsychometricTest.id
-            }
+            },
+            reversed: false
         };
         const question5 = {
             ordering: 4,
             questionText: evt.target['question-input-5'].value,
             test: {
                 id: newPsychometricTest.id
-            }
+            },
+            reversed: false
         };
         QuestionsService.postQuestion(question1)
             .then(() => updateQuestions(question1));
