@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import SummaryQuestionBox from "../components/SummaryQuestionBox";
 import { useLocation } from "react-router";
 import TestAttemptService from "../services/TestAttemptsService";
+import TotalSummaryChart from "../components/TotalSummaryChart";
 
 const Summary = function() {
 
@@ -76,6 +77,7 @@ const Summary = function() {
             {psychometricTest? <h2>{psychometricTest.title} population data summary</h2>: null}
             <p>Some text about the scale</p>
             <h4>Your total score is {calculateTotalScore()} out of a possible {calculateTotalPossibleScore()}</h4>
+            <TotalSummaryChart userTotal = {calculateTotalScore()}></TotalSummaryChart>
             {getListOfQuestions()}
         </div>
     );

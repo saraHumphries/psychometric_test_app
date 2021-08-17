@@ -66,6 +66,23 @@ public class TestController {
         return new ResponseEntity(summaryMap, HttpStatus.OK);
     }
 
+    @GetMapping(value = "/psychometric_tests/{id}/total_scores")
+    @CrossOrigin(origins = "http://localhost:3000")
+    public ResponseEntity getTotalScores(@PathVariable Long id) {
+        String[][] totalScores = testRepository.getAllTotalScoresByTestId(id);
+
+        Map<Integer, Integer> totalScoresMap = new HashMap<>();
+        for (String[] line : totalScores) {
+            Integer testAttemptId = Integer.parseInt(line[0]);
+            Integer totalScore = Integer.parseInt(line[1]);
+
+            totalScoresMap.put(testAttemptId, totalScore);
+        }
+
+        return new ResponseEntity(totalScoresMap, HttpStatus.OK);
+    }
+
+
     @GetMapping(value = "/questions")
     @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<List<Question>> getAllQuestions() {
@@ -90,16 +107,10 @@ public class TestController {
     public ResponseEntity<List<LikertOption>> getAllLikertOptionsByCustomParams(
             @RequestParam(name = "test_id", required = false) Long test_id
     ) {
-        if(test_id != null) {
+        if (test_id != null) {
             return new ResponseEntity<>(likertOptionRepository.findLikertOptionsByTestId(test_id), HttpStatus.OK);
-        }
-        else {
+        } else {
             return new ResponseEntity<>(likertOptionRepository.findAll(), HttpStatus.OK);
         }
     }
-
-
-
-
-
 }

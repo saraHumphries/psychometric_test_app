@@ -15,4 +15,16 @@ public interface TestRepository extends JpaRepository<Test, Long> {
             "where t.id = ?1\n" +
             "group by t.id, t.title, q.id, q.question_text, a.response", nativeQuery = true)
     String[][] findTestSummaryByTestId(Long testId);
+
+
+    @Query(value = "select ta.id as test_attempt_id, sum(a.response) as total_score\n" +
+            "from tests t\n" +
+            "\n" +
+            "join test_attempts ta on ta.test_id = t.id\n" +
+            "join answers a on a.test_attempt_id = ta.id\n" +
+            "\n" +
+            "where t.id = ?1\n" +
+            "group by ta.id", nativeQuery = true)
+    String[][] getAllTotalScoresByTestId(Long testId);
+
 }
