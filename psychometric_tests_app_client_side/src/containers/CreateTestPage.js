@@ -1,6 +1,7 @@
 import PsychometricTestsService from "../services/PsychometricTestsService";
 import { useState } from "react";
 import LikertOptionsService from "../services/LikertOptionsService";
+import QuestionsService from "../services/QuestionsService";
 
 
 const CreateTestPage = function() {
@@ -85,9 +86,61 @@ const CreateTestPage = function() {
     };
 
     const updateLikerts = function(likertOption) {
-        console.log(newPsychometricTest.likertOptions);
         newPsychometricTest.likertOptions.push(likertOption);
-        console.log(newPsychometricTest.likertOptions);
+        setNewPsychometricTest(newPsychometricTest);
+    };
+
+    const onQuestionFormSubmit = function(evt) {
+        evt.preventDefault();
+        const question1 = {
+            ordering: 0,
+            questionText: evt.target['question-input-1'].value,
+            test: {
+                id: newPsychometricTest.id
+            }
+        };
+        const question2 = {
+            ordering: 1,
+            questionText: evt.target['question-input-2'].value,
+            test: {
+                id: newPsychometricTest.id
+            }
+        };
+        const question3 = {
+            ordering: 2,
+            questionText: evt.target['question-input-3'].value,
+            test: {
+                id: newPsychometricTest.id
+            }
+        };
+        const question4 = {
+            ordering: 3,
+            questionText: evt.target['question-input-4'].value,
+            test: {
+                id: newPsychometricTest.id
+            }
+        };
+        const question5 = {
+            ordering: 4,
+            questionText: evt.target['question-input-5'].value,
+            test: {
+                id: newPsychometricTest.id
+            }
+        };
+        QuestionsService.postQuestion(question1)
+            .then(() => updateQuestions(question1));
+        QuestionsService.postQuestion(question2)
+            .then(() => updateQuestions(question2));
+        QuestionsService.postQuestion(question3)
+            .then(() => updateQuestions(question3));
+        QuestionsService.postQuestion(question4)
+            .then(() => updateQuestions(question4));
+        QuestionsService.postQuestion(question5)
+            .then(() => updateQuestions(question5));
+    };
+
+    const updateQuestions = function(question) {
+        newPsychometricTest.questions.push(question);
     };
 
     return (
@@ -118,7 +171,7 @@ const CreateTestPage = function() {
 
                 <div id='question-input-section'>
                     <p>choose your questions</p>
-                    <form>
+                    <form onSubmit={onQuestionFormSubmit}>
                         <div id='questions-form'>
                             <label htmlFor='question-input-1'>Question 1:</label>
                             <input className='question-input' id='question-input-1'></input>
@@ -130,6 +183,7 @@ const CreateTestPage = function() {
                             <input className='question-input' id='question-input-4'></input>
                             <label htmlFor='question-input-5'>Question 5:</label>
                             <input className='question-input' id='question-input-5'></input>
+                            <input type='submit' value='finish'></input>
                         </div>
                     </form>
                 </div>
