@@ -20,13 +20,16 @@ const TotalSummaryChart = function({totalScores}) {
     return (
         <div>
             <Chart
-                width={800}
+                width={2000}
                 height={300}
                 chartType='Histogram'
                 data={
                 
                     getDataForTotalsHistogram()
                 }
+                options={{
+                    legend: { position: 'none'}
+                }}
                 
             ></Chart>
         </div>
