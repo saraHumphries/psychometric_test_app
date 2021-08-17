@@ -91,6 +91,27 @@ nav {
 
 /* Create test form */
 
+#whole-create-page {
+    margin: 100px;
+}
+
+.next-button {
+    color: white;
+    width: 10%;
+    height: 10%;
+    margin: 20px;
+    border-radius: 25px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: larger;
+    font-weight: 700;
+    border-style: none;
+    background-color: #C72C62;
+}
+
+#test-title {
+    width: 40%;
+}
+
 #submit-title-button {
     background-color: #C72C62;
     width: 10%;
@@ -110,14 +131,7 @@ nav {
     display: flex;
 }
 
-#questions-form {
-    display: flex;
-    flex-direction: column;
-}
 
-.question-input {
-    width: 60%;
-}
 
 
 
@@ -148,6 +162,19 @@ nav {
 }
 #likert_option_5 {
     background-color: #2ECD71;
+}
+
+#questions-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.question-input {
+    width: 60%;
+}
+
+#questions-display-section {
+    display: none;
 }
 
 
