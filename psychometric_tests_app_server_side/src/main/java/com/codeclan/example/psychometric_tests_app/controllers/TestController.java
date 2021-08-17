@@ -37,6 +37,13 @@ public class TestController {
         return new ResponseEntity<>(testRepository.findById(id), HttpStatus.OK);
     }
 
+    @PostMapping(value = "/psychometric_tests")
+    @CrossOrigin(origins = "http://localhost:3000")
+    public ResponseEntity<Test> postNewPsychometricTest(@RequestBody Test test) {
+        testRepository.save(test);
+        return new ResponseEntity<>(test, HttpStatus.CREATED);
+    }
+
     @GetMapping(value = "/psychometric_tests/{id}/summary")
     @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity getTestSummary(@PathVariable Long id) {
