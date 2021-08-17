@@ -21,6 +21,17 @@ const PsychometricTestsService = {
     getPsychometricTestsTotalScores(psychometricTestId) {
         return fetch(baseURL + `/${psychometricTestId}/total_scores`)
             .then(res => res.json());
+    },
+
+    postPsychometricTest(psychometricTest) {
+        return fetch(baseURL, {
+            method: 'POST',
+            body: JSON.stringify(psychometricTest),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(res => res.json());
     }
 };
 
