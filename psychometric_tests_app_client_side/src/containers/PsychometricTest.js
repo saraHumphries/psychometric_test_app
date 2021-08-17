@@ -4,12 +4,23 @@ import LikertOptionsService from "../services/LikertOptionsService";
 
 const PsychometricTest = function({testAttempt, psychometricTest, saveAnswer}) {
 
-    
+    const findFirstQuestion = function() {
+        let firstQuestion = null;
+        for(let question of psychometricTest.questions) {
+            if(question.ordering === 0) {
+                firstQuestion = question;
+            };
+        };
+        return firstQuestion;
+    };    
 
-    const[currentQuestion, setCurrentQuestion] = useState(psychometricTest.questions[0]);
+    const[currentQuestion, setCurrentQuestion] = useState(findFirstQuestion());
     const [endOfQuestions, setEndOfQuestions] = useState(false);
     const [questionCounter, setQuestionCounter] = useState(1);
     const [likertOptions, setLikertOptions] = useState(null);
+
+    
+
 
     useEffect(() => {
         LikertOptionsService.getLikertOptionsForTest(psychometricTest.id)
