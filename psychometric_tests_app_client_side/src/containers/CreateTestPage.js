@@ -27,6 +27,13 @@ const CreateTestPage = function() {
         likertInputs.style.display = 'block';
     };
 
+    const onLikertOptionsSubmit = function(evt) {
+        evt.preventDefault();
+        const likertOption1 = evt.target['likert_option_1'].value;
+        newPsychometricTest.likertOptions = [evt.target['likert_option_1']];
+        console.log(likertOption1);
+    };
+
     return (
 
         
@@ -40,15 +47,18 @@ const CreateTestPage = function() {
                 {newPsychometricTest? <h2 id='title-set-title'>{newPsychometricTest.title}</h2>: null}
 
                 <div id='likert-options-section'>
-                    <div>
                         <p>Fill in what you want</p>
-                    </div>
-                    <section id='likert-options-form'>
-                        <input className='likert_input' id='likert_option_1' type='text' placeholder='e.g strongly disagree'></input>
-                        <input className='likert_input' id='likert_option_2' type='text' placeholder='e.g disgaree'></input>
-                        <input className='likert_input' id='likert_option_3' type='text' placeholder='e.g neither'></input>
-                        <input className='likert_input' id='likert_option_4' type='text' placeholder='e.g disagree'></input>
-                        <input className='likert_input' id='likert_option_5' type='text' placeholder='e.g strongly disagree'></input>
+                    <section >
+                        <form onSubmit={onLikertOptionsSubmit}>
+                            <div id='likert-options-form'>
+                                <input className='likert_input' id='likert_option_1' type='text' placeholder='e.g strongly disagree'></input>
+                                <input className='likert_input' id='likert_option_2' type='text' placeholder='e.g disgaree'></input>
+                                <input className='likert_input' id='likert_option_3' type='text' placeholder='e.g neither'></input>
+                                <input className='likert_input' id='likert_option_4' type='text' placeholder='e.g disagree'></input>
+                                <input className='likert_input' id='likert_option_5' type='text' placeholder='e.g strongly disagree'></input>
+                            </div>
+                            <input id='likert-next-button' type='submit' value='next'></input>
+                        </form>
                     </section>
                 </div>
             </div>

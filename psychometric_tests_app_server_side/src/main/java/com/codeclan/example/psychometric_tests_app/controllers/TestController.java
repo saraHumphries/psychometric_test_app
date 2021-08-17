@@ -116,4 +116,12 @@ public class TestController {
             return new ResponseEntity<>(likertOptionRepository.findAll(), HttpStatus.OK);
         }
     }
+
+    @GetMapping(value = "/likert_options/{id}")
+    @CrossOrigin(origins = "http://localhost:3000")
+    public ResponseEntity<Optional<LikertOption>> getLikertOptionById (@PathVariable Long id) {
+        return new ResponseEntity<>(likertOptionRepository.findById(id), HttpStatus.OK);
+    }
+
+
 }
