@@ -51,6 +51,11 @@ function PsychometricTestContainer() {
     };
 
     const saveAnswer = function(currentQuestion, response) {
+        let responseToSave = response;
+        if(currentQuestion.reversed) {
+            responseToSave = 6 - response;
+        };
+        console.log(responseToSave);
         const answerObject = {
             testAttempt: {
                 id: testAttempt.id
@@ -58,7 +63,7 @@ function PsychometricTestContainer() {
             question: {
                 id: currentQuestion.id
             },
-            response: response
+            response: responseToSave
         }
         AnswersService.postAnswer(answerObject);
     };
