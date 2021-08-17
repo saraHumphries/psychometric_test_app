@@ -36,10 +36,14 @@ public class Question {
 //    @JsonManagedReference(value = "question_answers")
     private List<Answer> answers;
 
+    @Column(name = "reversed")
+    private Boolean reversed;
 
-    public Question(Integer ordering, String questionText, Test test) {
+
+    public Question(Integer ordering, String questionText, Boolean reversed, Test test) {
         this.ordering = ordering;
         this.questionText = questionText;
+        this.reversed = reversed;
         this.test = test;
         this.answers = new ArrayList<>();
     }
@@ -86,5 +90,13 @@ public class Question {
 
     public void setOrdering(Integer ordering) {
         this.ordering = ordering;
+    }
+
+    public Boolean getReversed() {
+        return reversed;
+    }
+
+    public void setReversed(Boolean reversed) {
+        this.reversed = reversed;
     }
 }

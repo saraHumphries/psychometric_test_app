@@ -66,29 +66,29 @@ public class DataLoader implements ApplicationRunner {
 
 
 
-        Question question12 = new Question(0, "I consider how things might be in the future, and try to influence those things with my day to day behaviour", considerationOfFutureConsequencesScale);
+        Question question12 = new Question(0, "I consider how things might be in the future, and try to influence those things with my day to day behaviour", false, considerationOfFutureConsequencesScale);
         questionRepository.save(question12);
-        Question question13 = new Question(1, "Often I engage in a particular behavior in order to achieve outcomes that may not result for many years", considerationOfFutureConsequencesScale);
+        Question question13 = new Question(1, "Often I engage in a particular behavior in order to achieve outcomes that may not result for many years", false, considerationOfFutureConsequencesScale);
         questionRepository.save(question13);
-        Question question14 = new Question(2, "I only act to satisfy immediate concerns, figuring the future will take care of itself", considerationOfFutureConsequencesScale);
+        Question question14 = new Question(2, "I only act to satisfy immediate concerns, figuring the future will take care of itself", true, considerationOfFutureConsequencesScale);
         questionRepository.save(question14);
-        Question question15 = new Question(3, "My behaviour is only influenced by the immediate (i.e., a matter of days or weeks) outcomes of my actions", considerationOfFutureConsequencesScale);
+        Question question15 = new Question(3, "My behaviour is only influenced by the immediate (i.e., a matter of days or weeks) outcomes of my actions", true, considerationOfFutureConsequencesScale);
         questionRepository.save(question15);
-        Question question16 = new Question(4, "My convenience is a big factor in the decisions I make or the actions I take", considerationOfFutureConsequencesScale);
+        Question question16 = new Question(4, "My convenience is a big factor in the decisions I make or the actions I take", true, considerationOfFutureConsequencesScale);
         questionRepository.save(question16);
-        Question question17 = new Question(5, "I am willing to sacrifice my immediate happiness or well-being in order to achieve future outcomes", considerationOfFutureConsequencesScale);
+        Question question17 = new Question(5, "I am willing to sacrifice my immediate happiness or well-being in order to achieve future outcomes", false, considerationOfFutureConsequencesScale);
         questionRepository.save(question17);
-        Question question18 = new Question(6, "I think it is important to take warnings about negative outcomes seriously even if the negative outcome will not occur for many years", considerationOfFutureConsequencesScale);
+        Question question18 = new Question(6, "I think it is important to take warnings about negative outcomes seriously even if the negative outcome will not occur for many years", false, considerationOfFutureConsequencesScale);
         questionRepository.save(question18);
-        Question question19 = new Question(7, "I think it is more important to perform a behaviour with important distant consequences than a behaviour with less-important immediate consequences", considerationOfFutureConsequencesScale);
+        Question question19 = new Question(7, "I think it is more important to perform a behaviour with important distant consequences than a behaviour with less-important immediate consequences", false, considerationOfFutureConsequencesScale);
         questionRepository.save(question19);
-        Question question20 = new Question(8, "I generally ignore warnings about possible future problems because I think the problems will be resolved before they reach crisis level", considerationOfFutureConsequencesScale);
+        Question question20 = new Question(8, "I generally ignore warnings about possible future problems because I think the problems will be resolved before they reach crisis level", true, considerationOfFutureConsequencesScale);
         questionRepository.save(question20);
-        Question question21 = new Question(9, "I think that sacrificing now is usually unnecessary since future outcomes can be dealt with at a later time", considerationOfFutureConsequencesScale);
+        Question question21 = new Question(9, "I think that sacrificing now is usually unnecessary since future outcomes can be dealt with at a later time", true, considerationOfFutureConsequencesScale);
         questionRepository.save(question21);
-        Question question22 = new Question(10, "I only act to satisfy immediate concerns, figuring that I will take care of future problems that may occur at a later date", considerationOfFutureConsequencesScale);
+        Question question22 = new Question(10, "I only act to satisfy immediate concerns, figuring that I will take care of future problems that may occur at a later date", true, considerationOfFutureConsequencesScale);
         questionRepository.save(question22);
-        Question question23 = new Question(11, "Since my day to day work has specific outcomes, it is more important to me than behavior that has distant outcomes", considerationOfFutureConsequencesScale);
+        Question question23 = new Question(11, "Since my day to day work has specific outcomes, it is more important to me than behavior that has distant outcomes", true, considerationOfFutureConsequencesScale);
         questionRepository.save(question23);
 
 
@@ -105,17 +105,17 @@ public class DataLoader implements ApplicationRunner {
         LikertOption likertOption10 = new LikertOption("agree", 5, natureRelatednessScale);
         likertOptionRepository.save(likertOption10);
 
-        Question question1 = new Question(0, "My ideal vacation spot would be a remote, wilderness area.", natureRelatednessScale);
+        Question question1 = new Question(0, "My ideal vacation spot would be a remote, wilderness area.", false, natureRelatednessScale);
         questionRepository.save(question1);
-        Question question2 = new Question(1, "I always think about how my actions affect the environment.", natureRelatednessScale);
+        Question question2 = new Question(1, "I always think about how my actions affect the environment.", false, natureRelatednessScale);
         questionRepository.save(question2);
-        Question question3 = new Question(2, "My connection to nature and the environment is a part of my spirituality.", natureRelatednessScale);
+        Question question3 = new Question(2, "My connection to nature and the environment is a part of my spirituality.", false, natureRelatednessScale);
         questionRepository.save(question3);
-        Question question4 = new Question(3, "I take notice of wildlife wherever I am.", natureRelatednessScale);
+        Question question4 = new Question(3, "I take notice of wildlife wherever I am.", false, natureRelatednessScale);
         questionRepository.save(question4);
-        Question question5 = new Question(4, "My relationship to nature is an important part of who I am.", natureRelatednessScale);
+        Question question5 = new Question(4, "My relationship to nature is an important part of who I am.", false, natureRelatednessScale);
         questionRepository.save(question5);
-        Question question6 = new Question(5, "I feel very connected to all living things and the earth.", natureRelatednessScale);
+        Question question6 = new Question(5, "I feel very connected to all living things and the earth.", false, natureRelatednessScale);
         questionRepository.save(question6);
 
 
