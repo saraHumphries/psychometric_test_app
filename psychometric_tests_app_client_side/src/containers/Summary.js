@@ -81,7 +81,7 @@ const Summary = function() {
             <p>Some text about the scale</p>
             <h4>Your total score is {calculateTotalScore()}</h4>
             <p>compare your score to the population data distribution</p>
-            { totalScores.length > 10?
+            { totalScores && totalScores.length > 10?
             <div id='compare-to-population-totals-section'>
                 <TotalSummaryChart totalScores = {totalScores} userTotal = {calculateTotalScore()}></TotalSummaryChart>
             </div> : null}
