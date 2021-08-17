@@ -23,6 +23,11 @@ const CreateTestPage = function() {
         titleForm.style.display = 'none';
     };
 
+    const makeQuestionInputsVisible = function() {
+        const questionInputs = document.getElementById('question-input-section');
+        questionInputs.style.display = 'block';
+    };
+
     const makeLikertInputsVisible = function() {
         const likertInputs = document.getElementById('likert-options-section');
         likertInputs.style.display = 'block';
@@ -30,6 +35,7 @@ const CreateTestPage = function() {
 
     const onLikertOptionsSubmit = function(evt) {
         evt.preventDefault();
+
         const likertOption1 = {
             likertText: evt.target['likert_option_1'].value,
             likertValue: 1,
@@ -75,6 +81,7 @@ const CreateTestPage = function() {
             .then(() => updateLikerts(likertOption4));
         LikertOptionsService.postLikertOption(likertOption5)
             .then(() => updateLikerts(likertOption5));
+        makeQuestionInputsVisible();
     };
 
     const updateLikerts = function(likertOption) {
@@ -97,7 +104,6 @@ const CreateTestPage = function() {
 
                 <div id='likert-options-section'>
                         <p>Fill in what you want</p>
-                    <section >
                         <form onSubmit={onLikertOptionsSubmit}>
                             <div id='likert-options-form'>
                                 <input className='likert_input' id='likert_option_1' type='text' placeholder='e.g strongly disagree'></input>
@@ -108,7 +114,24 @@ const CreateTestPage = function() {
                             </div>
                             <input id='likert-next-button' type='submit' value='next'></input>
                         </form>
-                    </section>
+                </div>
+
+                <div id='question-input-section'>
+                    <p>choose your questions</p>
+                    <form>
+                        <div id='questions-form'>
+                            <label htmlFor='question-input-1'>Question 1:</label>
+                            <input className='question-input' id='question-input-1'></input>
+                            <label htmlFor='question-input-2'>Question 2:</label>
+                            <input className='question-input' id='question-input-2'></input>
+                            <label htmlFor='question-input-3'>Question 3:</label>
+                            <input className='question-input' id='question-input-3'></input>
+                            <label htmlFor='question-input-4'>Question 4:</label>
+                            <input className='question-input' id='question-input-4'></input>
+                            <label htmlFor='question-input-5'>Question 5:</label>
+                            <input className='question-input' id='question-input-5'></input>
+                        </div>
+                    </form>
                 </div>
             </div>
         

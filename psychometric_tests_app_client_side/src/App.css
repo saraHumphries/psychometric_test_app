@@ -102,8 +102,21 @@ nav {
     flex-direction: column;
 }
 
+#question-input-section {
+    display: none;
+}
+
 #likert-options-form {
     display: flex;
+}
+
+#questions-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.question-input {
+    width: 60%;
 }
 
 
