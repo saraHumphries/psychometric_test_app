@@ -15,13 +15,16 @@ const Summary = function() {
     
 
     const [summaryResults, setSummaryResults] = useState(null);
-    const [testAttempt, setTestAttempt] = useState(null); 
+    const [testAttempt, setTestAttempt] = useState(null);
+    const [totalScores, setTotalScores] = useState(null); 
 
     useEffect(() => {
         PsychometricTestsService.getPsychometricTestsSummaries(psychometricTest.id)
             .then(res => setSummaryResults(res));
         TestAttemptService.getTestAttemptById(testAttemptId)
             .then(res => setTestAttempt(res));
+        PsychometricTestsService.getPsychometricTestsTotalScores(psychometricTest.id)
+            .then(res => setTotalScores(res));
     }, [testAttemptId]);
 
     const getQuestionSummary = function(questionId) {
@@ -77,7 +80,7 @@ const Summary = function() {
             {psychometricTest? <h2>{psychometricTest.title} population data summary</h2>: null}
             <p>Some text about the scale</p>
             <h4>Your total score is {calculateTotalScore()} out of a possible {calculateTotalPossibleScore()}</h4>
-            <TotalSummaryChart userTotal = {calculateTotalScore()}></TotalSummaryChart>
+            <TotalSummaryChart totalScores = {totalScores} userTotal = {calculateTotalScore()}></TotalSummaryChart>
             {getListOfQuestions()}
         </div>
     );

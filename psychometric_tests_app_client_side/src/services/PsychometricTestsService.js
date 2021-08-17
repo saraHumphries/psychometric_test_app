@@ -16,6 +16,11 @@ const PsychometricTestsService = {
     getPsychometricTestsSummaries(psychometricTestId) {
         return fetch(baseURL + `/${psychometricTestId}/summary`)
             .then(res => res.json());
+    },
+
+    getPsychometricTestsTotalScores(psychometricTestId) {
+        return fetch(baseURL + `/${psychometricTestId}/total_scores`)
+            .then(res => res.json());
     }
 };
 
