@@ -4,7 +4,17 @@ import Chart from "react-google-charts";
 const TotalSummaryChart = function({totalScores}) {
 
     
-
+    const getDataForTotalsHistogram = function() {
+        if(totalScores) {
+            const data = totalScores.map((totalScore, index) => {
+                return [index.toString(), totalScore]
+            });
+            data.unshift(['index', 'totalScore']);
+            return data
+        };
+    };
+    
+   
 
 
     return (
@@ -12,14 +22,12 @@ const TotalSummaryChart = function({totalScores}) {
             <Chart
                 width={800}
                 height={300}
-                chartType='CandlestickChart'
-                data={[
-                    ['day', 'a', 'b', 'c', 'd'],
-                    ['Mon', 20, 28, 38, 45]
-                ]}
-                options={{
-                    orientation: 'vertical' 
-                }}
+                chartType='Histogram'
+                data={
+                
+                    getDataForTotalsHistogram()
+                }
+                
             ></Chart>
         </div>
     );
