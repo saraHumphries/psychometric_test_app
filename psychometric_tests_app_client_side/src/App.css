@@ -97,6 +97,11 @@ nav {
     height: 10%
 }
 
+#likert-options-section {
+    display: none;
+    flex-direction: column;
+}
+
 #likert-options-form {
     display: flex;
 }
