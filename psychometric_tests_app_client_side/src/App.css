@@ -97,6 +97,42 @@ nav {
     height: 10%
 }
 
+#likert-options-form {
+    display: flex;
+}
+
+
+
+.likert_input {
+    color: white;
+    width: 20%;
+    height: 100px;
+    margin: 20px;
+    border-radius: 25px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: larger;
+    font-weight: 700;
+    border-style: none;
+    text-align: center;
+}
+
+#likert_option_1 {
+    background-color: #BF3A2B;
+}
+#likert_option_2 {
+    background-color: #E77E23;
+}
+#likert_option_3 {
+    background-color: #3499DC;
+}
+#likert_option_4 {
+    background-color: #16A186;
+}
+#likert_option_5 {
+    background-color: #2ECD71;
+}
+
+
 
  
 
