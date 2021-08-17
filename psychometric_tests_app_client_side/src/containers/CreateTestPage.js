@@ -33,29 +33,54 @@ const CreateTestPage = function() {
         const likertOption1 = {
             likertText: evt.target['likert_option_1'].value,
             likertValue: 1,
-            test: newPsychometricTest
+            test: {
+                id: newPsychometricTest.id
+            }
         };
         const likertOption2 = {
             likertText: evt.target['likert_option_2'].value,
             likertValue: 2,
-            test: newPsychometricTest
+            test: {
+                id: newPsychometricTest.id
+            }
         };
         const likertOption3 = {
             likertText: evt.target['likert_option_3'].value,
             likertValue: 3,
-            test: newPsychometricTest
+            test: {
+                id: newPsychometricTest.id
+            }
         };
         const likertOption4 = {
             likertText: evt.target['likert_option_4'].value,
             likertValue: 4,
-            test: newPsychometricTest
+            test: {
+                id: newPsychometricTest.id
+            }
         };
         const likertOption5 = {
             likertText: evt.target['likert_option_5'].value,
             likertValue: 5,
-            test: newPsychometricTest
+            test: {
+                id: newPsychometricTest.id
+            }
         };
-       
+        LikertOptionsService.postLikertOption(likertOption1)
+            .then(() => updateLikerts(likertOption1));
+        LikertOptionsService.postLikertOption(likertOption2)
+            .then(() => updateLikerts(likertOption2));
+        LikertOptionsService.postLikertOption(likertOption3)
+            .then(() => updateLikerts(likertOption3));
+        LikertOptionsService.postLikertOption(likertOption4)
+            .then(() => updateLikerts(likertOption4));
+        LikertOptionsService.postLikertOption(likertOption5)
+            .then(() => updateLikerts(likertOption5));
+    };
+
+    const updateLikerts = function(likertOption) {
+        console.log(newPsychometricTest.likertOptions);
+        newPsychometricTest.likertOptions.push(likertOption);
+        console.log(newPsychometricTest.likertOptions);
     };
 
     return (
