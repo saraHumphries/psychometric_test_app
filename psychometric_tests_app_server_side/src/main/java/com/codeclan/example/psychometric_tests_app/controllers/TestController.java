@@ -123,5 +123,12 @@ public class TestController {
         return new ResponseEntity<>(likertOptionRepository.findById(id), HttpStatus.OK);
     }
 
+    @PostMapping(value = "/likert_options")
+    @CrossOrigin(origins = "http://localhost:3000")
+    public ResponseEntity<LikertOption> postLikertOption(@RequestBody LikertOption likertOption) {
+        likertOptionRepository.save(likertOption);
+        return new ResponseEntity<>(likertOption, HttpStatus.OK);
+    }
+
 
 }

@@ -1,5 +1,6 @@
 import PsychometricTestsService from "../services/PsychometricTestsService";
 import { useState } from "react";
+import LikertOptionsService from "../services/LikertOptionsService";
 
 
 const CreateTestPage = function() {
@@ -29,9 +30,32 @@ const CreateTestPage = function() {
 
     const onLikertOptionsSubmit = function(evt) {
         evt.preventDefault();
-        const likertOption1 = evt.target['likert_option_1'].value;
-        newPsychometricTest.likertOptions = [evt.target['likert_option_1']];
-        console.log(likertOption1);
+        const likertOption1 = {
+            likertText: evt.target['likert_option_1'].value,
+            likertValue: 1,
+            test: newPsychometricTest
+        };
+        const likertOption2 = {
+            likertText: evt.target['likert_option_2'].value,
+            likertValue: 2,
+            test: newPsychometricTest
+        };
+        const likertOption3 = {
+            likertText: evt.target['likert_option_3'].value,
+            likertValue: 3,
+            test: newPsychometricTest
+        };
+        const likertOption4 = {
+            likertText: evt.target['likert_option_4'].value,
+            likertValue: 4,
+            test: newPsychometricTest
+        };
+        const likertOption5 = {
+            likertText: evt.target['likert_option_5'].value,
+            likertValue: 5,
+            test: newPsychometricTest
+        };
+       
     };
 
     return (
