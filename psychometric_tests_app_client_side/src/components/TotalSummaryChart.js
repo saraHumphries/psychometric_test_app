@@ -1,7 +1,27 @@
+import Chart from "react-google-charts";
 
-const TotalSummaryChart = function() {
+
+const TotalSummaryChart = function({totalScores}) {
+
+    
+
+
+
     return (
-        <h1>Chart</h1>
+        <div>
+            <Chart
+                width={800}
+                height={300}
+                chartType='CandlestickChart'
+                data={[
+                    ['day', 'a', 'b', 'c', 'd'],
+                    ['Mon', 20, 28, 38, 45]
+                ]}
+                options={{
+                    orientation: 'vertical' 
+                }}
+            ></Chart>
+        </div>
     );
 };
 
