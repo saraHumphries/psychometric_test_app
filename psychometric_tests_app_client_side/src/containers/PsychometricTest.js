@@ -29,13 +29,21 @@ const PsychometricTest = function({testAttempt, psychometricTest, saveAnswer}) {
 
 
     const moveToNextQuestion = function() {
-        const currentQuestionIndex = psychometricTest.questions.indexOf(currentQuestion);
-        const nextQuestion = psychometricTest.questions[currentQuestionIndex+1];
+        const currentQuestionOrder = currentQuestion.ordering;
+        const nextQuestionOrder = currentQuestionOrder + 1;
+        let nextQuestion = null;
+        // const currentQuestionIndex = psychometricTest.questions.indexOf(currentQuestion);
+        // const nextQuestion = psychometricTest.questions[currentQuestionIndex+1];
+        for(let question of psychometricTest.questions) {
+            if (question.ordering === nextQuestionOrder) {
+                nextQuestion = question;
+            };
+        };
         setCurrentQuestion(nextQuestion);
         setQuestionCounter(questionCounter+1);
         if (questionCounter >= psychometricTest.questions.length) {
             setEndOfQuestions(true);
-        }
+        };
     };
  
 
