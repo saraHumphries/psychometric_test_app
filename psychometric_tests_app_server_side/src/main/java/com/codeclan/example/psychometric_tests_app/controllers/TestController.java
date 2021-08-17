@@ -11,10 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 @RestController
 public class TestController {
@@ -71,15 +68,14 @@ public class TestController {
     public ResponseEntity getTotalScores(@PathVariable Long id) {
         String[][] totalScores = testRepository.getAllTotalScoresByTestId(id);
 
-        Map<Integer, Integer> totalScoresMap = new HashMap<>();
+        List<Integer> totalScoresList = new ArrayList<>();
         for (String[] line : totalScores) {
-            Integer testAttemptId = Integer.parseInt(line[0]);
             Integer totalScore = Integer.parseInt(line[1]);
 
-            totalScoresMap.put(testAttemptId, totalScore);
+            totalScoresList.add(totalScore);
         }
 
-        return new ResponseEntity(totalScoresMap, HttpStatus.OK);
+        return new ResponseEntity(totalScoresList, HttpStatus.OK);
     }
 
 
