@@ -153,8 +153,7 @@ const CreateTestPage = function() {
 
     const onQuestionFormSubmit = function(evt) {
         evt.preventDefault();
-        const previousQuestionText = document.getElementById(`question-input-${numberOfQuestions}`).value;
-        addQuestionToTest(previousQuestionText);
+
         hideAllFormsSection();
         MakeEndTextVisible();
     };
