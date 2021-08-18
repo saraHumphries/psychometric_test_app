@@ -31,9 +31,8 @@ public class Question {
     @JoinColumn(name = "test_id", nullable = false)
     private Test test;
 
-    @OneToMany(mappedBy = "question", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "question", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonIgnore
-//    @JsonManagedReference(value = "question_answers")
     private List<Answer> answers;
 
     @Column(name = "reversed")

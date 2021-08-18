@@ -34,7 +34,7 @@ public class TestAttempt {
     @JoinColumn(name = "test_id", nullable = false)
     private Test test;
 
-    @OneToMany(mappedBy = "testAttempt", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "testAttempt", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonIgnoreProperties(value = "testAttempt")
     private List<Answer> answers;
 

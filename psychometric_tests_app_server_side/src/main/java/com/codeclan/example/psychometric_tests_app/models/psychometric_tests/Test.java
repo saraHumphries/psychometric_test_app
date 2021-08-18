@@ -26,16 +26,16 @@ public class Test {
     @Column(name = "info")
     private String info;
 
-    @OneToMany(mappedBy = "test", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "test", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonManagedReference(value = "test_questions")
     private List<Question> questions;
 
-    @OneToMany(mappedBy = "test", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "test", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonIgnore
 //    @JsonManagedReference(value = "test_test_attempts")
     private List<TestAttempt> testAttempts;
 
-    @OneToMany(mappedBy = "test", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "test", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonIgnoreProperties(value = "test")
     private List<LikertOption> likertOptions;
 
