@@ -8,14 +8,15 @@ import { Link } from "react-router-dom";
 const CreateTestPage = function() {
 
     const [newPsychometricTest, setNewPsychometricTest] = useState(null);
-    const [listOfQuestions, setListOfQuestions] = useState([]);
+    
 
     const onTitleSubmit = function() {
         const title = document.getElementById('test-title').value;
+        const info = document.getElementById('text-info').value;
         const currentDate = new Date();
         const psychometricTestToPost = {
             title: title,
-            info: `Custom-made scale created ${currentDate}`
+            info: `Custom-made scale created ${currentDate}. ${info}` 
         };
         PsychometricTestsService.postPsychometricTest(psychometricTestToPost)
             .then(res => setNewPsychometricTest(res));
