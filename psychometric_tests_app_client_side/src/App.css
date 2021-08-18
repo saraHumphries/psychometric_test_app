@@ -180,6 +180,12 @@ nav {
     display: none;
 }
 
+#add-question-button {
+    height: 10%;
+    background-color: #C72C62;
+    
+}
+
 #likert-options-form {
     display: flex;
 }
