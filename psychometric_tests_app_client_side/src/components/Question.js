@@ -6,7 +6,7 @@ const Question = function({likertOptions, psychometricTest, saveAnswer, currentQ
         <div id='whole-question'>
             {!endOfQuestions?
                 <div>
-                    <p>To what extent do you agree or disagree with the following statement?</p>
+                    <p>Pick an option that best represents how you feel about the following:</p>
                     <h3>{currentQuestion.questionText}</h3>
                 </div>
             : null}
