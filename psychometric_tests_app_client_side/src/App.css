@@ -69,9 +69,9 @@ nav {
 }
 
 #delete-test-button {
-    width:100px;
+    width:80px;
     height: 20px;
-    font-size: x-small;
+    font-size: small;
     background-color: #BF3A2B;
 }
 
