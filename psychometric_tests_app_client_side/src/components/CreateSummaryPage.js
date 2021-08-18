@@ -1,10 +1,18 @@
+import { useEffect } from "react";
 import { useLocation } from "react-router";
+import QuestionsService from "../services/QuestionsService";
 
 const CreateSummaryPage = function() {
 
     const data = useLocation();
     const newPsychometricTest = data.state.newPsychometricTest;
 
+    const [questions, setQuestions] = useState([]);
+
+    useEffect(() => {
+        QuestionsService.getQuestionsByPsychometricTestId(newPsychometricTest.id)
+            .then(res => setQuestions(res));
+    }, []);
 
     const getLikertButtons = function() {
             newPsychometricTest.likertOptions.sort((a,b) => a.likertValue - b.likertValue);
@@ -15,10 +23,23 @@ const CreateSummaryPage = function() {
         
     };
 
+    const getQuestions = function() {
+        questions.sort((a,b) => a.ordering - b.ordering);
+        const questions = questions.map((question) => {
+            return <div>
+                <p>To what extent do you agree or disagree with the following statement?</p>
+                <h3>{question.questionText}</h3>
+                <div className='likert-buttons'>{getLikertButtons()}</div>
+            </div>;
+        });
+        console.log(questions);
+        return questions;
+    };
+
     return (
         <div>
             <h2>Your Summary</h2>
-            <div className='likert-buttons'>{getLikertButtons()}</div>
+            {getQuestions()}
         </div>
     );
 

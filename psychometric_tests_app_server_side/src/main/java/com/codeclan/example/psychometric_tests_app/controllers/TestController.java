@@ -88,7 +88,12 @@ public class TestController {
 
     @GetMapping(value = "/questions")
     @CrossOrigin(origins = "http://localhost:3000")
-    public ResponseEntity<List<Question>> getAllQuestions() {
+    public ResponseEntity<List<Question>> getAllQuestionsbyCustomeParams(
+            @RequestParam(name = "psychometric_test_id", required = false) Long psychometric_test_id
+    ) {
+        if(psychometric_test_id != null) {
+            return new ResponseEntity<>(questionRepository.findQuestionsByTestId(psychometric_test_id), HttpStatus.OK);
+        }
         return new ResponseEntity<>(questionRepository.findAll(), HttpStatus.OK);
     }
 

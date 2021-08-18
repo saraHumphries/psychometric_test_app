@@ -216,12 +216,7 @@ const CreateTestPage = function() {
                             </div>
                         </form>
                     </div>
-                </div>
-
-                
-                    
-                    
-               
+                </div> 
             </div>
         
     );
