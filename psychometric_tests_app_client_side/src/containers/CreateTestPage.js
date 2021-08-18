@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 const CreateTestPage = function() {
 
     const [newPsychometricTest, setNewPsychometricTest] = useState(null);
+    const [listOfQuestions, setListOfQuestions] = useState([]);
 
     const onTitleSubmit = function() {
         const title = document.getElementById('test-title').value;
@@ -119,6 +120,9 @@ const CreateTestPage = function() {
     let numberOfQuestions = 1;
 
     const addAnotherQuestionInput = function() {
+        const previousQuestionText = document.getElementById(`question-input-${numberOfQuestions}`).value;
+        addQuestionToTest(previousQuestionText);
+
         const questionsForm = document.getElementById('questions-form');
         const newInputLabel = document.createElement('label');
         newInputLabel.htmlFor = `question-input-${numberOfQuestions+1}`;
@@ -126,66 +130,29 @@ const CreateTestPage = function() {
         const newInputBox = document.createElement('input');
         newInputBox.id = `question-input-${numberOfQuestions+1}`;
         newInputBox.className = 'question-input';
-        
-
-        
+    
         questionsForm.appendChild(newInputLabel);
         questionsForm.appendChild(newInputBox);
+
         numberOfQuestions += 1;
+    };
+
+    const addQuestionToTest = function(questionText) {
+        const questionToAdd = {
+            ordering: numberOfQuestions-1,
+            questionText: questionText,
+            test: {
+                id: newPsychometricTest.id
+            },
+            reversed: false
+        };
+        QuestionsService.postQuestion(questionToAdd)
+             .then(() => updateQuestions(questionToAdd));
+
     };
 
     const onQuestionFormSubmit = function(evt) {
         evt.preventDefault();
-        // const question1 = {
-        //     ordering: 0,
-        //     questionText: evt.target['question-input-1'].value,
-        //     test: {
-        //         id: newPsychometricTest.id
-        //     },
-        //     reversed: false
-        // };
-        // const question2 = {
-        //     ordering: 1,
-        //     questionText: evt.target['question-input-2'].value,
-        //     test: {
-        //         id: newPsychometricTest.id
-        //     },
-        //     reversed: false
-        // };
-        // const question3 = {
-        //     ordering: 2,
-        //     questionText: evt.target['question-input-3'].value,
-        //     test: {
-        //         id: newPsychometricTest.id
-        //     },
-        //     reversed: false
-        // };
-        // const question4 = {
-        //     ordering: 3,
-        //     questionText: evt.target['question-input-4'].value,
-        //     test: {
-        //         id: newPsychometricTest.id
-        //     },
-        //     reversed: false
-        // };
-        // const question5 = {
-        //     ordering: 4,
-        //     questionText: evt.target['question-input-5'].value,
-        //     test: {
-        //         id: newPsychometricTest.id
-        //     },
-        //     reversed: false
-        // };
-        // QuestionsService.postQuestion(question1)
-        //     .then(() => updateQuestions(question1));
-        // QuestionsService.postQuestion(question2)
-        //     .then(() => updateQuestions(question2));
-        // QuestionsService.postQuestion(question3)
-        //     .then(() => updateQuestions(question3));
-        // QuestionsService.postQuestion(question4)
-        //     .then(() => updateQuestions(question4));
-        // QuestionsService.postQuestion(question5)
-        //     .then(() => updateQuestions(question5));
 
         hideAllFormsSection();
         MakeEndTextVisible();
