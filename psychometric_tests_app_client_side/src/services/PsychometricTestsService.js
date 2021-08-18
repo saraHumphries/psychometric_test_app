@@ -32,6 +32,12 @@ const PsychometricTestsService = {
             }
         })
             .then(res => res.json());
+    },
+
+    deletePsychometircTestById(id) {
+        return fetch(baseURL + id, {
+            method: 'DELETE'
+        })
     }
 };
 

@@ -67,13 +67,19 @@ function PsychometricTestContainer() {
         AnswersService.postAnswer(answerObject);
     };
 
+    const deletePsychometricTest = function(psychometricTestToDelete) {
+        PsychometricTestsService.deletePsychometricTestById(psychometricTestToDelete)
+            .then(() => PsychometricTestsService.getPsychometricTests())
+            .then((res) => setPsychometricTests(res));
+    };
+
 
     return (
         <div>
             <div id='test-list'>
             <h3>Select a scale to try, and see your result compared to general population data</h3>
                 <div id='tests'>
-                    <PsychometricTestList onPsychometricTestClick = {onPsychometricTestClick} psychometricTests = {psychometricTests}></PsychometricTestList>
+                    <PsychometricTestList deletePsychometricTest={deletePsychometricTest} onPsychometricTestClick = {onPsychometricTestClick} psychometricTests = {psychometricTests}></PsychometricTestList>
                 </div>
             </div>
             {selectedPsychometricTest ? <PsychometricTest saveAnswer = {saveAnswer} testAttempt = {testAttempt} psychometricTest = {selectedPsychometricTest}></PsychometricTest> : null}

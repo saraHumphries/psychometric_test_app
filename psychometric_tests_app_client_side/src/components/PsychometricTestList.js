@@ -1,10 +1,10 @@
 import ListItem from "./ListItem";
 
-const PsychometricTestList = function({psychometricTests, onPsychometricTestClick}) {
+const PsychometricTestList = function({deletePsychometricTest, psychometricTests, onPsychometricTestClick}) {
 
     const psychometricTestsList = psychometricTests.map((psychometricTest) => {
         return <div id='tests'>
-            <ListItem key = {psychometricTest.id} psychometricTest = {psychometricTest} onPsychometricTestClick= {onPsychometricTestClick}></ListItem>
+            <ListItem deletePsychometricTest={deletePsychometricTest} key = {psychometricTest.id} psychometricTest = {psychometricTest} onPsychometricTestClick= {onPsychometricTestClick}></ListItem>
         </div>
     });
 

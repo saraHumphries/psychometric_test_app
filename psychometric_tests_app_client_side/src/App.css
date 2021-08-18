@@ -68,6 +68,13 @@ nav {
     min-width: 400px;
 }
 
+#delete-test-button {
+    width:100px;
+    height: 20px;
+    font-size: x-small;
+    background-color: #BF3A2B;
+}
+
  /* Answer section */
 
  #test-container {

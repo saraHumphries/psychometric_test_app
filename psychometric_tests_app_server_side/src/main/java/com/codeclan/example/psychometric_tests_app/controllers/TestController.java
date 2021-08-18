@@ -44,6 +44,14 @@ public class TestController {
         return new ResponseEntity<>(test, HttpStatus.CREATED);
     }
 
+    @DeleteMapping(value = "/psychometric_tests/{id}")
+    @CrossOrigin(origins = "http://localhost:3000")
+    public ResponseEntity deletePsychometricTestById(@PathVariable Long id) {
+        testRepository.deleteById(id);
+        return new ResponseEntity<>(HttpStatus.GONE);
+    }
+
+
     @GetMapping(value = "/psychometric_tests/{id}/summary")
     @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity getTestSummary(@PathVariable Long id) {
