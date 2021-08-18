@@ -6,6 +6,9 @@
      font-family: 'Noto Sans JP', sans-serif;
      margin: 10px
  }
+ a {
+     color: white;
+ }
 
  button {
     color: white;
@@ -31,21 +34,13 @@ nav {
     justify-content: start;
 }
 
-#nav-bar-links > a {
-    font-size:smaller;
-    color: white;
-    
-}
-
 #nav-bar-links {
     margin-right: 100px;
     display: flex;
     flex-direction: column;
+    font-size:smaller;
 }
 
-#nav-bar > a {
-    color: white;
-}
 
 
 /* Test list */

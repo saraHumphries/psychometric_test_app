@@ -201,11 +201,11 @@ const CreateTestPage = function() {
                             </div>
                             <form onSubmit={onLikertOptionsSubmit}>
                                 <div id='likert-options-form'>
-                                    <input className='likert_input' id='likert_option_1' type='text' placeholder='e.g strongly disagree'></input>
-                                    <input className='likert_input' id='likert_option_2' type='text' placeholder='e.g disgaree'></input>
-                                    <input className='likert_input' id='likert_option_3' type='text' placeholder='e.g neither'></input>
-                                    <input className='likert_input' id='likert_option_4' type='text' placeholder='e.g disagree'></input>
-                                    <input className='likert_input' id='likert_option_5' type='text' placeholder='e.g strongly disagree'></input>
+                                    <input className='likert_input' id='likert_option_1' type='text' placeholder='e.g strongly disagree' required></input>
+                                    <input className='likert_input' id='likert_option_2' type='text' placeholder='e.g disgaree' required></input>
+                                    <input className='likert_input' id='likert_option_3' type='text' placeholder='e.g neither' required></input>
+                                    <input className='likert_input' id='likert_option_4' type='text' placeholder='e.g disagree' required></input>
+                                    <input className='likert_input' id='likert_option_5' type='text' placeholder='e.g strongly disagree' required></input>
                                 </div>
                                 <input className='next-button' id='likert-next-button' type='submit' value='next'></input>
                             </form>
@@ -218,15 +218,15 @@ const CreateTestPage = function() {
                             <div>
                                 <div id='questions-form'>
                                     <label htmlFor='question-input-1'>Question 1:</label>
-                                    <input className='question-input' id='question-input-1'></input>
-                                    <label htmlFor='question-input-2'>Question 2:</label>
-                                    <input className='question-input' id='question-input-2'></input>
-                                    <label htmlFor='question-input-3'>Question 3:</label>
-                                    <input className='question-input' id='question-input-3'></input>
-                                    <label htmlFor='question-input-4'>Question 4:</label>
-                                    <input className='question-input' id='question-input-4'></input>
-                                    <label htmlFor='question-input-5'>Question 5:</label>
-                                    <input className='question-input' id='question-input-5'></input>
+                                    <input className='question-input' id='question-input-1' required></input>
+                                    <label htmlFor='question-input-2' >Question 2:</label>
+                                    <input className='question-input' id='question-input-2' required></input>
+                                    <label htmlFor='question-input-3' >Question 3:</label>
+                                    <input className='question-input' id='question-input-3' required></input>
+                                    <label htmlFor='question-input-4' >Question 4:</label>
+                                    <input className='question-input' id='question-input-4' required></input>
+                                    <label htmlFor='question-input-5' >Question 5:</label>
+                                    <input className='question-input' id='question-input-5' required></input>
                                 </div> 
                                 <input type='submit' className='next-button' value='Save custom scale' id='submit-questions-button'></input>
                                 
