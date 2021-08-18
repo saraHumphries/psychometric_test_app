@@ -55,7 +55,6 @@ function PsychometricTestContainer() {
         if(currentQuestion.reversed) {
             responseToSave = 6 - response;
         };
-        console.log(responseToSave);
         const answerObject = {
             testAttempt: {
                 id: testAttempt.id
