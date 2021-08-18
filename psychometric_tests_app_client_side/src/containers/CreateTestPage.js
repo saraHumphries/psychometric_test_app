@@ -11,9 +11,10 @@ const CreateTestPage = function() {
 
     const onTitleSubmit = function() {
         const title = document.getElementById('test-title').value;
+        const currentDate = new Date();
         const psychometricTestToPost = {
             title: title,
-            info: "Custom-made scale"
+            info: `Custom-made scale created ${currentDate}`
         };
         PsychometricTestsService.postPsychometricTest(psychometricTestToPost)
             .then(res => setNewPsychometricTest(res));
