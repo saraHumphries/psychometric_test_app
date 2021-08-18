@@ -50,8 +50,15 @@ nav {
     display: flex;
 }
 
+.list-of-tests {
+    display: flex;
+    align-items: center;
+}
+
+
 .test-button {
     background-color: grey;
+    min-width: 400px;
 }
 
 

@@ -50,7 +50,7 @@ public class DataLoader implements ApplicationRunner {
 
 
 
-        Test considerationOfFutureConsequencesScale = new Test("Consideration of Future Consequences Scale");
+        Test considerationOfFutureConsequencesScale = new Test("Consideration of Future Consequences Scale", "Strathman, A., Gleicher, F., Boninger, D. S., & Edwards, C. S. (2013) . Considerations of Future Consequences (CFC Scale) . Measurement Instrument Database for the Social Science.");
         testRepository.save(considerationOfFutureConsequencesScale);
         LikertOption likertOption1 = new LikertOption("extremely uncharacteristic", 1, considerationOfFutureConsequencesScale);
         likertOptionRepository.save(likertOption1);
@@ -92,7 +92,7 @@ public class DataLoader implements ApplicationRunner {
         questionRepository.save(question23);
 
 
-        Test natureRelatednessScale = new Test("Nature Relatedness Scale (NR-6)");
+        Test natureRelatednessScale = new Test("Nature Relatedness Scale (NR-6)", "Nisbet, E. & Zelenski, J. (2013) The NR-6: a new brief measure of nature relatedness. Frontiers of Psychology");
         testRepository.save(natureRelatednessScale);
         LikertOption likertOption6 = new LikertOption("disagree", 1, natureRelatednessScale);
         likertOptionRepository.save(likertOption6);

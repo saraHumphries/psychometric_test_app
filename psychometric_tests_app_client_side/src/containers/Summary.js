@@ -43,16 +43,6 @@ const Summary = function() {
         };
     };
 
-    const calculateTotalPossibleScore = function() {
-        if(psychometricTest) {
-            const totalPossibleScore = psychometricTest.likertOptions.length * psychometricTest.questions.length
-            return totalPossibleScore;
-        };
-    };
-
-    
-    
-
     const getQuestionResponse = function(questionOrdering) {
         if(testAttempt) {
             let responseInt;
@@ -61,7 +51,6 @@ const Summary = function() {
             return responseInt;
         };
     };
-
 
     const getListOfQuestions = function() {
         if(psychometricTest) {
@@ -72,13 +61,10 @@ const Summary = function() {
         };
     };
 
-    
-
-
     return (
         <div>
             {psychometricTest? <h2>{psychometricTest.title} population data summary</h2>: null}
-            <p>Some text about the scale</p>
+            <p>{psychometricTest.info}</p>
             <h4>Your total score is {calculateTotalScore()}</h4>
             <p>compare your score to the population data distribution</p>
             { totalScores && totalScores.length > 10?

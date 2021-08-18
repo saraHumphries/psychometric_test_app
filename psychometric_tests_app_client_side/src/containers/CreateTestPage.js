@@ -1,5 +1,5 @@
 import PsychometricTestsService from "../services/PsychometricTestsService";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import LikertOptionsService from "../services/LikertOptionsService";
 import QuestionsService from "../services/QuestionsService";
 import { Link } from "react-router-dom";
@@ -12,7 +12,8 @@ const CreateTestPage = function() {
     const onTitleSubmit = function() {
         const title = document.getElementById('test-title').value;
         const psychometricTestToPost = {
-            title: title
+            title: title,
+            info: "Custom-made scale"
         };
         PsychometricTestsService.postPsychometricTest(psychometricTestToPost)
             .then(res => setNewPsychometricTest(res));

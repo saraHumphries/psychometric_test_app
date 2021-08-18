@@ -23,6 +23,9 @@ public class Test {
     @Column(name = "title")
     private String title;
 
+    @Column(name = "info")
+    private String info;
+
     @OneToMany(mappedBy = "test", fetch = FetchType.LAZY)
     @JsonManagedReference(value = "test_questions")
     private List<Question> questions;
@@ -36,8 +39,9 @@ public class Test {
     @JsonIgnoreProperties(value = "test")
     private List<LikertOption> likertOptions;
 
-    public Test(String title) {
+    public Test(String title, String info) {
         this.title = title;
+        this.info = info;
         this.likertOptions = new ArrayList<>();
         this.questions = new ArrayList<>();
         this.testAttempts = new ArrayList<>();
@@ -87,5 +91,13 @@ public class Test {
 
     public void setTestAttempts(List<TestAttempt> testAttempts) {
         this.testAttempts = testAttempts;
+    }
+
+    public String getInfo() {
+        return info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
     }
 }
