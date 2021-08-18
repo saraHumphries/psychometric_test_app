@@ -179,6 +179,11 @@ const CreateTestPage = function() {
                         <p>Firstly, give a title to your scale</p>
                         <label htmlFor='test-title'>Test title</label>
                         <input type='text' id='test-title'></input>
+                        <p>and some optional information:</p>
+                        <div id='test-info-section'>
+                            <label htmlFor='text-info'>Optional info</label>
+                            <textarea id='text-info' rows='5' cols='50'></textarea>
+                        </div>
                         <button id='submit-title-button' onClick={onTitleSubmit}>next</button>
                     </section>
                     {newPsychometricTest? <h1 id='title-set-title'>{newPsychometricTest.title}</h1>: null}

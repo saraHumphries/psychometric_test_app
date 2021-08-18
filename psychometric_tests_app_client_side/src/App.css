@@ -111,8 +111,6 @@ nav {
     background-color: #2ECD71;
 }
 
-#see-results-button {
-}
 
 /* Summary page */
 
@@ -161,6 +159,11 @@ nav {
 
 #test-title {
     width: 40%;
+}
+
+#test-info-section {
+    display: flex;
+    align-items: center;
 }
 
 #submit-title-button {
