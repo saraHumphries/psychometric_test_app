@@ -26,23 +26,25 @@ const CreateSummaryPage = function() {
         
     };
 
-    // const getQuestions = function() {
-    //     questions.sort((a,b) => a.ordering - b.ordering);
-    //     const questions = questions.map((question) => {
-    //         return <div>
-    //             <p>To what extent do you agree or disagree with the following statement?</p>
-    //             <h3>{question.questionText}</h3>
-    //             <div className='likert-buttons'>{getLikertButtons()}</div>
-    //         </div>;
-    //     });
-    //     console.log(questions);
-    //     return questions;
-    // };
+    const getQuestions = function() {
+        questions.sort((a,b) => a.ordering - b.ordering);
+        const questionsDisplays = questions.map((question) => {
+            return <div>
+                <p>To what extent do you agree or disagree with the following statement?</p>
+                <h3>{question.questionText}</h3>
+                <div className='likert-buttons'>{getLikertButtons()}</div>
+            </div>;
+        });
+        return questionsDisplays;
+    };
 
     return (
         <div>
-            <h2>Your Summary</h2>
-            {/* {getQuestions()} */}
+            <div id='create-summary-top'>
+                <h1>{newPsychometricTest.title}</h1>
+                <button>Back to home page</button>
+            </div>
+            {getQuestions()}
         </div>
     );
 

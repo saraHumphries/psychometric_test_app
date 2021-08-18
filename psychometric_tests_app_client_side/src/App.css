@@ -17,6 +17,7 @@
     font-size: larger;
     font-weight: 700;
     border-style: none;
+    background-color: #C72C62;
 }
 
  /* Nav bar */
@@ -180,6 +181,11 @@ nav {
 
 #questions-display-section {
     display: none;
+}
+
+#create-summary-top {
+    display: flex;
+    justify-content: space-between;
 }
 
 
