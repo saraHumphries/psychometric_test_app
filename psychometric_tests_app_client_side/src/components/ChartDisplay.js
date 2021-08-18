@@ -54,7 +54,7 @@ const ChartDisplay = function({likertOptions, questionSummary, response}) {
         <div>
             {questionSummary? 
             <Chart
-                width={800}
+                width="100%"
                 height={300}
                 chartType = 'ColumnChart'
                 data = {

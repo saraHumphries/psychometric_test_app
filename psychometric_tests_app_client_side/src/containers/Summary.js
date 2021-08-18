@@ -85,7 +85,7 @@ const Summary = function() {
             <div id='compare-to-population-totals-section'>
                 <TotalSummaryChart totalScores = {totalScores} userTotal = {calculateTotalScore()}></TotalSummaryChart>
             </div> : null}
-            {getListOfQuestions()}
+            <div id='question-charts-container' >{getListOfQuestions()}</div>
         </div>
     );
 };

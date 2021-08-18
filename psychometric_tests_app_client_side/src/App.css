@@ -88,6 +88,16 @@ nav {
         background-color: grey;
 }
 
+/* Summary page */
+
+#question-charts-container {
+        max-width: 1000px;
+        margin: auto;
+}
+
+.question-boxes {
+    margin: 50px;
+}
 
 
 /* Create test form */

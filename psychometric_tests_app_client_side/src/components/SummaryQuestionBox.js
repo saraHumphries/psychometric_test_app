@@ -36,10 +36,12 @@ const SummaryQuestionBox = function({likertOptions, question, getQuestionSummary
 
 
     return (
-        <div>
+        <div className='question-boxes'>
             <h3>{question.questionText}</h3>
             <h4>Your answer was {getLikertText()}</h4>
-            <ChartDisplay likertOptions = {likertOptions} response = {getQuestionResponse(question.ordering)}questionSummary = {questionSummary}></ChartDisplay>
+            <div>
+                <ChartDisplay likertOptions = {likertOptions} response = {getQuestionResponse(question.ordering)}questionSummary = {questionSummary}></ChartDisplay>
+            </div>
         </div>
     );
 };

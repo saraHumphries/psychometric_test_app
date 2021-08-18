@@ -22,7 +22,7 @@ const TotalSummaryChart = function({totalScores}) {
             
             <div id='totals-chart'>
                 <Chart
-                    width={1000}
+                    width="100%"
                     height={300}
                     chartType='Histogram'
                     data={
