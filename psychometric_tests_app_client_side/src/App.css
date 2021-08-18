@@ -57,7 +57,7 @@ nav {
  /* Answer section */
 
 
- #likert-buttons {
+ .likert-buttons {
      display: flex;
      justify-content: space-around;
  }

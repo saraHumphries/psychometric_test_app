@@ -28,7 +28,7 @@ const AnswerInput = function({likertOptions, psychometricTest, saveAnswer, endOf
     return (
         <div>
             {!endOfQuestions? 
-            <div id="likert-buttons">
+            <div className="likert-buttons">
                 {getLikertButtons()}
             </div>
             : null}
