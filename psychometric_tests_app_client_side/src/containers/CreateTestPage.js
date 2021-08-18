@@ -125,15 +125,26 @@ const CreateTestPage = function() {
         addQuestionToTest(previousQuestionText);
 
         const questionsForm = document.getElementById('questions-form');
+        const newInputDeleteDiv = document.createElement('div');
+        newInputDeleteDiv.className = 'input-delete-div';
         const newInputLabel = document.createElement('label');
         newInputLabel.htmlFor = `question-input-${numberOfQuestions+1}`;
         newInputLabel.textContent = `Question ${numberOfQuestions+1}`;
         const newInputBox = document.createElement('input');
         newInputBox.id = `question-input-${numberOfQuestions+1}`;
         newInputBox.className = 'question-input';
+        const newCheckboxLabel = document.createElement('label');
+        newCheckboxLabel.htmlFor = `reversed-box-${numberOfQuestions+1}`;
+        newCheckboxLabel.textContent = `reversed scoring`;
+        const newCheckbox = document.createElement('input');
+        newCheckbox.type = 'checkbox';
+        newCheckbox.id = `reversed-box-${numberOfQuestions+1}`;
     
-        questionsForm.appendChild(newInputLabel);
-        questionsForm.appendChild(newInputBox);
+        newInputDeleteDiv.appendChild(newInputLabel);
+        newInputDeleteDiv.appendChild(newInputBox);
+        newInputDeleteDiv.appendChild(newCheckboxLabel);
+        newInputDeleteDiv.appendChild(newCheckbox);
+        questionsForm.appendChild(newInputDeleteDiv);
 
         numberOfQuestions += 1;
     };
@@ -210,9 +221,11 @@ const CreateTestPage = function() {
                         <form onSubmit={onQuestionFormSubmit}>
                             <div>
                                 <div id='questions-form'>
-                                    <label htmlFor='question-input-1'>Question 1:</label>
                                     <div className = 'input-delete-div'>
+                                        <label htmlFor='question-input-1'>Question 1:</label>
                                         <input className='question-input' id='question-input-1' required></input>
+                                        <label htmlFor='reversed-box-1'>reversed scoring</label>
+                                        <input id='reversed-box-1' type='checkbox'></input>
                                     </div>
                                     
                                 </div> 
