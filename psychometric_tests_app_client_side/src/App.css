@@ -95,6 +95,10 @@ nav {
     margin: 100px;
 }
 
+#end-text {
+    display: none;
+}
+
 .next-button {
     color: white;
     width: 10%;

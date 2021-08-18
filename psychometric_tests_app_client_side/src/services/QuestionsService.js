@@ -13,6 +13,11 @@ const QuestionsService = {
             }
         })
             .then(res => res.json());
+    },
+
+    getQuestionsByPsychometricTestId(id) {
+        return fetch(baseURL + `?psychometric_test_id=${id}`)
+            .then(res => res.json());
     }
 
 };

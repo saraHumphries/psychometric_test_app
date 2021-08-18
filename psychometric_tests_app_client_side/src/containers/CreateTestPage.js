@@ -1,5 +1,5 @@
 import PsychometricTestsService from "../services/PsychometricTestsService";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LikertOptionsService from "../services/LikertOptionsService";
 import QuestionsService from "../services/QuestionsService";
 import { Link } from "react-router-dom";
@@ -25,6 +25,11 @@ const CreateTestPage = function() {
         titleForm.style.display = 'none';
     };
 
+    const hideAllFormsSection = function() {
+        const allFormsSection = document.getElementById('all-forms-section');
+        allFormsSection.style.display = 'none';
+    };
+
     const hideLikertNextButton = function() {
         const likertNextButton = document.getElementById('likert-next-button');
         likertNextButton.style.display = 'none';
@@ -43,6 +48,11 @@ const CreateTestPage = function() {
     const makeLikertInputsVisible = function() {
         const likertInputs = document.getElementById('likert-options-section');
         likertInputs.style.display = 'block';
+    };
+
+    const MakeEndTextVisible = function() {
+        const endText = document.getElementById('end-text');
+        endText.style.display = 'block';
     };
 
 
@@ -157,7 +167,8 @@ const CreateTestPage = function() {
         QuestionsService.postQuestion(question5)
             .then(() => updateQuestions(question5));
 
-
+        hideAllFormsSection();
+        MakeEndTextVisible();
     };
 
     const updateQuestions = function(question) {
@@ -166,7 +177,14 @@ const CreateTestPage = function() {
 
     return (
             <div id='whole-create-page'>
-                
+                {newPsychometricTest ? <div id='end-text'>
+                    <h1>Your scale "{newPsychometricTest.title}"" has been created</h1>
+                    <Link to={{
+                                        pathname: '/create_new_test/summary',
+                                        state: {newPsychometricTest}
+                                    }}><h2>Click here to see a summary</h2></Link>
+                </div> : null}
+                <div id='all-forms-section'>
                     <section id='title-form'>
                     <h1>Create a custom scale:</h1>
                         <p>Firstly, give a title to your scale</p>
@@ -191,7 +209,7 @@ const CreateTestPage = function() {
                                 <input className='next-button' id='likert-next-button' type='submit' value='next'></input>
                             </form>
                     </div>
-                    <div id='all-forms-section'>
+                    
                     <div id='question-input-section'>
                         <p>Next, choose your questions</p>
                         <p>You must add five questions</p>
@@ -208,11 +226,10 @@ const CreateTestPage = function() {
                                     <input className='question-input' id='question-input-4'></input>
                                     <label htmlFor='question-input-5'>Question 5:</label>
                                     <input className='question-input' id='question-input-5'></input>
-                                </div>
-                                <Link to={{
-                        pathname: '/create_new_test/summary',
-                        state: {newPsychometricTest}
-                    }}><button className='next-button'>Save custom scale </button></Link>
+                                </div> 
+                                <input type='submit' className='next-button' value='Save custom scale' id='submit-questions-button'></input>
+                                
+                                
                             </div>
                         </form>
                     </div>

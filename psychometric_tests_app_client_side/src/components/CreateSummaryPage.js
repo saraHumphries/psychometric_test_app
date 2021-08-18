@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import QuestionsService from "../services/QuestionsService";
 
@@ -9,10 +9,13 @@ const CreateSummaryPage = function() {
 
     const [questions, setQuestions] = useState([]);
 
+    console.log(newPsychometricTest.id);
+    console.log(questions);
+
     useEffect(() => {
         QuestionsService.getQuestionsByPsychometricTestId(newPsychometricTest.id)
             .then(res => setQuestions(res));
-    }, []);
+    },[]);
 
     const getLikertButtons = function() {
             newPsychometricTest.likertOptions.sort((a,b) => a.likertValue - b.likertValue);
@@ -23,23 +26,23 @@ const CreateSummaryPage = function() {
         
     };
 
-    const getQuestions = function() {
-        questions.sort((a,b) => a.ordering - b.ordering);
-        const questions = questions.map((question) => {
-            return <div>
-                <p>To what extent do you agree or disagree with the following statement?</p>
-                <h3>{question.questionText}</h3>
-                <div className='likert-buttons'>{getLikertButtons()}</div>
-            </div>;
-        });
-        console.log(questions);
-        return questions;
-    };
+    // const getQuestions = function() {
+    //     questions.sort((a,b) => a.ordering - b.ordering);
+    //     const questions = questions.map((question) => {
+    //         return <div>
+    //             <p>To what extent do you agree or disagree with the following statement?</p>
+    //             <h3>{question.questionText}</h3>
+    //             <div className='likert-buttons'>{getLikertButtons()}</div>
+    //         </div>;
+    //     });
+    //     console.log(questions);
+    //     return questions;
+    // };
 
     return (
         <div>
             <h2>Your Summary</h2>
-            {getQuestions()}
+            {/* {getQuestions()} */}
         </div>
     );
 
