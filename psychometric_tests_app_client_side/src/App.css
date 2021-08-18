@@ -106,6 +106,7 @@ nav {
     font-weight: 700;
     border-style: none;
     background-color: #C72C62;
+    float: right;
 }
 
 #test-title {
