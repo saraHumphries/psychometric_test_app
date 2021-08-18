@@ -153,7 +153,8 @@ const CreateTestPage = function() {
 
     const onQuestionFormSubmit = function(evt) {
         evt.preventDefault();
-
+        const previousQuestionText = document.getElementById(`question-input-${numberOfQuestions}`).value;
+        addQuestionToTest(previousQuestionText);
         hideAllFormsSection();
         MakeEndTextVisible();
     };
@@ -161,7 +162,6 @@ const CreateTestPage = function() {
     const updateQuestions = function(question) {
         newPsychometricTest.questions.push(question);
     };
-
 
 
     return (
@@ -205,14 +205,16 @@ const CreateTestPage = function() {
                             <div>
                                 <div id='questions-form'>
                                     <label htmlFor='question-input-1'>Question 1:</label>
-                                    <input className='question-input' id='question-input-1' required></input>
+                                    <div className = 'input-delete-div'>
+                                        <input className='question-input' id='question-input-1' required></input>
+                                    </div>
                                     
                                 </div> 
                                 <input type='submit' className='next-button' value='Save custom scale' id='submit-questions-button'></input>
                              
                             </div>
                         </form>
-                        <button onClick={addAnotherQuestionInput}>Add another question</button>
+                        <button id='add-question-button' onClick={addAnotherQuestionInput}>Add another question</button>
                     </div>
                 </div> 
             </div>
