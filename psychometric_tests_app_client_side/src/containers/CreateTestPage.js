@@ -116,58 +116,76 @@ const CreateTestPage = function() {
         setNewPsychometricTest(newPsychometricTest);
     };
 
+    let numberOfQuestions = 1;
+
+    const addAnotherQuestionInput = function() {
+        const questionsForm = document.getElementById('questions-form');
+        const newInputLabel = document.createElement('label');
+        newInputLabel.htmlFor = `question-input-${numberOfQuestions+1}`;
+        newInputLabel.textContent = `Question ${numberOfQuestions+1}`;
+        const newInputBox = document.createElement('input');
+        newInputBox.id = `question-input-${numberOfQuestions+1}`;
+        newInputBox.className = 'question-input';
+        
+
+        
+        questionsForm.appendChild(newInputLabel);
+        questionsForm.appendChild(newInputBox);
+        numberOfQuestions += 1;
+    };
+
     const onQuestionFormSubmit = function(evt) {
         evt.preventDefault();
-        const question1 = {
-            ordering: 0,
-            questionText: evt.target['question-input-1'].value,
-            test: {
-                id: newPsychometricTest.id
-            },
-            reversed: false
-        };
-        const question2 = {
-            ordering: 1,
-            questionText: evt.target['question-input-2'].value,
-            test: {
-                id: newPsychometricTest.id
-            },
-            reversed: false
-        };
-        const question3 = {
-            ordering: 2,
-            questionText: evt.target['question-input-3'].value,
-            test: {
-                id: newPsychometricTest.id
-            },
-            reversed: false
-        };
-        const question4 = {
-            ordering: 3,
-            questionText: evt.target['question-input-4'].value,
-            test: {
-                id: newPsychometricTest.id
-            },
-            reversed: false
-        };
-        const question5 = {
-            ordering: 4,
-            questionText: evt.target['question-input-5'].value,
-            test: {
-                id: newPsychometricTest.id
-            },
-            reversed: false
-        };
-        QuestionsService.postQuestion(question1)
-            .then(() => updateQuestions(question1));
-        QuestionsService.postQuestion(question2)
-            .then(() => updateQuestions(question2));
-        QuestionsService.postQuestion(question3)
-            .then(() => updateQuestions(question3));
-        QuestionsService.postQuestion(question4)
-            .then(() => updateQuestions(question4));
-        QuestionsService.postQuestion(question5)
-            .then(() => updateQuestions(question5));
+        // const question1 = {
+        //     ordering: 0,
+        //     questionText: evt.target['question-input-1'].value,
+        //     test: {
+        //         id: newPsychometricTest.id
+        //     },
+        //     reversed: false
+        // };
+        // const question2 = {
+        //     ordering: 1,
+        //     questionText: evt.target['question-input-2'].value,
+        //     test: {
+        //         id: newPsychometricTest.id
+        //     },
+        //     reversed: false
+        // };
+        // const question3 = {
+        //     ordering: 2,
+        //     questionText: evt.target['question-input-3'].value,
+        //     test: {
+        //         id: newPsychometricTest.id
+        //     },
+        //     reversed: false
+        // };
+        // const question4 = {
+        //     ordering: 3,
+        //     questionText: evt.target['question-input-4'].value,
+        //     test: {
+        //         id: newPsychometricTest.id
+        //     },
+        //     reversed: false
+        // };
+        // const question5 = {
+        //     ordering: 4,
+        //     questionText: evt.target['question-input-5'].value,
+        //     test: {
+        //         id: newPsychometricTest.id
+        //     },
+        //     reversed: false
+        // };
+        // QuestionsService.postQuestion(question1)
+        //     .then(() => updateQuestions(question1));
+        // QuestionsService.postQuestion(question2)
+        //     .then(() => updateQuestions(question2));
+        // QuestionsService.postQuestion(question3)
+        //     .then(() => updateQuestions(question3));
+        // QuestionsService.postQuestion(question4)
+        //     .then(() => updateQuestions(question4));
+        // QuestionsService.postQuestion(question5)
+        //     .then(() => updateQuestions(question5));
 
         hideAllFormsSection();
         MakeEndTextVisible();
@@ -176,6 +194,8 @@ const CreateTestPage = function() {
     const updateQuestions = function(question) {
         newPsychometricTest.questions.push(question);
     };
+
+
 
     return (
             <div id='whole-create-page'>
@@ -213,27 +233,19 @@ const CreateTestPage = function() {
                     </div>
                     
                     <div id='question-input-section'>
-                        <p>Next, choose your questions</p>
-                        <p>You must add five questions</p>
+                        <p>Next, write your questions</p>
                         <form onSubmit={onQuestionFormSubmit}>
                             <div>
                                 <div id='questions-form'>
                                     <label htmlFor='question-input-1'>Question 1:</label>
                                     <input className='question-input' id='question-input-1' required></input>
-                                    <label htmlFor='question-input-2' >Question 2:</label>
-                                    <input className='question-input' id='question-input-2' required></input>
-                                    <label htmlFor='question-input-3' >Question 3:</label>
-                                    <input className='question-input' id='question-input-3' required></input>
-                                    <label htmlFor='question-input-4' >Question 4:</label>
-                                    <input className='question-input' id='question-input-4' required></input>
-                                    <label htmlFor='question-input-5' >Question 5:</label>
-                                    <input className='question-input' id='question-input-5' required></input>
+                                    
                                 </div> 
                                 <input type='submit' className='next-button' value='Save custom scale' id='submit-questions-button'></input>
-                                
-                                
+                             
                             </div>
                         </form>
+                        <button onClick={addAnotherQuestionInput}>Add another question</button>
                     </div>
                 </div> 
             </div>
