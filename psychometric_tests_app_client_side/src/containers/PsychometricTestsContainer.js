@@ -68,7 +68,8 @@ function PsychometricTestContainer() {
     };
 
     const deletePsychometricTest = function(psychometricTestToDelete) {
-        PsychometricTestsService.deletePsychometricTestById(psychometricTestToDelete)
+        console.log("deleting");
+        PsychometricTestsService.deletePsychometircTestById(psychometricTestToDelete.id)
             .then(() => PsychometricTestsService.getPsychometricTests())
             .then((res) => setPsychometricTests(res));
     };

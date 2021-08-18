@@ -2,7 +2,7 @@ import PsychometricTestContainer from "../containers/PsychometricTestsContainer"
 
 
 
-const ListItem = function({psychometricTest, onPsychometricTestClick}) {
+const ListItem = function({psychometricTest, onPsychometricTestClick, deletePsychometricTest}) {
 
     const handleClick = function() {
         onPsychometricTestClick(psychometricTest);
