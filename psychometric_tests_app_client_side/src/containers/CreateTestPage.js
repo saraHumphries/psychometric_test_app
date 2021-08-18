@@ -2,6 +2,7 @@ import PsychometricTestsService from "../services/PsychometricTestsService";
 import { useState } from "react";
 import LikertOptionsService from "../services/LikertOptionsService";
 import QuestionsService from "../services/QuestionsService";
+import { Link } from "react-router-dom";
 
 
 const CreateTestPage = function() {
@@ -34,11 +35,6 @@ const CreateTestPage = function() {
         likertText.style.display = 'none'
     };
 
-    const hideAllForms = function() {
-        const allForms = document.getElementById('all-forms-section');
-        allForms.style.display = 'none';
-    };
-
     const makeQuestionInputsVisible = function() {
         const questionInputs = document.getElementById('question-input-section');
         questionInputs.style.display = 'block';
@@ -49,10 +45,6 @@ const CreateTestPage = function() {
         likertInputs.style.display = 'block';
     };
 
-    const makeQuestionsDisplayVisible = function() {
-        const questionDisplay = document.getElementById('questions-display-section');
-        questionDisplay.style.display = 'block';
-    };
 
     const onLikertOptionsSubmit = function(evt) {
         evt.preventDefault();
@@ -165,27 +157,11 @@ const CreateTestPage = function() {
         QuestionsService.postQuestion(question5)
             .then(() => updateQuestions(question5));
 
-        makeQuestionsDisplayVisible();
-        hideAllForms();
 
     };
 
     const updateQuestions = function(question) {
         newPsychometricTest.questions.push(question);
-    };
-
-    const getQuestionsDisplay = function() {
-        if(newPsychometricTest) {
-            const sortedQuestions = [...newPsychometricTest.questions];
-            sortedQuestions.sort((a,b) => a.ordering > b.ordering? 1 : -1);
-            const questionDisplay = sortedQuestions.map((question) => {
-                return <div>
-                    <h4>Question {question.ordering+1}:</h4>
-                    <h3>{question.questionText}</h3>
-                </div>
-            });
-            return questionDisplay;
-        };
     };
 
     return (
@@ -233,16 +209,19 @@ const CreateTestPage = function() {
                                     <label htmlFor='question-input-5'>Question 5:</label>
                                     <input className='question-input' id='question-input-5'></input>
                                 </div>
-                                <input className='next-button' type='submit' value='finish'></input>
+                                <Link to={{
+                        pathname: '/create_new_test/summary',
+                        state: {newPsychometricTest}
+                    }}><button className='next-button'>Save custom scale </button></Link>
                             </div>
                         </form>
                     </div>
                 </div>
 
-                <div id='questions-display-section'>
-                    {getQuestionsDisplay()}
-                    <button className='next-button' >Back to home page</button>
-                </div>
+                
+                    
+                    
+               
             </div>
         
     );

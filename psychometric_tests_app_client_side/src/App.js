@@ -5,6 +5,7 @@ import ResultsContainer from './containers/ResultsContainer';
 import NavBar from './components/NavBar';
 import Summary from './containers/Summary';
 import CreateTestPage from './containers/CreateTestPage';
+import CreateSummaryPage from './components/CreateSummaryPage';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path='/test_results' exact component={ResultsContainer}></Route>
           <Route path='/summary/:test_title' exact component={Summary}></Route>
           <Route path='/create_new_test' exact component={CreateTestPage}></Route>
+          <Route path='/create_new_test/summary' exact component={CreateSummaryPage}></Route>
         </Switch>
       </div>
     </Router>
