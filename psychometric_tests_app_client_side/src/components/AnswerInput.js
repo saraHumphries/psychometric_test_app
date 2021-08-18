@@ -34,10 +34,13 @@ const AnswerInput = function({likertOptions, psychometricTest, saveAnswer, endOf
             : null}
         
             {endOfQuestions?
-                               <Link to={{
-                                   pathname: `/summary/${psychometricTest.title}`,
-                                   state: {testAttemptId, psychometricTest, likertOptions}
-                                   }}><button className='button' id='see-results-button'>See my results</button> </Link> : null}
+                               <div>
+                                   <h3>See how your answers compare to the general popualtion data</h3>
+                                   <Link to={{
+                                       pathname: `/summary/${psychometricTest.title}`,
+                                       state: {testAttemptId, psychometricTest, likertOptions}
+                                       }}><button className='button' id='see-results-button'>See my results</button> </Link>
+                               </div> : null}
         </div>
     );
 };

@@ -17,12 +17,11 @@
     font-size: larger;
     font-weight: 700;
     border-style: none;
-    background-color: #C72C62;
+    background-color: #256C70;
 }
 
  /* Nav bar */
 nav {
-    height: 5rem;
     background-color: #C72C62;
     color: white;
     display: flex;
@@ -32,8 +31,16 @@ nav {
     justify-content: start;
 }
 
-#nav-bar {
+#nav-bar-links > a {
     font-size:smaller;
+    color: white;
+    
+}
+
+#nav-bar-links {
+    margin-right: 100px;
+    display: flex;
+    flex-direction: column;
 }
 
 #nav-bar > a {
@@ -50,20 +57,31 @@ nav {
     display: flex;
 }
 
+
+
 .list-of-tests {
     display: flex;
     align-items: center;
 }
 
-
-.test-button {
-    background-color: grey;
-    min-width: 400px;
+#number-questions {
+    font-weight:900;
 }
 
 
+.test-button {
+    min-width: 400px;
+}
+
  /* Answer section */
 
+ #test-container {
+     margin-top: 100px;
+ }
+
+ #whole-question {
+     margin-top: 50px;
+ }
 
  .likert-buttons {
      display: flex;
@@ -92,10 +110,18 @@ nav {
 }
 
 #see-results-button {
-        background-color: grey;
 }
 
 /* Summary page */
+
+#summary-container {
+    margin-top: 50px;
+}
+
+#your-total-score-text {
+    font-size: xx-large;
+    margin-top: 100px;
+}
 
 #question-charts-container {
         max-width: 1000px;
@@ -127,8 +153,8 @@ nav {
     font-size: larger;
     font-weight: 700;
     border-style: none;
-    background-color: #C72C62;
     float: right;
+    background-color: #256C70;
 }
 
 #test-title {
@@ -136,7 +162,6 @@ nav {
 }
 
 #submit-title-button {
-    background-color: #C72C62;
     width: 10%;
     height: 10%
 }
@@ -200,10 +225,15 @@ nav {
     display: none;
 }
 
+#submit-questions-button {
+    width: 200px;
+}
+
 #create-summary-top {
     display: flex;
     justify-content: space-between;
 }
+
 
 
 

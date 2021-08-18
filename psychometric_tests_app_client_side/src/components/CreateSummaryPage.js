@@ -42,7 +42,7 @@ const CreateSummaryPage = function() {
         <div>
             <div id='create-summary-top'>
                 <h1>{newPsychometricTest.title}</h1>
-                <button>Back to home page</button>
+                <button><a href='/'>Back to home page</a></button>
             </div>
             {getQuestions()}
         </div>

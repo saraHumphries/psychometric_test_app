@@ -183,7 +183,7 @@ const CreateTestPage = function() {
                     <Link to={{
                                         pathname: '/create_new_test/summary',
                                         state: {newPsychometricTest}
-                                    }}><h2>Click here to see a summary</h2></Link>
+                                    }}><button>Click here to see a summary</button></Link>
                 </div> : null}
                 <div id='all-forms-section'>
                     <section id='title-form'>

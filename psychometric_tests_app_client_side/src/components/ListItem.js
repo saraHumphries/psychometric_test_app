@@ -10,7 +10,10 @@ const ListItem = function({psychometricTest, onPsychometricTestClick}) {
     return (
         <div className='list-of-tests'>
             <button className='test-button' key = {psychometricTest.id} onClick={handleClick}>{psychometricTest.title}</button>
-            <p>{psychometricTest.info}</p>
+            <div>
+                <p>{psychometricTest.info}</p>
+                <p id='number-questions'>{psychometricTest.questions.length} questions</p>
+            </div>
         </div>
 
     );

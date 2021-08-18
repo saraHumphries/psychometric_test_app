@@ -48,7 +48,7 @@ const PsychometricTest = function({testAttempt, psychometricTest, saveAnswer}) {
  
 
     return (
-        <div>
+        <div id='test-container'>
             <h2>{psychometricTest.title}</h2>
             {currentQuestion? <h3>Question {currentQuestion.ordering+1} of {psychometricTest.questions.length}</h3> : null}
             <Question likertOptions = {likertOptions} psychometricTest = {psychometricTest} saveAnswer= {saveAnswer} endOfQuestions = {endOfQuestions} testAttempt = {testAttempt} moveToNextQuestion = {moveToNextQuestion} currentQuestion = {currentQuestion}></Question>

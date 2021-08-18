@@ -71,7 +71,7 @@ function PsychometricTestContainer() {
     return (
         <div>
             <div id='test-list'>
-            <h3>Pick a test to have a go at:</h3>
+            <h3>Select a scale to try, and see your result compared to general population data</h3>
                 <div id='tests'>
                     <PsychometricTestList onPsychometricTestClick = {onPsychometricTestClick} psychometricTests = {psychometricTests}></PsychometricTestList>
                 </div>

@@ -62,11 +62,11 @@ const Summary = function() {
     };
 
     return (
-        <div>
+        <div id='summary-container'>
             {psychometricTest? <h2>{psychometricTest.title} population data summary</h2>: null}
             <p>{psychometricTest.info}</p>
-            <h4>Your total score is {calculateTotalScore()}</h4>
-            <p>compare your score to the population data distribution</p>
+            <h3 id='your-total-score-text'>Your total score is {calculateTotalScore()}</h3>
+            <h4>Compare your score to the population data distribution</h4>
             { totalScores && totalScores.length > 10?
             <div id='compare-to-population-totals-section'>
                 <TotalSummaryChart totalScores = {totalScores} userTotal = {calculateTotalScore()}></TotalSummaryChart>

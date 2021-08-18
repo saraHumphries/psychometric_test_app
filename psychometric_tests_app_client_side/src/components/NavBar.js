@@ -1,14 +1,13 @@
-import { Link } from "react-router-dom";
 
 
 const NavBar = function() {
     return (
-        <nav>
-            <ul id='nav-bar'>
-                <Link to='/'>Home</Link>
-                <Link to='/create_new_test'>Create a test</Link>
+        <nav id='nav-bar'>
+            <ul id='nav-bar-links'>
+                <a href='/'>Home</a>
+                <a href='/create_new_test'>Create new scale</a>
             </ul>
-            <h1>Psychometric tests app</h1>
+            <h1>Psychometric Scales</h1>
             
         </nav>
     );
