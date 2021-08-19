@@ -121,9 +121,11 @@ const CreateTestPage = function() {
     let numberOfQuestions = 1;
 
     const addAnotherQuestionInput = function() {
-        const previousQuestionText = document.getElementById(`question-input-${numberOfQuestions}`).value;
-        const previousQuestionReversed = document.getElementById(`reversed-box-${numberOfQuestions}`).value;
-        addQuestionToTest(previousQuestionText, previousQuestionReversed);
+        const previousQuestionText = document.getElementById(`question-input-${numberOfQuestions}`);
+        const previousQuestionReversed = document.getElementById(`reversed-box-${numberOfQuestions}`);
+        addQuestionToTest(previousQuestionText.value, previousQuestionReversed.value);
+        previousQuestionText.readOnly = 'true';
+        previousQuestionReversed.disabled = 'true';
 
         const questionsForm = document.getElementById('questions-form');
         const newInputDeleteDiv = document.createElement('div');
@@ -175,6 +177,8 @@ const CreateTestPage = function() {
              .then(() => updateQuestions(questionToAdd));
 
     };
+
+    
 
     const onQuestionFormSubmit = function(evt) {
         evt.preventDefault();
