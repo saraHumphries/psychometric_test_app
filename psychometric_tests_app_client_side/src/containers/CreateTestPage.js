@@ -122,7 +122,7 @@ const CreateTestPage = function() {
 
     const addAnotherQuestionInput = function() {
         const previousQuestionText = document.getElementById(`question-input-${numberOfQuestions}`).value;
-        const previousQuestionReversed = document.getElementById(`reversed-box-${numberOfQuestions}`);
+        const previousQuestionReversed = document.getElementById(`reversed-box-${numberOfQuestions}`).value;
         addQuestionToTest(previousQuestionText, previousQuestionReversed);
 
         const questionsForm = document.getElementById('questions-form');
@@ -162,14 +162,14 @@ const CreateTestPage = function() {
 
     
 
-    const addQuestionToTest = function(questionText) {
+    const addQuestionToTest = function(questionText, reversed) {
         const questionToAdd = {
             ordering: numberOfQuestions-1,
             questionText: questionText,
             test: {
                 id: newPsychometricTest.id
             },
-            reversed: false
+            reversed: reversed
         };
         QuestionsService.postQuestion(questionToAdd)
              .then(() => updateQuestions(questionToAdd));
