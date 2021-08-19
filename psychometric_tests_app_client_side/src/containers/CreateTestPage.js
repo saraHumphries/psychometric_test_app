@@ -122,7 +122,8 @@ const CreateTestPage = function() {
 
     const addAnotherQuestionInput = function() {
         const previousQuestionText = document.getElementById(`question-input-${numberOfQuestions}`).value;
-        addQuestionToTest(previousQuestionText);
+        const previousQuestionReversed = document.getElementById(`reversed-box-${numberOfQuestions}`);
+        addQuestionToTest(previousQuestionText, previousQuestionReversed);
 
         const questionsForm = document.getElementById('questions-form');
         const newInputDeleteDiv = document.createElement('div');
@@ -136,18 +137,30 @@ const CreateTestPage = function() {
         const newCheckboxLabel = document.createElement('label');
         newCheckboxLabel.htmlFor = `reversed-box-${numberOfQuestions+1}`;
         newCheckboxLabel.textContent = `reversed scoring`;
-        const newCheckbox = document.createElement('input');
-        newCheckbox.type = 'checkbox';
-        newCheckbox.id = `reversed-box-${numberOfQuestions+1}`;
+        const newDropdown = document.createElement('select');
+        newDropdown.id = `reversed-box-${numberOfQuestions+1}`;
+        const newOptionNo = document.createElement('option');
+        newOptionNo.value = 'false';
+        newOptionNo.textContent = 'no'
+        const newOptionYes = document.createElement('option');
+        newOptionYes.value = 'true';
+        newOptionYes.textContent = 'yes';
+        newDropdown.appendChild(newOptionNo);
+        newDropdown.appendChild(newOptionYes);
+        
     
         newInputDeleteDiv.appendChild(newInputLabel);
         newInputDeleteDiv.appendChild(newInputBox);
         newInputDeleteDiv.appendChild(newCheckboxLabel);
-        newInputDeleteDiv.appendChild(newCheckbox);
+        newInputDeleteDiv.appendChild(newDropdown);
+        
         questionsForm.appendChild(newInputDeleteDiv);
 
         numberOfQuestions += 1;
     };
+
+
+    
 
     const addQuestionToTest = function(questionText) {
         const questionToAdd = {
@@ -225,7 +238,10 @@ const CreateTestPage = function() {
                                         <label htmlFor='question-input-1'>Question 1:</label>
                                         <input className='question-input' id='question-input-1' required></input>
                                         <label htmlFor='reversed-box-1'>reversed scoring</label>
-                                        <input id='reversed-box-1' type='checkbox'></input>
+                                        <select name='reversed' id='reversed-box-1'>
+                                            <option value='false'>no</option>
+                                            <option value='true'>yes</option>
+                                        </select>
                                     </div>
                                     
                                 </div> 
