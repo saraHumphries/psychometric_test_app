@@ -2,6 +2,8 @@
 
 A react.js app using a postSQL database and Java Spring Boot server-side. <br>
 
+<iframe src="https://giphy.com/embed/7MIgzIm2cJaYdJslBt" width="480" height="210" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/7MIgzIm2cJaYdJslBt">via GIPHY</a></p>
+
 Lets users test themselves on a variety of psychometric scales, and see their results compared to population data. <br>
 Scores can be seen graphed (`react-google-charts`) against all the data stored.<br>
 Popualtion data taken from `https://openpsychometrics.org/_rawdata/` <br>
