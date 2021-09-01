@@ -30,7 +30,7 @@ const CreateSummaryPage = function() {
         questions.sort((a,b) => a.ordering - b.ordering);
         const questionsDisplays = questions.map((question) => {
             return <div>
-                <p>To what extent do you agree or disagree with the following statement?</p>
+                <p>Pick an option that best represents how you feel about the following:</p>
                 <h3>{question.questionText}</h3>
                 <div className='likert-buttons'>{getLikertButtons()}</div>
             </div>;
