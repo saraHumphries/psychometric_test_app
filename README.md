@@ -2,6 +2,7 @@
 
 A react.js app using a postSQL database and Java Spring Boot server-side. <br>
 
+![](short_GIF_demo.gif)
 
 
 Lets users test themselves on a variety of psychometric scales, and see their results compared to population data. <br>
